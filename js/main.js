@@ -1,29 +1,4 @@
 
-var $$ = Dom7;
-
-var app = new Framework7({
-  // App root element
-  root: '#app',
-  // App Name
-  name: 'DifferentDoors',
-  // App id
-  id: 'com.myapp.dd',
-  // Enable swipe panel
-  panel: {
-    swipe: 'left',
-  },
-  // Add default routes
-  routes: [
-    {
-      path: '/about/',
-      url: 'about.html',
-    },
-  ]
-  // ... other parameters
-});
-
-var mainView = app.views.create('.view-main');
-
 /* 메인 스와이퍼 */
 var swiper_mode = "hor";
 var current_swiper_index = Math.floor($$('.ib01 .swiper-slide').length / 2);
@@ -45,11 +20,15 @@ function create_swiper(mode,current){
         slideShadows: true,
       },
       on: {
+        init: function () {
+         },
         tap: function () {
           $$('.swiper-container').addClass('expanded');
           $$('.swiper-slide-active .tc01').removeClass('draggable');
           this.detachEvents();
         },
+
+
       },
     });
   }else{  //세로모드
@@ -102,13 +81,6 @@ $$('.ib01 a.close').on('click', function(){
   $$("#add-new-keyword").hide();
   swiper.attachEvents();
 })
-
-/* 하단 탭바 */
-$$('.toolbar-bottom a').each(function(){
-    $$(this).on('click', function(){
-      location.href = $$(this).attr('href');
-    });
-});
 
 //새 답안 추가 폼 열기
 $$('.ng01 li.add > button').on('click', function(){
