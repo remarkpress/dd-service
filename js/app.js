@@ -21,10 +21,11 @@ var app = new Framework7({
         pageAfterIn: function test (e, page) {
         },
         pageInit: function (e, page) {
+          console.log('pageInit');
           var s = document.createElement('script');
           s.src = "js/main.js";
           $$('head').append(s);
-        },
+        }
       }
     },
     {

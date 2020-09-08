@@ -42,5 +42,48 @@
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/app.js"></script>
+    <script id="swiper-template" type="text/template7">
+        {{#each slides}}
+        <div class="swiper-slide">
+          <!-- tc01 -->
+          <div class="tc01 draggable" data-item-id="{{@index}}">
+            <div class="header">
+              <div class="title">
+                <em>{{ this.id }}</em>
+                <h2>{{ this.title }}</h2>
+              </div>
+            </div>
+            <!-- content -->
+            <div class="content">
+              <form>
+                <div class="block">
+                  <ul class="ng01">
+                    <li>
+                      <input type="radio" name="answer-1" id="answer-1-1" value="친구"/>
+                      <label class="btn02" for="answer-1-1"><span>친구</span></label>
+                    </li>
+                    <li>
+                      <input type="radio" name="answer-1" id="answer-1-2" value="최대여섯글지"/>
+                      <label class="btn02" for="answer-1-2"><span>최대여섯글지</span></label>
+                    </li>
+                    <li>
+                      <input type="radio" name="answer-1" id="answer-1-3" value="최대여섯글지최대여섯글지"/>
+                      <label class="btn02" for="answer-1-3"><span>최대여섯글지최대여섯글지</span></label>
+                    </li>
+                    <li class="add">
+                      <button class="btn02" type="button"><i class="xi-plus"></i></button>
+                    </li>
+                  </ul>
+                  <button class="confirm"><i class="xi-check"></i></button>
+                </div>            
+              </form>            
+            </div>
+            <!-- content -->
+          </div>
+        <!-- //tc01 -->
+        </div>
+      {{/each}}
+      </div>
+    </script>
   </body>
 </html>

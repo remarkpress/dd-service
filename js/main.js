@@ -1,4 +1,16 @@
 
+
+var endpoint = 'https://my-json-server.typicode.com/typicode/demo/posts';
+
+var slideTemplate = $$('script#swiper-template').html();
+console.log(slideTemplate);
+var compiledSlideTemplate = Template7.compile(slideTemplate);
+
+app.request.json(endpoint, function(data){
+  var slides = compiledSlideTemplate({slides: data});
+  $$('.swiper-wrapper').html(slides);
+});
+
 /* 메인 스와이퍼 */
 var swiper_mode = "hor";
 var current_swiper_index = Math.floor($$('.ib01 .swiper-slide').length / 2);
@@ -253,3 +265,4 @@ function addLike (item) {
     }
   });
 }
+
