@@ -29,12 +29,20 @@ var app = new Framework7({
       }
     },
     {
-      path: '/like/',
-      url: 'html/like.html',
+      path: '/book/',
+      url: 'html/book.html',
+    },
+    {
+      path: '/scrap/',
+      url: 'html/scrap.html',
     },
     {
       path: '/login/',
       url: 'html/login.html',
+    },
+    {
+      path: '/join/',
+      url: 'html/join.html',
     },
   ]
   // ... other parameters
