@@ -1,5 +1,5 @@
 
-
+/*
 var endpoint = 'https://my-json-server.typicode.com/typicode/demo/posts';
 
 var slideTemplate = $$('script#swiper-template').html();
@@ -10,7 +10,7 @@ app.request.json(endpoint, function(data){
   var slides = compiledSlideTemplate({slides: data});
   $$('.swiper-wrapper').html(slides);
 });
-
+*/
 /* 메인 스와이퍼 */
 var swiper_mode = "hor";
 var current_swiper_index = Math.floor($$('.ib01 .swiper-slide').length / 2);
@@ -53,9 +53,9 @@ function create_swiper(mode,current){
       initialSlide: current,
       coverflowEffect: {
         rotate: 0,
-        stretch: -5,
-        depth: 15,
-        modifier: 15,
+        stretch: 1,
+        depth: 0,
+        modifier: 0,
         slideShadows: false,
       },
       on: {
@@ -74,14 +74,14 @@ $$('.navbar .right a.cList').on('click', function(){
   var current = swiper.activeIndex;
   swiper.destroy();
   swiper = create_swiper("ver",current);
-  $$(this).parent().removeClass("horMode").addClass("verMode");
+  $$(this).parent().parent().removeClass("horMode").addClass("verMode");
 })
 $$('.navbar .right a.cCar').on('click', function(){
   //draggable.set();
   var current = swiper.activeIndex;
   swiper.destroy();
   swiper = create_swiper("hor",current);
-  $$(this).parent().removeClass("verMode").addClass("horMode");
+  $$(this).parent().parent().removeClass("verMode").addClass("horMode");
 })
 
 
