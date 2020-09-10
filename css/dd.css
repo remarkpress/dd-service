@@ -158,9 +158,7 @@ button.btn02{background-color:#fff;border:2px solid #EDEEF0;color:#C4C4C4;font-s
 .ib01.swiper-container-vertical .tc01 .content{
   display:none
 }
-.ib01.swiper-container-vertical .swiper-slide-active .tc01{
 
-}
 .ib01.swiper-container-vertical .swiper-slide-active .tc01 .header{
   opacity:1;
 }
@@ -265,5 +263,14 @@ button.btn02{background-color:#fff;border:2px solid #EDEEF0;color:#C4C4C4;font-s
 .login-screen .login-screen-content{margin-top:0 !important}
 
 /* toolbar bottom */
-.toolbar-bottom{}
+.toolbar-bottom{background-color:#fff;height:89px}
+.toolbar-bottom:before{content:none}
+.toolbar-bottom .book{background:url(../images/menu_book0.png) no-repeat center center;background-size:23px 22px;text-indent:-9999px}
+.toolbar-bottom .book.tab-link-active{background-image:url(../images/menu_book.png)}
+.toolbar-bottom .main{background:url(../images/menu_home0.png) no-repeat center center;background-size:19px 27px;text-indent:-9999px}
+.toolbar-bottom .main.tab-link-active{background-image:url(../images/menu_home.png)}
+.toolbar-bottom .scrap{background:url(../images/menu_tag0.png) no-repeat center center;background-size:23px 23px;text-indent:-9999px}
+.toolbar-bottom .scrap.tab-link-active{background-image:url(../images/menu_tag.png)}
+.toolbar-bottom .tab-link-active{position:relative}
+.toolbar-bottom .tab-link-active:after{content:"";display:block;width:100%;height:4px;border-radius:2px;background-color:var(--primary-color)}
 
