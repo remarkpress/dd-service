@@ -49,7 +49,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .main-navbar .verMode .right a.cCar{display:block}
 .main-navbar .verMode .right a.cList{display:none}
 .main-navbar .verMode{}
-.main-navbar .verMode:after{content:"";display:block;width:100%;height:100%;position:absolute;left:0;bottom:0;box-shadow:0 5px 5px 1px rgba(0,0,0,0.3);background-color:#fff}
+.main-navbar .verMode:before{content:"";display:block;width:94%;height:100%;position:absolute;left:3%;bottom:0;box-shadow:0px 2px 10px rgba(0, 0, 0, 0.14);background-color:#fff}
+.main-navbar .verMode:after{content:"";display:block;width:100%;height:100%;position:absolute;left:0;bottom:0;background-color:#fff}
 .main-navbar .verMode .left{visibility:hidden}
 .main-navbar .verMode .title{visibility:hidden}
 .main-navbar .navbar-bg{background-color:transparent}
@@ -58,9 +59,13 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .sub-navbar .title-large{height:80px}
 .sub-navbar .title-large-text strong{display:block;font-size:24px;line-height:2}
 .sub-navbar .title-large-text em{display:block;font-size:14px;font-style:normal;font-weight:normal}
-.sub-navbar .navbar-bg{height:140px}
+.sub-navbar .navbar-bg{height:140px;background-color:#fff;box-shadow:0px 2px 10px rgba(0, 0, 0, 0.14);width:94%;left:3%}
+.sub-navbar .navbar-bg:after{content:none}
+.sub-navbar:after{content:"";display:block;background-color:#fff;width:100%;height:140px;top:0;left:0;position:absolute}
 .sub-navbar.navbar-large-collapsed .title-large-text{display:none}
 .sub-navbar.navbar-large-collapsed .navbar-bg{height:100px}
+.sub-navbar.navbar-large-collapsed:after{height:48px}
+
 /* bottom toolbar */
 .toolbar-bottom .tab-link i{font-size:28px;line-height:1.5}
 
