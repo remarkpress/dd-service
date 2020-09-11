@@ -57,4 +57,6 @@ app.views.create('.view-main', {
 $$('.toolbar-bottom a').on('click', function(){
   $$(this).siblings().removeClass('tab-link-active');
   $$(this).addClass('tab-link-active');
+  if($$(this).hasClass('main')) $$(this).parent().parent().addClass('mainMode');
+  else $$(this).parent().parent().removeClass('mainMode');
 });

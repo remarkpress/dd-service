@@ -123,15 +123,6 @@ $$("#add-new-keyword").submit(function(event){
   return false;
 });
 
-//답안 선택 저장 및 목록으로 돌아가기
-var dialog = app.dialog.create({
-  text: '나의 기록에 담았어요!',
-  content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
-  on: {
-    opened: function () {
-    }
-  }
-})
 
 $$(".tc01 form").submit(function(event){
   event.preventDefault();
@@ -178,6 +169,32 @@ var notificationSave = app.notification.create({
   //text: 'This is a simple notification message',
   closeTimeout: 3000,
 });
+var notificationDelete = app.notification.create({
+  icon: '<i class="xi-cloud-download"></i>',
+  title: '질문 카드',
+  //titleRightText: 'now',
+  subtitle: '해당 질문 카드를 삭제하였어요!',
+  //text: 'This is a simple notification message',
+  closeTimeout: 3000,
+});
+//답안 선택 저장 및 목록으로 돌아가기 안내
+var dialog = app.dialog.create({
+  text: '나의 기록에 담았어요!',
+  content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
+  on: {
+    opened: function () {
+    }
+  }
+});
+//질문 담기 완료 안내
+var dialog2 = app.dialog.create({
+  text: '해당 질문을 담았어요!',
+  content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
+  on: {
+    opened: function () {
+    }
+  }
+});
 
 
 /* 위아래로 스와이프 아웃 */
@@ -214,11 +231,16 @@ draggable = interact('.draggable')
           setTimeout(function() {
             swiper.removeSlide(swiper.activeIndex);
             isRemoveSlide = false;
+            dialog2.open();
+            setTimeout(function () {
+              dialog2.close();
+            }, 1000);
           }, 200);
         }else if(isRemoveSlide == 2){ //삭제
           setTimeout(function() {
             swiper.removeSlide(swiper.activeIndex);
             isRemoveSlide = false;
+            notificationDelete.open();
           }, 200);
         }
 
