@@ -34,9 +34,14 @@ function create_swiper(mode,current){
       on: {
         init: function () {
          },
-        tap: function () {
-          $$('.swiper-container').addClass('expanded');
-          $$('.swiper-slide-active .tc01').removeClass('draggable');
+        tap: function (event) {
+          /*
+          if(this.clickedIndex != this.activeIndex){
+            event.stopPropagation();
+            return false;
+          }*/
+          //if(this.clickedIndex != this.activeIndex) this.slideTo(this.clickedIndex,0);
+          this.clickedSlide.querySelector('.tc01').classList.remove('draggable');
           this.detachEvents();
         },
 
@@ -53,14 +58,15 @@ function create_swiper(mode,current){
       initialSlide: current,
       coverflowEffect: {
         rotate: 0,
-        stretch: 1,
+        stretch: 0,
         depth: 0,
         modifier: 0,
         slideShadows: false,
       },
       on: {
         tap: function () {
-          $$('.swiper-container').addClass('expanded');
+          //if(this.clickedIndex != this.activeIndex) return false;
+          //if(this.clickedIndex != this.activeIndex) this.slideTo(this.clickedIndex,0);
           this.detachEvents();
         },
       },
@@ -68,6 +74,14 @@ function create_swiper(mode,current){
   }
 }
 
+app.on('cardBeforeOpen', function (el, prevent) {
+  console.log(swiper.clickedIndex+":"+swiper.activeIndex);
+  if(swiper.clickedIndex != swiper.activeIndex){
+    swiper.slideTo(swiper.clickedIndex,100);
+    setTimeout(function () {
+    }, 1000);
+  }
+});
 /* 스와이프 모드 변환 */
 $$('.navbar .right a.cList').on('click', function(){
   //draggable.unset();
@@ -86,10 +100,10 @@ $$('.navbar .right a.cCar').on('click', function(){
 
 
 /* 컨텐츠 닫기*/
-$$('.ib01 a.close').on('click', function(){
-  $$('.swiper-slide-active .tc01').scrollTop = 0;
-  $$('.swiper-container').removeClass('expanded');
-  $$('.swiper-slide-active .tc01').addClass('draggable');
+$$('.tc01 a.card-close').on('click', function(){
+  $$(this).parents('.tc01').scrollTop = 0;
+  $$(this).parents('.tc01').addClass('draggable');
+  //swiper.clickedSlide.querySelector('.tc01').classList.add('draggable')
   $$("#add-new-keyword").hide();
   swiper.attachEvents();
 })
@@ -138,10 +152,7 @@ $$(".tc01 form").submit(function(event){
   setTimeout(function () {
     dialog.close();
   }, 1000);
-  $$('.swiper-slide-active .tc01').scrollTop = 0;
-  $$('.swiper-container').removeClass('expanded');
-  $$('.swiper-slide-active .tc01').addClass('draggable');
-  swiper.attachEvents();
+  $$(this).parents('.tc01').find('a.card-close').click();
 });
 
 // Create full-layout notification
@@ -218,14 +229,15 @@ draggable = interact('.draggable')
         if($$('.ib01').hasClass('swiper-container-vertical')) return false; 
         //선택한 아이템 정보
         var item = swiper.slides[swiper.activeIndex].querySelectorAll('.tc01')[0];
-        selectedItem.item_id = item.getAttribute('data-item-id');
-        selectedItem.bg_img = window.getComputedStyle(item.querySelectorAll('.header')[0]).backgroundImage;
+        //selectedItem.item_id = item.getAttribute('data-item-id');
+        //selectedItem.bg_img = window.getComputedStyle(item.querySelectorAll('.header')[0]).backgroundImage;
       },
 
       move: dragMoveListener,
 
       end (event) {
         if($$('.ib01').hasClass('swiper-container-vertical')) return false; 
+
         if(isRemoveSlide == 1){ //좋아요에 담기
           //addLike(selectedItem);  //좋아요에 추가
           setTimeout(function() {
@@ -242,6 +254,14 @@ draggable = interact('.draggable')
             isRemoveSlide = false;
             notificationDelete.open();
           }, 200);
+        }else{
+          //원위치시킴
+          var tc01 = swiper.slides[swiper.activeIndex].querySelector('.tc01');
+          //$$('.ib01 .swiper-slide-active .draggable').css({'transform': 'translate(0px, 0px)'});
+          //$$('.ib01 .swiper-slide-active .draggable').attr('data-y',0);
+          $$(tc01).css({'transform': 'translate(0px, 0px)'});
+          $$(tc01).attr('data-y',0);
+          $$(tc01).removeClass('movedown').removeClass('moveup');
         }
 
       }
@@ -252,18 +272,32 @@ function dragMoveListener (event) {
   if($$('.ib01').hasClass('swiper-container-vertical')) return false; 
 
   var moved = event.pageY - event.y0;
-  if(moved > 200){  // 아래로 내림
+  if(moved > 200){  // 아래로 내려 좋아요
     swiper.slides[swiper.activeIndex].innerHTML = "";
     swiper.slides[swiper.activeIndex].classList.add("remove");
     isRemoveSlide = 1;
-  }else if(moved < -200){  // 위로 올림
+  }else if(moved < -200){  // 위로 올려 싫어요
     swiper.slides[swiper.activeIndex].innerHTML = "";
     swiper.slides[swiper.activeIndex].classList.add("remove");
     isRemoveSlide = 2;
   }else{
     isRemoveSlide = 0;
   }
-
+  //좋아요 싫어요 아이콘 보이기
+  var tc01 = swiper.slides[swiper.activeIndex].querySelector('.tc01');
+  if(tc01){
+    if(moved > 50){  // 아래로 내림
+      tc01.classList.remove('moveup');
+      if(!tc01.classList.contains('movedown')) tc01.classList.add('movedown');
+    }else if(moved < -50){  // 위로 올림
+      tc01.classList.remove('movedown');
+      if(!tc01.classList.contains('moveup')) tc01.classList.add('moveup');
+    }else{
+      tc01.classList.remove('movedown');
+      tc01.classList.remove('moveup');
+    }
+  }
+ 
   var target = event.target
   // keep the dragged position in the data-x/data-y attributes
   var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
@@ -274,6 +308,7 @@ function dragMoveListener (event) {
   // update the posiion attributes
   target.setAttribute('data-x', x)
   target.setAttribute('data-y', y)
+
 }
 //좋아요에 추가
 function addLike (item) {

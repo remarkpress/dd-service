@@ -44,11 +44,13 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .btn03.blue{background-color:#4686C7;color:var(--primary-color) !important}
 .btn03.green{background-color:#35AC74;color:var(--primary-color) !important}
 .btn03.pink{background-color:#F19DBE;color:var(--primary-color) !important}
+.btn04{width:auto;height:45px;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;padding:0 60px}
+.btn04.active-state{background-color:#999}
 
 /* add keyword form */
 .cf01{position:fixed;bottom:25px;left:0;width:100%;padding:0 25px;z-index:1100}
 .cf01 input{padding:10px 0;display:inline;width:75%}
-.cf01 button{isplay:none;position:fixed;bottom:25px;right:25px;width:38px;height:38px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
+.cf01 button{position:fixed;bottom:25px;right:25px;width:38px;height:38px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
 .cf01 button.active-state{background-color:#999}
 
 /* navbar */
@@ -69,6 +71,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .main-navbar .verMode .title{visibility:hidden}
 .main-navbar .navbar-bg{background-color:transparent}
 .main-navbar .navbar-bg:after{content:none}
+.navbar-hidden-statusbar{display:none}
 
 .sub-navbar .title-large{height:80px}
 .sub-navbar .title-large-text strong{display:block;font-size:24px;line-height:2}
@@ -84,15 +87,16 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /* bottom toolbar */
 .toolbar-bottom .tab-link i{font-size:28px;line-height:1.5}
 
+
+
 /* swiper horizontal */
 .ib01.swiper-container-horizontal {
   width:305px;
-  height:70%;
-  padding-top:23%;
-  transition:width 0.5s, height 0.5s;
+  height:60%;
+  padding-top:33%;
   overflow:visible;
+  position:relative;
 }
-
 .ib01.swiper-container-horizontal .swiper-slide {
   height: 100%;
   transition:height 0.5s, width 0.5s !important;
@@ -100,43 +104,18 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ib01.swiper-container-horizontal .swiper-slide.remove{
   width:0px;
 }
-.ib01 .swiper-slide .swiper-slide-shadow-left{display:none}
-.ib01 .swiper-slide .swiper-slide-shadow-right{display:none}
+.ib01.swiper-container-horizontal .tc01{height:100%;position:relative}
+.ib01.swiper-container-horizontal .tc01.movedown:before{content:"좋아요";position:absolute;left:50%;top:-70px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like01.png) no-repeat center top;background-size:32px 32px;color:#DCDCDC;font-size:16px}
+.ib01.swiper-container-horizontal .tc01.moveup:after{content:"싫어요";position:absolute;left:50%;bottom:-100px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like01.png) no-repeat center top;background-size:32px 32px;color:#DCDCDC;font-size:16px}
 
-/*
-.ib01 .swiper-slide:active{
-  width: 240px;
-  height: 95%;
-}*/
-.ib01.swiper-container-horizontal .tc01{  
-  overflow:hidden;
-  border-radius:152.5px 152.5px 0 0;
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.35);
-  background-color:#fff;
-  transition:border-radius 0.5s !important;
+.ib01.swiper-container-horizontal .tc01 .card{height:100%;margin:0;border-radius:152.5px 152.5px 5px 5px}
 
-}
-.ib01.swiper-container-horizontal .tc01 .header{
-  height: 100%;
-  width:100%;
-  transition:height 0.5s;
-}
-.ib01.swiper-container-horizontal .tc01 .content{
-  display:none
-}
-
-.ib01.swiper-container-horizontal .tc01 .header .title em{position:absolute;top:50px;left:50%;transform:translate(-50%, 0)}
-.ib01.swiper-container-horizontal .tc01 .header .title h2{position:absolute;top:50%;left:50%;width:212px;transform:translate(-50%, -50%);text-align:center}
-
-.ib01.swiper-container-horizontal .swiper-slide-active .tc01{
-    filter:none;
-}
-.ib01.swiper-container-horizontal .draggable{
-  touch-action: none;
-  user-select: none;
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
-}
+.ib01.swiper-container-horizontal .tc01 .card-content{width:100%;height:100%}
+.ib01.swiper-container-horizontal .tc01 .card-header-bg{height:100%}
+.ib01.swiper-container-horizontal .tc01 .card-header-bg .card-header{height:100%}
+.ib01.swiper-container-horizontal .tc01 .card-content-padding{display:none}
+.ib01.swiper-container-horizontal .tc01 .title em{position:absolute;top:50px;left:50%;transform:translate(-50%, 0)}
+.ib01.swiper-container-horizontal .tc01 .title h2{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);text-align:center}
 
 /* swiper vertical */
 .ib01.swiper-container-vertical {
@@ -152,129 +131,128 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   border-bottom:1px solid #B7B7B7;
 }
 .ib01.swiper-container-vertical .swiper-slide {
-  transition:height 0.5s, width 0.5s !important;
+
 }
 
+.ib01.swiper-container-vertical .tc01 .card{height:75px;margin:0;border-radius:0;box-shadow:none;background-color:transparent}
+.ib01.swiper-container-vertical .tc01 .card-expandable .card-content{height:100%;width:100%}
 .ib01.swiper-container-vertical .tc01{
-  height:75px;
-  transition:width 0.5s, border-radius 0.5s !important;
   position:relative;
 }
-.ib01.swiper-container-vertical .tc01 .header{
+.ib01.swiper-container-vertical .tc01 .card-header{
   text-align:left;
   position:absolute;
   left:0;
   top:50%;
   transform: translate(0px,-50%);
   width:100%;
-  padding:0 25px;
+  padding:0;
   box-sizing:border-box;
   color:var(--primary-color);
   opacity:0.6;
-  display:table;
+  min-height:0;
 }
-.ib01.swiper-container-vertical .tc01 .header h2{
+.ib01.swiper-container-vertical .tc01 .card-header .title{
+   display:table;
+  width:100%;
+}
+.ib01.swiper-container-vertical .tc01 .card-header h2{
   text-align:left;
   display:table-cell;
   font-size:14px;
-  width:80%;
+  width:70%;
   margin:0;
 }
-.ib01.swiper-container-vertical .tc01 .header em{
+.ib01.swiper-container-vertical .tc01 .card-header em{
   font-size:14px;
   display:table-cell;
-  width:20%;
+  width:30%;
   vertical-align:middle;
 }
-.ib01.swiper-container-vertical .tc01 .content{
-  display:none
+.ib01.swiper-container-vertical .swiper-slide-active{
+  z-index:100 !important;
 }
+.ib01.swiper-container-vertical .tc01 .card-content-padding{display:none}
 
-.ib01.swiper-container-vertical .swiper-slide-active .tc01 .header{
+.ib01.swiper-container-vertical .swiper-slide-active .tc01 .card-header{
   opacity:1;
 }
-.ib01.swiper-container-vertical .swiper-slide-active .tc01 .header *{
+.ib01.swiper-container-vertical .swiper-slide-active .tc01 .card-header *{
   font-size:18px;
 }
 
-.ib01 a.close{
-  position:absolute;
-  right:20px;
-  top:20px;
-  font-size:30px;
-  display:none;
-  color:var(--primary-color);
+.ib01 .swiper-slide .swiper-slide-shadow-left{display:none}
+.ib01 .swiper-slide .swiper-slide-shadow-right{display:none}
+
+/* 질문 뷰 화면 */
+.tc01.draggable{
+  touch-action: none;
+  user-select: none;
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
 }
-/* 아이템 뷰 모드 */
-.ib01.expanded{
-  padding:0;
-  width:100%;
-  height:100%;
-  position:fixed;
-  left:0;
-  top:0;
-  right:0;
-  bottom:0;
-  transform:translate(0, 0);
-  z-index:1000;
-  background-color:#fff !important;
-  border-top:none;
-  border-bottom:none;
-  margin:0
-}
-.ib01.expanded a.close{display:block;z-index:10}
-.ib01.expanded .swiper-wrapper{
-  transform:translate3d(0px, 0px, 0px) !important;
-  height:100% !important
-}
-.ib01.expanded .swiper-slide{
-  display:none;
-  transform: translate3d(0px, 0px, 0px) !important;
-}
-.ib01.expanded .swiper-slide-active{
-  display:block;
-  width:100%;
-  height:100%;
-  overflow-y:scroll;
-}
-.ib01.expanded .swiper-slide-active .tc01{
-  border-radius:0;
-  overflow-y:scroll;
-  padding-top:100px;
-  height:100%;
-  box-sizing:border-box;
-}
-.ib01.expanded .swiper-slide-active .tc01 .header{
-  height:auto;
-  margin-bottom:100px;
+.tc01 .card-header{color:var(--primary-color);margin-bottom:50px}
+.tc01 .card-header .title em{font-size:16px;font-style:normal;color:var(--primary-color);display:block;text-align:center}
+.tc01 .card-header .title h2{text-align:center;word-break:keep-all;font-size:18px;font-weight:normal;line-height:1.5;margin:20px 0;color:var(--primary-color)}
+.tc01 form button.confirm{position:fixed;bottom:25px;left:50%;transform:translate(-50%,0)}
+.tc01 .card-close{position:absolute;right:25px;top:25px;background:url(../images/btn_close.png) no-repeat center center;width:25px;height:25px;background-size:cover;text-indent:-9999px}
+/* 펼침 */
+.tc01 .card-opened{height:100%;border-radius:0 !important;position:relative;background-color:#fff !important;z-index:10000}
+.tc01 .card-opened .card-header-bg{height:auto !important;padding-top:100px}
+.tc01 .card-opened .card-header-bg .card-header{height:auto !important}
+
+.tc01 .card-opened .card-header-bg .card-header{
+  text-align:center;
   position:static;
-  transform: translate(0px,0px);
-  width:auto;
-  padding:0 0;
-  box-sizing:border-box;
-  color:var(--primary-color);
+  transform: translate(0,0);
+  width:100%;
+  padding:0;
   opacity:1;
-  display:block;
 }
-.ib01.expanded .tc01 .header .title em{position:static;display:block;width:auto;text-align:center;transform:translate(0, 0);font-size:16px}
-.ib01.expanded .tc01 .header .title h2{position:static;display:block;text-align:center;width:auto;transform:translate(0,0);text-align:center;padding:0 20px;margin:20px 0}
+.tc01 .card-opened .card-header-bg .card-header .title{display:block;padding:0 25px;box-sizing:border-box}
+.tc01 .card-opened .card-header-bg .card-header .title em{display:block;position:static;transform:translate(0, 0);width:auto}
+.tc01 .card-opened .card-header-bg .card-header .title h2{display:block;position:static;transform:translate(0,0);width:auto;text-align:center}
 
-.ib01.expanded .tc01 .header em{
-  display:block
-}
+.tc01 .card-opened .card-content-padding{display:block !important}
 
-.ib01.expanded .tc01 .content{
-  display:block;
-}
 
-.ib01.expanded + .ng02{display:none}
-.ib01.expanded .tc01 form button.confirm{display:block}
 /* my keywords */
 .lc01{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 1em;
 }
+.lc01 li.add button{display:inline-block;background:url(../images/icon_plus.png) no-repeat center center;background-size:11px 11px;text-indent:-9999px}
+/* 나의책 리스트 */
+.lc02{padding-bottom:140px}
+.lc02 li{
+  box-shadow: 1px 5px 6px rgba(0, 0, 0, 0.05);
+  margin-top:30px;
+  padding:0 25px;
+  border-bottom:1px solid #B7B7B7;
+  overflow:hidden;
+}
+.lc02 li a{
+  display:inline-block;
+  padding:20px 20px 30px;
+  min-width:210px;
+  box-sizing:border-box;
+  box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25), 2px 0px 14px rgba(0, 0, 0, 0.32);
+  border-radius: 4px;
+  position:relative;
+  top:14px;
+}
+.lc02 li.add a{
+  padding:27px 25px 41px;
+}
+.lc02 li a strong{
+  display:block;
+  color:var(--primary-color);
+}
+.lc02 li a span{
+  color:#B7B7B7;
+}
+
 /*wishlist
 .lc01{box-shadow:none;margin:0 0 30px}
 .lc01 ul li .item-media{width:44px;height:44px;border-radius:22px;overflow:hidden;margin-top:10px}
@@ -291,7 +269,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ng01 li input[type=radio]{visibility:hidden;position:absolute}
 .ng01 li input[type=radio] + label{display:inline-block}
 .ng01 li input[type=radio]:checked + label{background-color:var(--secondary-color);color:var(--primary-color)}
-.ng01 li.add button{display:inline-block}
+.ng01 li.add button{display:inline-block;background:url(../images/icon_plus.png) no-repeat center center;background-size:11px 11px;text-indent:-9999px}
 /*wishlist nav*/
 .ng02{margin-top:0;z-index:0;}
 .ng02 ul{
@@ -306,24 +284,6 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /*tab menu*/
 .ng03{background-color:transparent}
 .ng03 + .tabs-swipeable-wrap .page-content.tab{padding-top:30px}
-/*컨텐츠 뷰화면*/
-.tc01 {
-  /*background-color:#fff;*/
-  width: 100%;
-  height: 100%;
-}
-.tc01 .header{
-  position:relative;
-  background-position: center;
-  background-size: cover;
-}
-.tc01 .header .title em{font-size:16px;font-style:normal}
-.tc01 .header .title h2{text-align:center;word-break:keep-all;font-size:18px;font-weight:normal;line-height:1.5;margin:20px 0}
-
-.tc01 .content{padding-bottom:50px}
-.tc01 .content .block-title{text-align:center}
-.tc01 form button.confirm{display:none;position:fixed;bottom:25px;right:25px;width:38px;height:38px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
-.tc01 form button.confirm.active-state{background-color:#999}
 
 /*login*/
 .login-screen{display:block;position:static;transform:none}
