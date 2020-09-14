@@ -75,11 +75,11 @@ function create_swiper(mode,current){
 }
 
 app.on('cardBeforeOpen', function (el, prevent) {
-  console.log(swiper.clickedIndex+":"+swiper.activeIndex);
+  //console.log(swiper.clickedIndex+":"+swiper.activeIndex);
   if(swiper.clickedIndex != swiper.activeIndex){
     swiper.slideTo(swiper.clickedIndex,100);
-    setTimeout(function () {
-    }, 1000);
+    return false;
+    //sleep(200);
   }
 });
 /* 스와이프 모드 변환 */

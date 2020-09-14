@@ -44,13 +44,25 @@ var app = new Framework7({
       path: '/join/',
       url: 'html/join.html',
     },
+    {
+      path: '/scrap_view/',
+      url: 'html/scrap_view.html',
+      on: {
+        pageInit: function (e, page) {
+          console.log('pageInit');
+          var s = document.createElement('script');
+          s.src = "js/scrap_view.js";
+          $$('head').append(s);
+        }
+      }
+    },
   ]
   // ... other parameters
 });
 
 //뷰 생성
 app.views.create('.view-main', {
-  url: '/'
+  url: '/',   //초기 로딩 페이지
 });
 
 //하단 탭바
@@ -60,3 +72,13 @@ $$('.toolbar-bottom a').on('click', function(){
   if($$(this).hasClass('main')) $$(this).parent().parent().addClass('mainMode');
   else $$(this).parent().parent().removeClass('mainMode');
 });
+//delay time
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
