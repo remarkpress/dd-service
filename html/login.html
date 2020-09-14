@@ -1,63 +1,55 @@
 
-<div data-name="scrap" class="page">
-  <!-- Transparent Navbar, has additional "navbar-transparent" class -->
-  <div class="navbar navbar-transparent">
-    <div class="navbar-bg"></div>
-    <div class="navbar-inner sliding">
-      <div class="left">
-        <a class="link back">
-          <i class="icon icon-back"></i>
-          <span class="if-not-md">Back</span>
-        </a>
+<div data-name="login" class="page login">
+  <!-- page-content has additional login-screen content -->
+  <div class="page-content login-screen-content">
+    <div class="login-screen-title">기다리고 있었어요!</div>
+    <!-- Login form -->
+    <form>
+      <div class="list inputA">
+        <ul>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">아이디</div>
+              <div class="item-input-wrap">
+                <input type="text" name="email" placeholder="이메일을 입력해 주세요">
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">비밀번호</div>
+              <div class="item-input-wrap">
+                <input type="password" name="password" placeholder="비밀번호를 입력해 주세요">
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-checkbox">
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="auto_login"/>
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">자동 로그인</div>
+              </div>
+            </label>
+          </li>
+        </ul>
       </div>
-      <div class="title">Fixed Navbar</div>
-    </div>
-  </div>
-  <div class="page-content">
-    <div class="login-screen" style="display:block">
-      <!-- Default view-page layout -->
-      <div class="view">
-        <div class="page login-screen-page">
-          <!-- page-content has additional login-screen content -->
-          <div class="page-content login-screen-content">
-            <div class="login-screen-title">Log In</div>
-            <!-- Login form -->
-            <form>
-              <div class="list">
-                <ul>
-                  <li class="item-content item-input">
-                    <div class="item-inner">
-                      <div class="item-title item-label">아이디</div>
-                      <div class="item-input-wrap">
-                        <input type="text" name="username" placeholder="아이디">
-                        <span class="input-clear-button"></span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="item-content item-input">
-                    <div class="item-inner">
-                      <div class="item-title item-label">패스워드</div>
-                      <div class="item-input-wrap">
-                        <input type="password" name="password" placeholder="패스워드">
-                        <span class="input-clear-button"></span>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="list">
-                <ul>
-                  <li>
-                    <a href="#" class="list-button">로그인</a>
-                  </li>
-                </ul>
-                <div class="block-footer">Some text with login information.</div>
-              </div>
-            </form>
-          </div>
+      <div class="list btnA">
+        <ul>
+          <li>
+            <a href="/" class="btn04">입장하기</a>
+          </li>
+        </ul>
+        <div class="block-footer">
+          <ul>
+            <li><a href="/find_password/">비밀번호를 잊으셨나요?</a></li>
+            <li><a href="/join/">아직 회원이 아니신가요?</a></li>
+          </ul>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 
 </div>

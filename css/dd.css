@@ -21,6 +21,7 @@
 .page-content.sub-content{padding:140px 0 0}
 .page-content.sub-content > .block{padding-bottom:89px}
 .page-content.view-content{background-color:#fff;z-index:10;padding-top:70px}
+.login-screen-content{z-index:10;padding-top:70px}
 ul{list-style-type:none;padding-left:0}
 body{color:color:var(--primary-color)}
 .block{padding:0 25px}
@@ -45,7 +46,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .btn03.blue{background-color:#4686C7;color:var(--primary-color) !important}
 .btn03.green{background-color:#35AC74;color:var(--primary-color) !important}
 .btn03.pink{background-color:#F19DBE;color:var(--primary-color) !important}
-.btn04{width:auto;height:45px;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;padding:0 60px}
+.btn04{display:inline-block;width:auto;height:45px;line-height:45px;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;text-align:center;padding:0 60px}
 .btn04.active-state{background-color:#999}
 
 /* add keyword form */
@@ -329,3 +330,24 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .toolbar-bottom .tab-link-active{position:relative}
 .toolbar-bottom .tab-link-active:after{content:"";display:block;width:100%;height:4px;border-radius:2px;background-color:var(--primary-color)}
 */
+/* dialog */
+.dialog-backdrop.backdrop-in{background: rgba(255,255,255,.8);}
+.dialog{background-color:transparent}
+.dialog .dialog-inner{border:none}
+.dialog .dialog-inner .dialog-title{display:none}
+.dialog .dialog-button:after{content:none !important}
+.dialog .dialog-inner::after{content:none !important}
+.dialog .dialog-buttons{height:auto}
+.dialog .dialog-buttons span{width:120px;height:45px;background-color:var(--primary-color);border-radius:22.5px !important;color:#fff;border:none;font-family:inherit;font-size:14px}
+.dialog .dialog-buttons span:last-of-type{margin-left:15px;background-color:#fff;color:var(--primary-color);border:2px solid var(--primary-color);box-sizing:border-box}
+/* login/join */
+.login-screen-content .login-screen-title{padding-top:60px;background:url(../images/logo.png) no-repeat center top;background-size:24px auto;font-size:18px;font-weight:normal;margin-bottom:50px}
+.login-screen-content form{padding:0 40px}
+.login-screen-content .item-content{padding:0;margin-bottom:15px}
+.login-screen-content .item-content.item-input .item-title{display:none}
+.login-screen-content .item-content.item-input input{text-align:center;font-size:14px}
+.login-screen-content .item-checkbox > label{margin:0 auto;font-size:14px;color:#B7B7B7}
+.login-screen-content .btnA.list ul{margin-bottom:30px}
+.login-screen-content .btnA.list li{text-align:center}
+.login-screen-content .block-footer li{margin-bottom:15px}
+.login-screen-content .block-footer li a{color:#B7B7B7;font-size:13px\}

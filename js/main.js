@@ -151,7 +151,7 @@ $$(".tc01 form").submit(function(event){
   dialog.open();
   setTimeout(function () {
     dialog.close();
-  }, 1000);
+  }, 2000);
   $$(this).parents('.tc01').find('a.card-close').click();
 });
 
