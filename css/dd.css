@@ -331,7 +331,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .toolbar-bottom .tab-link-active:after{content:"";display:block;width:100%;height:4px;border-radius:2px;background-color:var(--primary-color)}
 */
 /* dialog */
-.dialog-backdrop.backdrop-in{background: rgba(255,255,255,.8);}
+.dialog-backdrop.backdrop-in{background: rgba(255,255,255,.9);}
 .dialog{background-color:transparent}
 .dialog .dialog-inner{border:none}
 .dialog .dialog-inner .dialog-title{display:none}
@@ -343,11 +343,14 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /* login/join */
 .login-screen-content .login-screen-title{padding-top:60px;background:url(../images/logo.png) no-repeat center top;background-size:24px auto;font-size:18px;font-weight:normal;margin-bottom:50px}
 .login-screen-content form{padding:0 40px}
-.login-screen-content .item-content{padding:0;margin-bottom:15px}
+.login-screen-content .item-content{padding:0;margin-bottom:15px;border-bottom:0.5px solid #B7B7B7;position:relative}
+.login-screen-content .item-content.item-checkbox{border-bottom:none}
+.login-screen-content .item-content .item-input-error-message{position:absolute;bottom:-26px;width:100%;text-align:center;color:#B7B7B7}
+.login-screen-content .item-inner:after{content:none}
 .login-screen-content .item-content.item-input .item-title{display:none}
 .login-screen-content .item-content.item-input input{text-align:center;font-size:14px}
 .login-screen-content .item-checkbox > label{margin:0 auto;font-size:14px;color:#B7B7B7}
-.login-screen-content .btnA.list ul{margin-bottom:30px}
-.login-screen-content .btnA.list li{text-align:center}
+.login-screen-content .btnA{margin-bottom:30px}
+.login-screen-content .btnA li{text-align:center}
 .login-screen-content .block-footer li{margin-bottom:15px}
 .login-screen-content .block-footer li a{color:#B7B7B7;font-size:13px\}

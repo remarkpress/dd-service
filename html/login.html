@@ -4,14 +4,14 @@
   <div class="page-content login-screen-content">
     <div class="login-screen-title">기다리고 있었어요!</div>
     <!-- Login form -->
-    <form>
+    <form id="login_form" onSubmit="return false;">
       <div class="list inputA">
         <ul>
           <li class="item-content item-input">
             <div class="item-inner">
               <div class="item-title item-label">아이디</div>
               <div class="item-input-wrap">
-                <input type="text" name="email" placeholder="이메일을 입력해 주세요">
+                <input type="email" name="email" placeholder="이메일을 입력해 주세요" required validate data-error-message="올바른 이메일을 입력해 주세요">
                 <span class="input-clear-button"></span>
               </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="item-inner">
               <div class="item-title item-label">비밀번호</div>
               <div class="item-input-wrap">
-                <input type="password" name="password" placeholder="비밀번호를 입력해 주세요">
+                <input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required validate data-error-message="비밀번호를 입력해 주세요">
                 <span class="input-clear-button"></span>
               </div>
             </div>
@@ -36,16 +36,16 @@
           </li>
         </ul>
       </div>
-      <div class="list btnA">
-        <ul>
+      <div class="list">
+        <ul class="btnA">
           <li>
-            <a href="/" class="btn04">입장하기</a>
+            <button class="btn04">입장하기</button>
           </li>
         </ul>
         <div class="block-footer">
           <ul>
             <li><a href="/find_password/">비밀번호를 잊으셨나요?</a></li>
-            <li><a href="/join/">아직 회원이 아니신가요?</a></li>
+            <li><a href="/join01/">아직 회원이 아니신가요?</a></li>
           </ul>
         </div>
       </div>

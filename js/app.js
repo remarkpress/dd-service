@@ -21,7 +21,6 @@ var app = new Framework7({
         pageAfterIn: function test (e, page) {
         },
         pageInit: function (e, page) {
-          console.log('pageInit');
           var s = document.createElement('script');
           s.src = "js/main.js";
           $$('head').append(s);
@@ -39,17 +38,52 @@ var app = new Framework7({
     {
       path: '/login/',
       url: 'html/login.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/form.js";
+          $$('head').append(s);
+        }
+      }
     },
     {
-      path: '/join/',
-      url: 'html/join.html',
+      path: '/join01/',
+      url: 'html/join01.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/form.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
+      path: '/join02/',
+      url: 'html/join02.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/form.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
+      path: '/join03/',
+      url: 'html/join03.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/form.js";
+          $$('head').append(s);
+        }
+      }
     },
     {
       path: '/scrap_view/',
       url: 'html/scrap_view.html',
       on: {
         pageInit: function (e, page) {
-          console.log('pageInit');
           var s = document.createElement('script');
           s.src = "js/scrap_view.js";
           $$('head').append(s);
