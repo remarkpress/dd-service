@@ -1,34 +1,26 @@
-/*textarea 자동 높이
-var textarea = document.querySelector('textarea');
-
-textarea.addEventListener('keydown', autosize);
-             
-function autosize(){
-  var el = this;
-  setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    // for box-sizing other than "content-box" use:
-    // el.style.cssText = '-moz-box-sizing:content-box';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
-  },0);
-}
-*/
-
 var view = app.views.current;
-var current_page = $$('.page.scrapView')[0].f7Page;
+var current_page = $$('.page.bookView')[0].f7Page;
 var keyword_id = current_page.route.params.id;  //  넘겨받은 파라미터
+
+var swiper = new Swiper('.ib02.swiper-container', {
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
 
 //돌아가기
 $$('.goBack').on('click', function(){
-  //view.router.back(view.history[1],{force:true});
-  app.dialog.confirm(
-    '저장하지 않고 나갈까요?', 
-    function () {
-      view.router.back();
-    }
-  );
-
+  view.router.back();
 });
+
+
+/*
 //키워드 삭제
 $$('.fab01 > a').on('click', function(){
   app.dialog.confirm(
@@ -66,3 +58,4 @@ var dialog = app.dialog.create({
   text: '변경내용을 저장하였습니다.',
   content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
 });
+*/

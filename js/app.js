@@ -91,8 +91,11 @@ var app = new Framework7({
       }
     },
     {
-      path: '/scrap_view/',
+      path: '/scrap_view/:id/',
       url: 'html/scrap_view.html',
+      options: {
+        transition: 'f7-dive',
+      },      
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -101,9 +104,23 @@ var app = new Framework7({
         }
       }
     },
+    {
+      path: '/book_view/:id/',
+      url: 'html/book_view.html',
+      options: {
+        transition: 'f7-dive',
+      },      
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/book_view.js";
+          $$('head').append(s);
+        }
+      }
+    },
   ]
-  // ... other parameters
 });
+
 
 //뷰 생성
 app.views.create('.view-main', {
