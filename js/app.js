@@ -80,6 +80,17 @@ var app = new Framework7({
       }
     },
     {
+      path: '/reset/',
+      url: 'html/reset_password.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/form.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
       path: '/scrap_view/',
       url: 'html/scrap_view.html',
       on: {

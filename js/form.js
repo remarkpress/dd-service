@@ -32,6 +32,18 @@ $$('#join_form03').on('submit', function(){
   }, 2000);
 
 });
+//비밀번호 리셋
+$$('#reset_form01').on('submit', function(){
+  var formData = app.form.convertToData($$(this));
+  alert(JSON.stringify(formData));
+
+  dialog2.open();
+  setTimeout(function () {
+    dialog2.close();
+    view.router.back();
+  }, 2000);
+
+});
 /*
 $$('.fill-form-from-data').on('click', function(){
   var formData = {
@@ -56,5 +68,9 @@ var notification1 = app.notification.create({
 // 안내 상자
 var dialog = app.dialog.create({
   text: '성공적으로 가입되었습니다.',
+  content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
+});
+var dialog2 = app.dialog.create({
+  text: '이메일로 임시 패스워드를 <br/>보내드렸습니다.',
   content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
 });
