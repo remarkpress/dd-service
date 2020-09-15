@@ -217,11 +217,14 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 
 /* book swiper */
 .ib02{overflow:visible;height:70%;margin-top:50px}
-.ib02 .swiper-slide{padding:0 35px;box-sizing:border-box;height:100%}
-.ib02 .tc02{padding:70px 35px;height:100%;box-sizing:border-box}
+.ib02 .swiper-slide{padding:0 35px;box-sizing:border-box;height:100%;overflow-y:scroll}
+.ib02 .swiper-slide:first-child{overflow:visible}
+.ib02 .tc02{padding:70px 35px;margin:0;height:100%;box-sizing:border-box}
 .ib02 .tc02 dt{margin-bottom:30px;width:80%;word-break:keep-all}
 .ib02 .tc02 dt a{font-size:24px;border-bottom:1px solid;color:var(--primary-color)}
 .ib02 .tc02 dd{margin-left:0}
+.ib02 .cf02{padding-bottom:30px}
+.ib02 .cf02 .header{margin-top:0}
 .ib02 .swiper-pagination{position:fixed;bottom:90px;width:60px;left:initial;right:95px}
 .ib02 .swiper-button-next{position:fixed;bottom:80px;top:initial;right:35px}
 .ib02 .swiper-button-next::after{font-size:18px;color:var(--primary-color);font-weight:bold}
