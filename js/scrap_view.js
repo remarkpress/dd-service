@@ -1,18 +1,3 @@
-/*textarea 자동 높이
-var textarea = document.querySelector('textarea');
-
-textarea.addEventListener('keydown', autosize);
-             
-function autosize(){
-  var el = this;
-  setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    // for box-sizing other than "content-box" use:
-    // el.style.cssText = '-moz-box-sizing:content-box';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
-  },0);
-}
-*/
 
 var view = app.views.current;
 var current_page = $$('.page.scrapView')[0].f7Page;
@@ -48,7 +33,7 @@ $$('#save_myrecord').on('submit', function(){
   if(keyword_id == "new"){  //신규추가
     //여기에 저장 프로시져
 
-    
+
   }else{  //수정
     //여기에 저장 프로시져
 

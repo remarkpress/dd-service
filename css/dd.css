@@ -20,7 +20,8 @@
 .page-content.main-content{overflow:hidden}
 .page-content.sub-content{padding:140px 0 0}
 .page-content.sub-content > .block{padding-bottom:89px}
-.page-content.view-content{background-color:#fff;z-index:10;padding-top:70px}
+.page-content.view-content{background-color:#fff;z-index:10;padding-top:70px;overflow:hidden}
+.page-content.view-add-content{background-color:#fff;z-index:10;padding-top:110px}
 .login-screen-content{z-index:10;padding-top:70px}
 ul{list-style-type:none;padding-left:0}
 body{color:color:var(--primary-color)}
@@ -48,6 +49,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .btn03.pink{background-color:#F19DBE;color:var(--primary-color) !important}
 .btn04{display:inline-block;width:auto;height:45px;line-height:45px;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;text-align:center;padding:0 60px}
 .btn04.active-state{background-color:#999}
+.btn05{display:inline-block;width:auto;height:45px;line-height:45px;background-color:#fff;color:var(--primary-color);border-radius:22.5px;border:2px solid var(--primary-color);none;font-family:inherit;font-size:14px;text-align:center;padding:0 60px;box-sizing:border-box}
+.btn05.active-state{background-color:#999}
 
 /* add keyword form */
 .cf01{position:fixed;bottom:25px;left:0;width:100%;padding:0 25px;z-index:1100}
@@ -65,6 +68,9 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .picArea{margin-bottom:20px}
 .cf02 .picArea img{max-width:100%}
 .cf02 .btnA button{position:fixed;bottom:65px;right:25px;width:38px;height:38px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
+/* add keyword to book form */
+.cf03 button{position:fixed;bottom:25px;left:50%;transform:translate(-50%, 0);z-index:10}
+
 
 /* fab */
 .fab a{width:40px;height:40px;border-radius:20px;box-sizing:border-box;background-color:#fff;border:2px solid var(--primary-color);box-shadow:none}
@@ -113,6 +119,13 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 
 .view-navbar{top:30px}
 .view-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
+
+.book-navbar{height:146px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);background-color:#fff;overflow:hidden}
+.book-navbar .navbar-inner{padding:0}
+.book-navbar .right{right:20px !important}
+.book-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px;position:relative;top:-20px}
+.book-navbar .navbar-bg{background-color:transparent}
+.book-navbar .title{padding:25px 30px;width:calc(100% - 60px);box-sizing:border-box;left:30px !important;bottom:-40px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);border-radius: 4px;text-align:left}
 
 .navbar-previous{display:none}
 /* bottom toolbar */
@@ -309,13 +322,14 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .lc02 li a span{
   color:#B7B7B7;
 }
-
-/*wishlist
-.lc01{box-shadow:none;margin:0 0 30px}
-.lc01 ul li .item-media{width:44px;height:44px;border-radius:22px;overflow:hidden;margin-top:10px}
-.lc01 ul li a{color:#000}
-*/
-
+/* my book add keyword list */
+.lc03{padding-bottom:80px}
+.lc03 li{border-bottom:1px solid #B7B7B7}
+.lc03 li .item-inner{display:flex !important;padding:25px 10px 25px 0}
+.lc03 li .item-inner::after{content:none}
+.lc03 li .item-inner .item-text{width:calc(100% - 110px);-webkit-line-clamp:3;max-height: calc(var(--f7-list-item-text-line-height) * 3);}
+.lc03 li .item-checkbox{padding-left:0}
+.lc03 li .icon-checkbox{margin-right:0}
 /*radios*/
 .ng01{
   display: grid;

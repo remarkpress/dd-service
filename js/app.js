@@ -118,13 +118,26 @@ var app = new Framework7({
         }
       }
     },
+    {
+      path: '/book_view_add/:id/',
+      url: 'html/book_view_add.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/book_view_add.js";
+          $$('head').append(s);
+        }
+      }
+    },
   ]
 });
 
 
 //뷰 생성
 app.views.create('.view-main', {
-  url: '/login/',   //초기 로딩 페이지
+//  url: '/login/',   //초기 로딩 페이지
+//  url: '/book_view_add/0/',
+  url: '/book/',
 });
 
 //하단 탭바
