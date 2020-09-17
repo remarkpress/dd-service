@@ -33,6 +33,7 @@ function create_swiper(mode,current){
       },
       on: {
         init: function () {
+          console.log('main swiper created');
          },
         tap: function (event) {
           /*

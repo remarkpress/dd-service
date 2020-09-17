@@ -129,6 +129,17 @@ var app = new Framework7({
         }
       }
     },
+    {
+      path: '/book_view_edit/:id/',
+      url: 'html/book_view_edit.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/book_view_edit.js";
+          $$('head').append(s);
+        }
+      }
+    },
   ]
 });
 

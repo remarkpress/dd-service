@@ -11,6 +11,11 @@ var swiper = new Swiper('.ib02.swiper-container', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  on: {
+    init: function () {
+      console.log('book swiper created');
+     },
+  }
 });
 
 //돌아가기

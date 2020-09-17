@@ -1,5 +1,5 @@
 var view = app.views.current;
-var current_page = $$('.page.bookViewAdd')[0].f7Page;
+var current_page = $$('.page.bookViewEdit')[0].f7Page;
 var book_id = current_page.route.params.id;  //  넘겨받은 파라미터
 
 //돌아가기
@@ -8,11 +8,11 @@ $$('.goBack').on('click', function(){
 });
 
 
-//키워드 book에 추가
-$$('#book_add_form').on('submit', function(){
+//키워드 book에 적용
+$$('#book_edit_form').on('submit', function(){
   var formData = app.form.convertToData($$(this));
 
-  //변경된 내용을 서버에 저장하는 코드 : 추가된 아이템을 DB에 적용한 후, 새로운 아이템 목록을 조회하여 가져옮
+  //변경된 내용을 서버에 저장하는 코드 : 삭제된 아이템과 변경된 순서를 DB에 적용한 후, 새로운 아이템 목록을 조회하여 가져옮
 
   //변경된 내용을 나의책 보기 슬라이드에 적용하는 코드(https://swiperjs.com/api/ 레퍼런스 참고)
   var swiper = document.querySelector('.page-previous .ib02.swiper-container').swiper;
@@ -24,11 +24,7 @@ $$('#book_add_form').on('submit', function(){
     var content = "클래식을 추천합니다. 클래식을 추천합니다. 클래식을 추천합니다. ";  //서버에서 불러온 본문
     var img_src = "http://lorempixel.com/400/200/cats";  //서버에서 불러온 이미지 경로
     swiper.appendSlide('<div class="swiper-slide"><div class="cf02 viewer"><dl class="header"><dt><span>'+keyword+'</span></dt><dd>'+question+'</dd></dl><div class="textArea">'+content+'</div><div class="picArea"><img src="'+img_src+'"/></div></div></div>');
-    //$$('.page-previous .ib02 .swiper-wrapper').append('<div class="swiper-slide"><div class="cf02 viewer"><dl class="header"><dt><span>'+keyword+'</span></dt><dd>'+question+'</dd></dl><div class="textArea">'+content+'</div><div class="picArea"><img src="'+img_src+'"/></div></div></div>');
   }
-  //swiper.update();
-  //swiper.pagination.update();
-  //swiper.navigation.update();
 
   //얼럿
   dialog.open();
@@ -40,6 +36,6 @@ $$('#book_add_form').on('submit', function(){
 });
 
 var dialog = app.dialog.create({
-  text: '선택한 키워드를 추가 하였습니다.',
+  text: '수정한 사항을 적용 하였습니다.',
   content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
 });
