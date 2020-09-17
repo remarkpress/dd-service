@@ -32,8 +32,8 @@ var app = new Framework7({
       url: 'html/book.html',
     },
     {
-      path: '/scrap/',
-      url: 'html/scrap.html',
+      path: '/writing/',
+      url: 'html/writing.html',
     },
     {
       path: '/login/',
@@ -91,15 +91,15 @@ var app = new Framework7({
       }
     },
     {
-      path: '/scrap_view/:id/',
-      url: 'html/scrap_view.html',
+      path: '/writing_view/:id/',
+      url: 'html/writing_view.html',
       options: {
         transition: 'f7-dive',
       },      
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/scrap_view.js";
+          s.src = "js/writing_view.js";
           $$('head').append(s);
         }
       }

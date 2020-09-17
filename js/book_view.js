@@ -14,11 +14,18 @@ var swiper = new Swiper('.ib02.swiper-container', {
   on: {
     init: function () {
       console.log('book swiper created');
-     },
+    },
+    tap: function () {
+      if(this.clickedIndex == 0)  this.slideNext();
+      else if(this.clickedIndex > 0){
+        var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
+        view.router.navigate('/writing_view/'+keyword_id+'/'); 
+      }
+    },
   }
 });
 
 //돌아가기
-$$('.goBack').on('click', function(){
+$$('.bookView .goBack').on('click', function(){
   view.router.back();
 });

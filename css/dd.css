@@ -67,7 +67,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .textArea textarea{font-size:14px;line-height:1.7;width:100%;overflow:hidden;}
 .cf02 .picArea{margin-bottom:20px}
 .cf02 .picArea img{max-width:100%}
-.cf02 .btnA button{position:fixed;bottom:65px;right:25px;width:38px;height:38px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
+.cf02 .btnA button{position:fixed;bottom:66px;right:25px;width:40px;height:40px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
 /* add keyword to book form */
 .cf03 button{position:fixed;bottom:25px;left:50%;transform:translate(-50%, 0);z-index:10}
 
@@ -130,8 +130,6 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .navbar-previous{display:none}
 /* bottom toolbar */
 .toolbar-bottom .tab-link i{font-size:28px;line-height:1.5}
-
-
 
 /* swiper horizontal */
 .ib01.swiper-container-horizontal {
@@ -370,8 +368,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .toolbar-bottom .book.tab-link-active{background-image:url(../images/menu_book.png)}
 .toolbar-bottom .main{background:url(../images/menu_home0.png) no-repeat center center;background-size:19px 27px;text-indent:-9999px}
 .toolbar-bottom .main.tab-link-active{background-image:url(../images/menu_home.png)}
-.toolbar-bottom .scrap{background:url(../images/menu_tag0.png) no-repeat center center;background-size:23px 23px;text-indent:-9999px}
-.toolbar-bottom .scrap.tab-link-active{background-image:url(../images/menu_tag.png)}
+.toolbar-bottom .writing{background:url(../images/menu_tag0.png) no-repeat center center;background-size:23px 23px;text-indent:-9999px}
+.toolbar-bottom .writing.tab-link-active{background-image:url(../images/menu_tag.png)}
 /*
 .toolbar-bottom .tab-link-active{position:relative}
 .toolbar-bottom .tab-link-active:after{content:"";display:block;width:100%;height:4px;border-radius:2px;background-color:var(--primary-color)}

@@ -1,10 +1,10 @@
 
 var view = app.views.current;
-var current_page = $$('.page.scrapView')[0].f7Page;
+var current_page = $$('.page.writingView')[0].f7Page;
 var keyword_id = current_page.route.params.id;  //  넘겨받은 파라미터
 
 //돌아가기
-$$('.goBack').on('click', function(){
+$$('.writingView .goBack').on('click', function(){
   //view.router.back(view.history[1],{force:true});
   app.dialog.confirm(
     '저장하지 않고 나갈까요?', 
@@ -26,7 +26,7 @@ $$('.fab01 > a').on('click', function(){
 
 });
 //키워드 저장
-$$('#save_myrecord').on('submit', function(){
+$$('#save_writing').on('submit', function(){
   var formData = app.form.convertToData($$(this));
   alert(JSON.stringify(formData));
 
