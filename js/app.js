@@ -36,6 +36,61 @@ var app = new Framework7({
       url: 'html/writing.html',
     },
     {
+      path: '/user/',
+      url: 'html/user.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/user.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
+      path: '/user_question/',
+      url: 'html/user_question.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/user.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
+      path: '/user_account/',
+      url: 'html/user_account.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/user.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
+      path: '/user_about/',
+      url: 'html/user_about.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/user.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
+      path: '/user_contact/',
+      url: 'html/user_contact.html',
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/user.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
       path: '/login/',
       url: 'html/login.html',
       on: {
@@ -146,9 +201,9 @@ var app = new Framework7({
 
 //뷰 생성
 app.views.create('.view-main', {
-//  url: '/login/',   //초기 로딩 페이지
+  url: '/login/',   //초기 로딩 페이지
 //  url: '/book_view_add/0/',
-  url: '/book/',
+//  url: '/',
 });
 
 //하단 탭바

@@ -22,6 +22,9 @@
 .page-content.sub-content > .block{padding-bottom:89px}
 .page-content.view-content{background-color:#fff;z-index:10;padding-top:70px;overflow:hidden}
 .page-content.view-add-content{background-color:#fff;z-index:10;padding-top:110px}
+.page-content.user-content{background-color:#fff;z-index:10}
+.page-content.user-content .ng06{position:fixed;bottom:100px;left:50px}
+.page-content.user-content .ng06_01{position:static}
 .login-screen-content{z-index:10;padding-top:70px}
 ul{list-style-type:none;padding-left:0}
 body{color:color:var(--primary-color)}
@@ -47,9 +50,9 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .btn03.blue{background-color:#4686C7;color:var(--primary-color) !important}
 .btn03.green{background-color:#35AC74;color:var(--primary-color) !important}
 .btn03.pink{background-color:#F19DBE;color:var(--primary-color) !important}
-.btn04{display:inline-block;width:auto;height:45px;line-height:45px;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;text-align:center;padding:0 60px}
+.btn04{display:inline-block;width:auto;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;text-align:center;padding:11px 60px}
 .btn04.active-state{background-color:#999}
-.btn05{display:inline-block;width:auto;height:45px;line-height:45px;background-color:#fff;color:var(--primary-color);border-radius:22.5px;border:2px solid var(--primary-color);none;font-family:inherit;font-size:14px;text-align:center;padding:0 60px;box-sizing:border-box}
+.btn05{display:inline-block;width:auto;background-color:#fff;color:var(--primary-color);border-radius:22.5px;border:2px solid var(--primary-color);none;font-family:inherit;font-size:14px;text-align:center;padding:11px 60px;box-sizing:border-box}
 .btn05.active-state{background-color:#999}
 
 /* add keyword form */
@@ -67,7 +70,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .textArea textarea{font-size:14px;line-height:1.7;width:100%;overflow:hidden;}
 .cf02 .picArea{margin-bottom:20px}
 .cf02 .picArea img{max-width:100%}
-.cf02 .btnA button{position:fixed;bottom:66px;right:25px;width:40px;height:40px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
+.cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
+.cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
 /* add keyword to book form */
 .cf03 button{position:fixed;bottom:25px;left:50%;transform:translate(-50%, 0);z-index:10}
 
@@ -75,6 +79,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /* fab */
 .fab a{width:40px;height:40px;border-radius:20px;box-sizing:border-box;background-color:#fff;border:2px solid var(--primary-color);box-shadow:none}
 .fab a.active-state{background-color:var(--secondary-color)}
+.fab.fab-left-bottom{left:35px}
+.fab.fab-right-bottom{right:100px}
 
 .fab01 a{background:#fff url(../images/icon_minus.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
@@ -126,6 +132,17 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .book-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px;position:relative;top:-20px}
 .book-navbar .navbar-bg{background-color:transparent}
 .book-navbar .title{padding:25px 30px;width:calc(100% - 60px);box-sizing:border-box;left:30px !important;bottom:-40px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);border-radius: 4px;text-align:left}
+
+.user-navbar{height:80px;padding:30px 25px 0}
+.user-navbar .goBack{color:var(--primary-color)}
+.user-navbar .title{text-align:center;font-size:24px}
+
+.user-sub-navbar{height:80px;padding:80px 0 0;margin:0 25px;position:relative}
+.user-sub-navbar .goBack{position:absolute;right:0;top:35px;display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
+.user-sub-navbar .title{text-align:center;font-size:18px}
+.user-sub-navbar01{border-bottom:1px solid #B7B7B7;padding-bottom:10px;margin-bottom:10px}
+.user-sub-navbar01 .title dt{margin-bottom:10px}
+.user-sub-navbar01 .title dd{font-size:12px;margin-left:0}
 
 .navbar-previous{display:none}
 /* bottom toolbar */
@@ -283,6 +300,21 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 2px 0px 14px rgba(0, 0, 0, 0.32);
   border-radius: 4px;
 }
+/* about */
+.tc03{margin:0 50px;background:url(../images/con_about.png) no-repeat center top;background-size:156px 172px;padding-top:190px;text-align:center}
+.tc03 .block{margin-top:0}
+.tc03 p{word-break:keep-all;line-height:2;margin-bottom:50px}
+.tc03 .btn05{position:fixed;width:70%;left:50%;bottom:70px;transform:translate(-50%, 0)}
+/* contact */
+.tc04{margin:0 50px;text-align:center;overflow:hidden}
+.tc04 .block{margin-top:0}
+.tc04 p{word-break:keep-all;line-height:2;margin-bottom:60px}
+.tc04 ul li{margin-bottom:10px}
+.tc04 ul dl{display:table;width:100%}
+.tc04 ul dl dt{display:table-cell;width:40%;text-align:left;font-weight:bold}
+.tc04 ul dl dd{display:table-cell;margin-left:0;text-decoration:underline}
+.tc04 .btn05{position:fixed;width:70%;left:50%;bottom:70px;transform:translate(-50%, 0)}
+.tc04 .btn05 +input{position:absolute;left:-9999px}
 
 /* my keywords */
 .lc01{
@@ -330,6 +362,12 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .lc03 li .icon-checkbox{margin-right:0}
 .lc03_01 li .swipeout-actions-right{z-index:100}
 .lc03_01 li .swipeout-actions-right .swipeout-delete{background-color:var(--primary-color)}
+/* 나의 질문 리스트 */
+.lc04{margin:0 20px}
+.lc04 li{margin-bottom:30px}
+.lc04 li span{display:table;width:100%}
+.lc04 li span em{display:table-cell;width:20%;font-style:normal}
+.lc04 li span b{display:table-cell;width:80%;font-weight:normal}
 /*radios*/
 .ng01{
   display: grid;
@@ -355,6 +393,31 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /*tab menu*/
 .ng03{background-color:transparent}
 .ng03 + .tabs-swipeable-wrap .page-content.tab{padding-top:30px}
+/* user main */
+.ng04{display:flex;justify-content:space-around;border-bottom:1px solid #B7B7B7;padding-bottom:20px;margin-bottom:50px}
+.ng04 li{width:25%;text-align:center}
+.ng04 li span{display:block;width:100%;padding-top:100px;font-size:16px}
+.ng04 li.questions span{background:url(../images/menu_home_user.png) no-repeat center center;background-size:33.5px 50px}
+.ng04 li.books span{background:url(../images/menu_book0.png) no-repeat center center;background-size:37px 35px}
+.ng04 li.writings span{background:url(../images/menu_tag0.png) no-repeat center center;background-size:35px 35px}
+
+.ng05{display:table;width:100%}
+.ng05 li{display:table-cell;width:50%;text-align:center;vertical-align:middle}
+.ng05 li a{display:block;color:var(--primary-color);height:35px;line-height:35px;font-size:16px}
+.ng05 li.likes a:before{content:"";display:inline-block;width:35px;height:35px;background:url(../images/icon_heart_off.png) no-repeat center center;background-size:35px 35px;vertical-align:middle;margin-right:15px}
+.ng05 li.hates a:before{content:"";display:inline-block;width:35px;height:35px;background:url(../images/icon_heart_off.png) no-repeat center center;background-size:35px 35px;vertical-align:middle;margin-right:15px;transform: rotate(180deg);}
+
+.ng06 li{line-height:2.6}
+.ng06 li a{font-size:16px;color:var(--primary-color)}
+.ng06_01 li{text-align:center}
+/*user like tab menu*/
+.ng07{background-color:transparent;margin-bottom:30px}
+.ng07 .tab-link{flex-direction:initial;color:var(--primary-color)}
+.ng07 .tab-link:before{content:"";display:inline-block;width:35px;height:35px;background:url(../images/icon_heart_off.png) no-repeat center center;background-size:cover;vertical-align:middle;margin-right:15px}
+.ng07 .tab-link:last-of-type:before{background-image:url(../images/icon_heart_off.png);transform: rotate(180deg)}
+.ng07 .tab-link.tab-link-active:before{background-image:url(../images/icon_heart.png)}
+
+.ng07 + .tabs-swipeable-wrap .page-content.tab{padding-top:30px}
 
 /*login*/
 .login-screen{display:block;position:static;transform:none}
