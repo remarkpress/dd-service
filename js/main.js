@@ -133,6 +133,8 @@ $$("#add-new-keyword").submit(function(event){
   answer.append('<input type="radio" name="'+q_name+'" id="'+id+'" value="'+word+'"/>');
   answer.append('<label class="btn02" for="'+id+'"><span>'+word+'</span></label>');
   answer.insertBefore($$('.swiper-slide-active ul.ng01 li.add'));
+  answer.find('label').click();
+  $$('.swiper-slide-active ul.ng01 li.add').remove();
   $$("#add-new-keyword").hide();
   $$(".tc01 form button.confirm").css('display','');
   return false;
