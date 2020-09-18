@@ -9,33 +9,46 @@
     </div>
   </div>
   <!-- FAB -->
-  <div class="fab fab01 fab-left-bottom">
-    <a href="#">삭제</a>            
-  </div>
-  <div class="fab fab02 fab-right-bottom">
-    <a href="#">
-      <i class="plus"></i>
-      <i class="close"></i>
-    </a>            
-    <div class="fab-buttons fab-buttons-top">
-      <a href="#" class="fab-label-button picture">
-        <span>사진</span>
-      </a>
-      <a href="#" class="fab-label-button edit">
-        <span>편집</span>
-      </a>
-      <a href="#" class="fab-label-button link">
-        <span>링크</span>
-      </a>
+  <div class="btnArea">
+    <div class="fab fab01 fab-left-bottom">
+      <a href="#">삭제</a>            
+    </div>
+    <div class="fab fab02 fab-right-bottom">
+      <a href="#">
+        <i class="plus"></i>
+        <i class="close"></i>
+      </a>            
+      <div class="fab-buttons fab-buttons-top">
+        <a href="#" class="fab-label-button picture">
+          <span>사진</span>
+        </a>
+        <a href="#" class="fab-label-button edit">
+          <span>편집</span>
+        </a>
+        <a href="#" class="fab-label-button link">
+          <span>링크</span>
+        </a>
+      </div>
     </div>
   </div>
   <!-- //FAB -->
   <div class="page-content view-content">
+    <form class="cf01" id="add-writing-name" style="display:none">
+      <input type="text" name="writing_name"/>
+      <button>등록</button>
+    </form>
     <div class="block">
       <form class="cf02" onSubmit="return false;" id="save_writing">
         <dl class="header">
+         <!-- 
+            [btn03 option]
+            wrote : 사용자가 글을 작성한 키워드
+            added : 사용자가 직접 +를 눌러 추가한 키워드
+            book : '나만의 책'에서 태그에 포함한 키워드
+            yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
+          -->
           <dt>
-            <span>루꼴라</span>
+            <a class="btn03 added blue"><span>루꼴라</span></a>
             <input type="hidden" name="keyword" value="루꼴라"/>
           </dt>
           <dd>가장 좋아하는 채소는 무엇인가요?</dd>

@@ -5,6 +5,7 @@ var book_id = current_page.route.params.id;  //  넘겨받은 파라미터
 if(book_id == "new"){ //신규 책 만들기
   $$('.ib02 .swiper-slide:first-child .tc02 dt a').text('(책 이름을 입력해 주세요)');
   $$('#add-book-name').show();
+  $$('.ib02 .controls').hide();
   $$('#add-book-name').find("input").focus();
 }
 
@@ -47,7 +48,7 @@ $$("#add-book-name").submit(function(event){
     return false;
   }
   $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
-
+  $$('.ib02 .controls').show();
   $$("#add-book-name").hide();
   return false;
 });

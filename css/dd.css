@@ -60,8 +60,9 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf01 input{padding:10px 0;display:inline;width:75%}
 .cf01 button{position:fixed;bottom:25px;right:25px;width:38px;height:38px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
 .cf01 button.active-state{background-color:#999}
+/*
 .cf01#add-book-name:after{content:"";display:block;background-color:rgba(0,0,0,0.3);position:fixed;top:0;left:0;right:0;bottom:80px}
-
+*/
 /* my record form */
 .cf02 {padding:0 20px 100px}
 .cf02 .header{text-align:center;margin-bottom:50px}
