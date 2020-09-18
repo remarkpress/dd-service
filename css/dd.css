@@ -60,6 +60,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf01 input{padding:10px 0;display:inline;width:75%}
 .cf01 button{position:fixed;bottom:25px;right:25px;width:38px;height:38px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
 .cf01 button.active-state{background-color:#999}
+.cf01#add-book-name:after{content:"";display:block;background-color:rgba(0,0,0,0.3);position:fixed;top:0;left:0;right:0;bottom:80px}
+
 /* my record form */
 .cf02 {padding:0 20px 100px}
 .cf02 .header{text-align:center;margin-bottom:50px}
@@ -71,6 +73,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .picArea{margin-bottom:20px}
 .cf02 .picArea img{max-width:100%}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
+.cf02 .bookArea span:before{content:"#"}
 .cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:2px solid var(--primary-color);border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
 /* add keyword to book form */
 .cf03 button{position:fixed;bottom:25px;left:50%;transform:translate(-50%, 0);z-index:10}
@@ -250,6 +253,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ib02 .tc02{padding:70px 35px;margin:0;height:100%;box-sizing:border-box}
 .ib02 .tc02 dt{margin-bottom:30px;width:80%;word-break:keep-all}
 .ib02 .tc02 dt a{font-size:24px;border-bottom:1px solid;color:var(--primary-color)}
+.ib02 .tc02 dt a:before{content:"#";margin-right:10px}
 .ib02 .tc02 dd{margin-left:0}
 .ib02 .cf02{padding-bottom:30px}
 .ib02 .cf02 .header{margin-top:0}
@@ -349,6 +353,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   display:block;
   color:var(--primary-color);
 }
+.lc02 li a strong:before{content:"#";margin-right:5px}
+.lc02 li.add a strong:before{content:none}
 .lc02 li a span{
   color:#B7B7B7;
 }
