@@ -43,7 +43,7 @@
         {{#each slides}}
         <div class="swiper-slide">
           <!-- tc01 -->
-          <div class="tc01 draggable" data-item-id="{{@index+1}}">
+          <div class="tc01 draggable" data-item-id="{{id}}">
             <div class="card card-expandable">
               <div class="card-content">
                 <div class="card-header-bg">
@@ -59,10 +59,9 @@
                   <form>
                     <ul class="ng01">
                       {{#each answer_choices.split(',')}}
-                      <!-- needs fix: id에 숫자가 두개 있을경우 앞자리는 slide의 인덱스여야함 -->
                       <li>
-                        <input type="radio" name="answer-{{@index+1}}" id="answer-{{@index+1}}-{{@index+1}}" value="{{this}}"/>
-                        <label class="btn02" for="answer-{{@index+1}}-{{@index+1}}"><span>{{this}}</span></label>
+                        <input type="radio" name="answer-{{../id}}" id="answer-{{../id}}-{{@index+1}}" value="{{this}}"/>
+                        <label class="btn02" for="answer-{{../id}}-{{@index+1}}"><span>{{this}}</span></label>
                       </li>
                       {{/each}}
                       <li class="add">

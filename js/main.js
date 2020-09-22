@@ -2,11 +2,10 @@
 // var endpoint = 'http://differentdoors.durumi.io/api/posts/main';
 var endpoint = 'http://differentdoors.durumi.io/main_posts';
 var slideTemplate = $$('script#swiper-template').html();
-console.log(slideTemplate);
+// console.log(slideTemplate);
 var compiledSlideTemplate = Template7.compile(slideTemplate);
 
 app.request.json(endpoint, function(data){
-  var answer_choices = data[0].answer_choices;
   var slides = compiledSlideTemplate({slides: data});
   $$('.swiper-wrapper').html(slides);
 
