@@ -200,12 +200,15 @@ var app = new Framework7({
 
 
 //뷰 생성
-app.views.create('.view-main', {
-  url: '/login/',   //초기 로딩 페이지
-  // url: '/book_view_add/0/',
-  // url: '/',
-
-});
+if (localStorage["dd-member-credentials"] === undefined ) {
+  app.views.create('.view-main', {
+    url: '/login/',   //초기 로딩 페이지
+  });
+} else {
+  app.views.create('.view-main', {
+    url: '/',   //초기 로딩 페이지
+  });
+}
 
 //하단 탭바
 $$('.toolbar-bottom a').on('click', function(){
