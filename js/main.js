@@ -1,11 +1,16 @@
 
-// var endpoint = 'http://differentdoors.durumi.io/api/posts/main';
-var endpoint = 'http://differentdoors.durumi.io/main_posts';
 var slideTemplate = $$('script#swiper-template').html();
 // console.log(slideTemplate);
 var compiledSlideTemplate = Template7.compile(slideTemplate);
 
-app.request.json(endpoint, function(data){
+var endpoint = 'http://differentdoors.durumi.io/api/posts/';
+if (localStorage["dd-member-credentials"] === undefined ) {
+  view.router.navigate('login');
+} else {
+  var credentials = JSON.parse(localStorage["dd-member-credentials"]);
+}
+// console.log(credentials);
+app.request.json(endpoint, credentials, function(data){
   var slides = compiledSlideTemplate({slides: data});
   $$('.swiper-wrapper').html(slides);
 

@@ -96,7 +96,7 @@ var app = new Framework7({
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/form.js";
+          s.src = "js/login.js";
           $$('head').append(s);
         }
       }
@@ -150,7 +150,7 @@ var app = new Framework7({
       url: 'html/writing_view.html',
       options: {
         transition: 'f7-dive',
-      },      
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -164,7 +164,7 @@ var app = new Framework7({
       url: 'html/book_view.html',
       options: {
         transition: 'f7-dive',
-      },      
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -202,8 +202,9 @@ var app = new Framework7({
 //뷰 생성
 app.views.create('.view-main', {
   url: '/login/',   //초기 로딩 페이지
-//  url: '/book_view_add/0/',
-//  url: '/',
+  // url: '/book_view_add/0/',
+  // url: '/',
+
 });
 
 //하단 탭바

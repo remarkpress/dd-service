@@ -4,14 +4,15 @@
   <div class="page-content login-screen-content">
     <div class="login-screen-title">기다리고 있었어요!</div>
     <!-- Login form -->
-    <form id="login_form" onSubmit="return false;">
+    <!-- <form id="login_form" onSubmit="return false;"> -->
+    <form action="http://differentdoors.durumi.io/api/sign_in" method="post" class="form-ajax-submit" id="login_form">
       <div class="list inputA">
         <ul>
           <li class="item-content item-input">
             <div class="item-inner">
               <div class="item-title item-label">아이디</div>
               <div class="item-input-wrap">
-                <input type="email" name="email" placeholder="이메일을 입력해 주세요" required validate data-error-message="올바른 이메일을 입력해 주세요">
+                <input type="email" name="sign_in[email]" placeholder="이메일을 입력해 주세요" required validate data-error-message="올바른 이메일을 입력해 주세요">
                 <span class="input-clear-button"></span>
               </div>
             </div>
@@ -20,7 +21,7 @@
             <div class="item-inner">
               <div class="item-title item-label">비밀번호</div>
               <div class="item-input-wrap">
-                <input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required validate data-error-message="비밀번호를 입력해 주세요">
+                <input type="password" name="sign_in[password]" placeholder="비밀번호를 입력해 주세요" required validate data-error-message="비밀번호를 입력해 주세요">
                 <span class="input-clear-button"></span>
               </div>
             </div>
@@ -40,6 +41,7 @@
         <ul class="btnA">
           <li>
             <button class="btn04">입장하기</button>
+            <!-- <input type="submit" value="입장하기" class="btn04"> -->
           </li>
         </ul>
         <div class="block-footer">

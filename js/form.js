@@ -1,24 +1,24 @@
 var view=app.views.current;
 
-//로그인
-$$('#login_form').on('submit', function(){
-  var formData = app.form.convertToData($$(this));
-  //console.log(formData);
-  alert(JSON.stringify(formData));
-  view.router.navigate('/');  
-});
+// //로그인
+// $$('#login_form').on('submit', function(){
+//   var formData = app.form.convertToData($$(this));
+//   //console.log(formData);
+//   alert(JSON.stringify(formData));
+//   view.router.navigate('/');
+// });
 //가입01
 $$('#join_form01').on('submit', function(){
   var formData = app.form.convertToData($$(this));
   //console.log(formData);
   alert(JSON.stringify(formData));
-  view.router.navigate('/join02/');  
+  view.router.navigate('/join02/');
 });
 //가입02
 $$('#join_form02').on('submit', function(){
   var formData = app.form.convertToData($$(this));
   alert(JSON.stringify(formData));
-  view.router.navigate('/join03/');  
+  view.router.navigate('/join03/');
 });
 //가입03
 $$('#join_form03').on('submit', function(){
@@ -28,7 +28,7 @@ $$('#join_form03').on('submit', function(){
   dialog.open();
   setTimeout(function () {
     dialog.close();
-    view.router.navigate('/');  
+    view.router.navigate('/');
   }, 2000);
 
 });
