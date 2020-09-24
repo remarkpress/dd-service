@@ -24,16 +24,29 @@ var app = new Framework7({
           var s = document.createElement('script');
           s.src = "js/main.js";
           $$('head').append(s);
+        },
+        pageBeforeOut: function(e, page) {
+          $$('.page.main').remove();
         }
       }
     },
     {
       path: '/book/',
       url: 'html/book.html',
+      on: {
+        pageBeforeOut: function(e, page) {
+          $$('.page.book').remove();
+        }
+      }
     },
     {
       path: '/writing/',
       url: 'html/writing.html',
+      on: {
+        pageBeforeOut: function(e, page) {
+          $$('.page.writing').remove();
+        }
+      }
     },
     {
       path: '/user/',
