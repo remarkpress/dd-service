@@ -24,16 +24,29 @@ var app = new Framework7({
           var s = document.createElement('script');
           s.src = "js/main.js";
           $$('head').append(s);
+        },
+        pageBeforeOut: function(e, page) {
+          $$('.page.main').remove();
         }
       }
     },
     {
       path: '/book/',
       url: 'html/book.html',
+      on: {
+        pageBeforeOut: function(e, page) {
+          $$('.page.book').remove();
+        }
+      }
     },
     {
       path: '/writing/',
       url: 'html/writing.html',
+      on: {
+        pageBeforeOut: function(e, page) {
+          $$('.page.writing').remove();
+        }
+      }
     },
     {
       path: '/user/',
@@ -150,7 +163,7 @@ var app = new Framework7({
       url: 'html/writing_view.html',
       options: {
         transition: 'f7-dive',
-      },      
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -164,7 +177,7 @@ var app = new Framework7({
       url: 'html/book_view.html',
       options: {
         transition: 'f7-dive',
-      },      
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
