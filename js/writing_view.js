@@ -3,12 +3,29 @@ var view = app.views.current;
 var current_page = $$('.page.writingView')[0].f7Page;
 var writing_id = current_page.route.params.id;  //  넘겨받은 파라미터
 
-if(writing_id == "new"){ //신규 책 만들기
+if ( writing_id == "new" ) { //신규 책 만들기
   $$('.cf02 .header dt a span').text('+');
   $$('.btnArea').hide();
   $$('#save_writing .btnA').hide();
   $$('#add-writing-name').show();
   $$('#add-writing-name').find("input").focus();
+} else {
+  var myPostShowTemplate = $$('script#my-post-show-template').html();
+  // console.log(myPostShowTemplate);
+  var compiledMyPostShowTemplate = Template7.compile(myPostShowTemplate);
+  var endpoint = endpoint_hostname + '/api/posts/' + writing_id;
+
+  if (localStorage["dd-member-credentials"] === undefined ) {
+    view.router.navigate('login');
+  } else {
+    var credentials = JSON.parse(localStorage["dd-member-credentials"]);
+  }
+
+  app.request.json(endpoint, credentials, function(data){
+    console.log(data);
+    var post = compiledMyPostShowTemplate({post: data});
+    $$('.my_post_show_wrapper').html(post);
+  });
 }
 $$('#save_writing .header dt .btn03').on('click', function(){ //신규 책 만들기
   $$('.btnArea').hide();
@@ -41,7 +58,7 @@ $$("#add-writing-name").submit(function(event){
 $$('.writingView .goBack').on('click', function(){
   //view.router.back(view.history[1],{force:true});
   app.dialog.confirm(
-    '저장하지 않고 나갈까요?', 
+    '저장하지 않고 나갈까요?',
     function () {
       view.router.back();
     }
@@ -52,7 +69,7 @@ $$('.writingView .goBack').on('click', function(){
 //키워드 삭제
 $$('.fab01 > a').on('click', function(){
   app.dialog.confirm(
-    '해당 키워드를 삭제하시겠습니까?', 
+    '해당 키워드를 삭제하시겠습니까?',
     function () {
       $$('.page-previous .lc01 li a[keyword-id="'+writing_id+'"]').parent().remove();
       view.router.back();

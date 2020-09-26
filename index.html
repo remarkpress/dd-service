@@ -80,5 +80,52 @@
       {{/each}}
       </div>
     </script>
+
+    <script id="my-posts-template" type="text/template7">
+      <!--
+        [btn03 class option]
+        wrote : 사용자가 글을 작성한 키워드
+        added : 사용자가 직접 +를 눌러 추가한 키워드
+        book : '나만의 책'에서 태그에 포함한 키워드
+        yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
+      -->
+      <li class="add">
+        <a class="btn02" href="/writing_view/new/">추가</a>
+      </li>
+      {{#each posts}}
+        <li><a class="btn03" keyword-id="{{this.id}}" href="/writing_view/{{this.id}}/"><span>{{this.title}}</span></a></li>
+      {{/each}}
+    </script>
+
+    <script id="my-post-show-template" type="text/template7">
+       <form class="cf02" onSubmit="return false;" id="save_writing">
+         <dl class="header">
+          <!--
+             [btn03 option]
+             wrote : 사용자가 글을 작성한 키워드
+             added : 사용자가 직접 +를 눌러 추가한 키워드
+             book : '나만의 책'에서 태그에 포함한 키워드
+             yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
+           -->
+           <dt>
+             <a class="btn03 added blue"><span>{{post.title}}</span></a>
+             <input type="hidden" name="keyword" value="{{post.title}}"/>
+           </dt>
+           <dd>{{post.prompt_post_title}}</dd>
+         </dl>
+         <div class="textArea">
+           <textarea name="content" maxlength="250" class="resizable" placeholder="본문을 입력하세요.">{{post.body}}</textarea>
+         </div>
+         <div class="picArea">
+           <img src="http://lorempixel.com/400/200/cats"/>
+         </div>
+         <div class="bookArea">
+           <span>나의 책에서 조회할때 보여주는 곳</span>
+         </div>
+         <div class="btnA">
+           <button>저장</button>
+         </div>
+      </form>
+    </script>
   </body>
 </html>

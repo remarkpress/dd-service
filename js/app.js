@@ -18,8 +18,6 @@ var app = new Framework7({
       path: '/',
       url: 'html/main.html',
       on: {
-        pageAfterIn: function test (e, page) {
-        },
         pageInit: function (e, page) {
           var s = document.createElement('script');
           s.src = "js/main.js";
@@ -43,6 +41,11 @@ var app = new Framework7({
       path: '/writing/',
       url: 'html/writing.html',
       on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/writing.js";
+          $$('head').append(s);
+        },
         pageBeforeOut: function(e, page) {
           $$('.page.writing').remove();
         }
