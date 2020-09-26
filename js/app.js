@@ -211,6 +211,8 @@ var app = new Framework7({
   ]
 });
 
+// var endpoint_hostname = 'http://differentdoors.durumi.io';
+var endpoint_hostname = 'http://localhost:3000';
 
 //뷰 생성
 if (localStorage["dd-member-credentials"] === undefined ) {
