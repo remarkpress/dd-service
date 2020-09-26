@@ -60,7 +60,8 @@
                     <ul class="ng01">
                       {{#each answer_choices.split(',')}}
                       <li>
-                        <input type="radio" name="answer-{{../id}}" id="answer-{{../id}}-{{@index+1}}" value="{{this}}"/>
+                        <input type="hidden" id="prompt_id" name="prompt_id" value="{{../id}}">
+                        <input type="radio" name="title" id="answer-{{../id}}-{{@index+1}}" value="{{this}}"/>
                         <label class="btn02" for="answer-{{../id}}-{{@index+1}}"><span>{{this}}</span></label>
                       </li>
                       {{/each}}

@@ -1,5 +1,6 @@
 var view=app.views.current;
-
+// var endpoint = endpoint_hostname + '/api/sign_in'
+// console.log(endpoint);
 $$('#login_form.form-ajax-submit').on('formajax:beforesend', function (e) {
   // e.preventDefault();
   // console.log(e);
@@ -23,7 +24,9 @@ $$('#login_form.form-ajax-submit').on('formajax:success', function (e) {
   var token = response_data.data.member.authentication_token;
 
   localStorage.removeItem('dd-member-credentials');
-  localStorage.setItem('dd-member-credentials', JSON.stringify({ member_email: email, member_token: token }))
+  localStorage.setItem('dd-member-credentials', JSON.stringify({ member_email: email, member_token: token }));
+  localStorage.setItem('dd-member-email', email);
+  localStorage.setItem('dd-member-token', token);
 
   $$('.page.login').remove();
   view.router.navigate({

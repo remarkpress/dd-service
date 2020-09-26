@@ -3,7 +3,7 @@ var slideTemplate = $$('script#swiper-template').html();
 // console.log(slideTemplate);
 var compiledSlideTemplate = Template7.compile(slideTemplate);
 
-var endpoint = 'http://differentdoors.durumi.io/api/posts/';
+var endpoint = endpoint_hostname + '/api/posts/';
 if (localStorage["dd-member-credentials"] === undefined ) {
   view.router.navigate('login');
 } else {
@@ -150,15 +150,36 @@ app.request.json(endpoint, credentials, function(data){
       notification2.open();
       return false;
     }
-
+    // console.log(credentials);
+    var formData = app.form.convertToData($$(this));
+    // console.log(formData);
+    var data = {
+      member_email: localStorage["dd-member-email"],
+      member_token: localStorage["dd-member-token"],
+      post: {
+        title: formData["title"],
+        prompt_id: formData["prompt_id"]
+      }
+    };
+    console.log(data);
     /*여기에 저장 프로시져 추가*/
+    app.request.post(endpoint, data, function(data) {
+      // console.log(data);
+      var response_data = JSON.parse(data);
+      // console.log(response_data);
+      console.log(response_data.is_success === true);
 
-    //notificationSave.open();
-    dialog.open();
-    setTimeout(function () {
-      dialog.close();
-    }, 2000);
-    $$(this).parents('.tc01').find('a.card-close').click();
+      if (response_data.is_success === true) {
+        // notificationSave.open();
+        dialog.open();
+        setTimeout(function () {
+          dialog.close();
+        }, 2000);
+        $$(this).parents('.tc01').find('a.card-close').click();
+      } else {
+        alert('오류가 있습니다.');
+      }
+    });
   });
 
   // Create full-layout notification
