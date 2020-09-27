@@ -2,6 +2,7 @@
 var view = app.views.current;
 var current_page = $$('.page.writingView')[0].f7Page;
 var writing_id = current_page.route.params.id;  //  넘겨받은 파라미터
+// console.log(writing_id);
 
 if ( writing_id == "new" ) { //신규 책 만들기
   $$('.cf02 .header dt a span').text('+');
@@ -27,6 +28,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
     $$('.my_post_show_wrapper').html(post);
   });
 }
+
 $$('#save_writing .header dt .btn03').on('click', function(){ //신규 책 만들기
   $$('.btnArea').hide();
   $$('#save_writing .btnA').hide();
@@ -40,12 +42,13 @@ $$("#add-writing-name").submit(function(event){
   event.preventDefault();
   var formData = app.form.convertToData($$(this));
 
-  if(formData.writing_name == ''){
+  if (formData.writing_name == '') {
     notification1.open();
     $$(this).find("input").focus();
     return false;
   }
   $$('.cf02 .header dt a span').text(formData.writing_name);
+  $$('.cf02 .header dt input[name="keyword"]').val(formData.writing_name);
 
   $$("#add-writing-name").hide();
   $$('.btnArea').show();
@@ -80,23 +83,48 @@ $$('.fab01 > a').on('click', function(){
 //키워드 저장
 $$('#save_writing').on('submit', function(){
   var formData = app.form.convertToData($$(this));
-  alert(JSON.stringify(formData));
+  console.log(JSON.stringify(formData));
 
-  if(writing_id == "new"){  //신규추가
+  var data = {
+    member_email: localStorage["dd-member-email"],
+    member_token: localStorage["dd-member-token"],
+    post: {
+      title: formData["keyword"],
+      body: formData["content"]
+    }
+  };
+
+  if (writing_id == "new") {  //신규추가
+    //여기에 저장 프로시져
+    var endpoint = endpoint_hostname + '/api/posts'
+    app.request.post( endpoint, data, function(data) {
+      // console.log(data);
+      var response_data = JSON.parse(data);
+      // console.log(response_data);
+      console.log(response_data.is_success === true);
+
+      if (response_data.is_success === true) {
+        dialog.open();
+        setTimeout(function () {
+          dialog.close();
+          view.router.back();
+        }, 2000);
+      } else {
+        alert('오류가 있습니다.');
+      }
+    });
+  } else {  //수정
     //여기에 저장 프로시져
 
-
-  }else{  //수정
-    //여기에 저장 프로시져
-
+    // dialog.open();
+    //   setTimeout(function () {
+    //     dialog.close();
+    //     view.router.back();
+    //   }, 2000);
+    // } else {
+    //   alert('오류가 있습니다.');
+    // }
   }
-
-  dialog.open();
-  setTimeout(function () {
-    dialog.close();
-    view.router.back();
-  }, 2000);
-
 });
 
 var dialog = app.dialog.create({
