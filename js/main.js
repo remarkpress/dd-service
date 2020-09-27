@@ -129,9 +129,10 @@ app.request.json(endpoint, credentials, function(data){
       $$("#add-new-keyword").find("input").focus();
       return false;
     }
-    var q_name = $$('.swiper-slide-active ul.ng01 li input').attr('name');
-    var opt_no = $$('.swiper-slide-active ul.ng01 li').length + 1;
-    var id = q_name+'-'+opt_no ;
+    var prompt_id = $$('.swiper-slide-active ul.ng01 li input[type="hidden"]').val();
+    var q_name = $$('.swiper-slide-active ul.ng01 li input[type="radio"]').attr('name');
+    var opt_no = $$('.swiper-slide-active ul.ng01 li').length;
+    var id = 'answer-'+prompt_id+'-'+opt_no ;
     var answer = $$("<li/>");
     answer.append('<input type="radio" name="'+q_name+'" id="'+id+'" value="'+word+'"/>');
     answer.append('<label class="btn02" for="'+id+'"><span>'+word+'</span></label>');
