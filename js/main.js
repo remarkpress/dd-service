@@ -257,32 +257,51 @@ app.request.json(endpoint, credentials, function(data){
           if($$('.ib01').hasClass('swiper-container-vertical')) return false;
           //선택한 아이템 정보
           var item = swiper.slides[swiper.activeIndex].querySelectorAll('.tc01')[0];
-          //selectedItem.item_id = item.getAttribute('data-item-id');
+          selectedItem.item_id = item.getAttribute('data-item-id');
           //selectedItem.bg_img = window.getComputedStyle(item.querySelectorAll('.header')[0]).backgroundImage;
         },
 
         move: dragMoveListener,
 
         end (event) {
-          if($$('.ib01').hasClass('swiper-container-vertical')) return false;
-
-          if(isRemoveSlide == 1){ //좋아요에 담기
-            //addLike(selectedItem);  //좋아요에 추가
-            setTimeout(function() {
-              swiper.removeSlide(swiper.activeIndex);
-              isRemoveSlide = false;
-              dialog2.open();
-              setTimeout(function () {
-                dialog2.close();
-              }, 1000);
-            }, 200);
-          }else if(isRemoveSlide == 2){ //삭제
-            setTimeout(function() {
-              swiper.removeSlide(swiper.activeIndex);
-              isRemoveSlide = false;
-              notificationDelete.open();
-            }, 200);
-          }else{
+          if ($$('.ib01').hasClass('swiper-container-vertical')) { return false;
+          }
+          console.log(selectedItem.item_id);
+          if (isRemoveSlide == 1) { //좋아요에 담기
+            var data = JSON.parse(localStorage["dd-member-credentials"]);
+            // console.log(data);
+            app.request.post(endpoint_hostname + '/api/posts/' + selectedItem.item_id + '/add_to_likes', data, function(data) {
+              var response_data = JSON.parse(data);
+              if (response_data.is_success === true) {
+                //addLike(selectedItem);  //좋아요에 추가
+                setTimeout(function() {
+                  swiper.removeSlide(swiper.activeIndex);
+                  isRemoveSlide = false;
+                  dialog2.open();
+                  setTimeout(function () {
+                    dialog2.close();
+                  }, 1000);
+                }, 200);
+              } else {
+                alert('오류가 있습니다.');
+              }
+            });
+          } else if (isRemoveSlide == 2) { //삭제
+            var data = JSON.parse(localStorage["dd-member-credentials"]);
+            // console.log(data);
+            app.request.post(endpoint_hostname + '/api/posts/' + selectedItem.item_id + '/remove_from_main', data, function(data) {
+              var response_data = JSON.parse(data);
+              if (response_data.is_success === true) {
+                setTimeout(function() {
+                  swiper.removeSlide(swiper.activeIndex);
+                  isRemoveSlide = false;
+                  notificationDelete.open();
+                }, 200);
+              } else {
+                alert('오류가 있습니다.');
+              }
+            });
+          } else {
             //원위치시킴
             var tc01 = swiper.slides[swiper.activeIndex].querySelector('.tc01');
             //$$('.ib01 .swiper-slide-active .draggable').css({'transform': 'translate(0px, 0px)'});
@@ -291,7 +310,6 @@ app.request.json(endpoint, credentials, function(data){
             $$(tc01).attr('data-y',0);
             $$(tc01).removeClass('movedown').removeClass('moveup');
           }
-
         }
       }
     });
