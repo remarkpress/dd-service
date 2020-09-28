@@ -1,5 +1,21 @@
-
 var view = app.views.current;
+
+var userMainTemplate = $$('script#user-main-template').html();
+// console.log(userMainTemplate);
+var compiledUserMainTemplate = Template7.compile(userMainTemplate);
+var endpoint = endpoint_hostname + '/api/member';
+
+if (localStorage["dd-member-credentials"] === undefined ) {
+  view.router.navigate('login');
+} else {
+  var credentials = JSON.parse(localStorage["dd-member-credentials"]);
+}
+
+app.request.json(endpoint, credentials, function(data){
+  // console.log(data);
+  var user = compiledUserMainTemplate({user: data});
+  $$('.page.user').html(user);
+});
 
 //돌아가기
 $$('.page.user .goBack').on('click', function(){
@@ -24,10 +40,10 @@ $$('.ng06_01 .updatePassword').on('click', function () {
 //로그아웃
 $$('.ng06_01 .logout').on('click', function(){
   app.dialog.confirm(
-    '로그아웃 하시겠습니까?', 
+    '로그아웃 하시겠습니까?',
     function () {
       //로그아웃 처리 코드
-      view.router.navigate('/login/'); 
+      view.router.navigate('/login/');
     }
   );
 
@@ -35,12 +51,12 @@ $$('.ng06_01 .logout').on('click', function(){
 //계정삭제
 $$('.ng06_01 .deleteAccount').on('click', function(){
   app.dialog.confirm(
-    '계정과 함께 지금까지 작성했던 <br/>모든 데이터가 사라져요. <br/>그래도 삭제하시겠어요? ', 
+    '계정과 함께 지금까지 작성했던 <br/>모든 데이터가 사라져요. <br/>그래도 삭제하시겠어요? ',
     function () {
       //계정삭제 처리 코드
 
       app.dialog.alert('계정이 삭제되었습니다.<br/>이용해 주셔서 감사합니다!');
-      view.router.navigate('/login/'); 
+      view.router.navigate('/login/');
     }
   );
 
@@ -48,7 +64,7 @@ $$('.ng06_01 .deleteAccount').on('click', function(){
 //메일 주소 복사
 $$('.tc04 .btn05').on('click', function(){
 
-  $$(this).siblings('input')[0].select(); 
+  $$(this).siblings('input')[0].select();
   document.execCommand('copy');
 
   dialog.open();
