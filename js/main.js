@@ -163,6 +163,7 @@ app.request.json(endpoint, credentials, function(data){
       }
     };
     console.log(data);
+    var form = $$(this);
     /*여기에 저장 프로시져 추가*/
     app.request.post(endpoint, data, function(data) {
       // console.log(data);
@@ -176,7 +177,7 @@ app.request.json(endpoint, credentials, function(data){
         setTimeout(function () {
           dialog.close();
         }, 2000);
-        $$(this).parents('.tc01').find('a.card-close').click();
+        form.parents('.tc01').find('a.card-close').click();
       } else {
         alert('오류가 있습니다.');
       }

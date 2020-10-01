@@ -8,6 +8,7 @@ var app = new Framework7({
   name: 'DifferentDoors',
   // App id
   id: 'com.myapp.dd',
+  theme: 'ios',
   // Enable swipe panel
   panel: {
     swipe: 'left',
