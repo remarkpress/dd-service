@@ -93,7 +93,7 @@
         <a class="btn02" href="/writing_view/new/">추가</a>
       </li>
       {{#each posts}}
-        <li><a class="btn03" keyword-id="{{this.id}}" href="/writing_view/{{this.id}}/"><span>{{this.title}}</span></a></li>
+        <li><a class="btn03 {{this.button_class}}" keyword-id="{{this.id}}" href="/writing_view/{{this.id}}/"><span>{{this.title}}</span></a></li>
       {{/each}}
     </script>
 
@@ -108,7 +108,7 @@
              yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
            -->
            <dt>
-             <a class="btn03 added blue"><span>{{post.title}}</span></a>
+             <a class="btn03 {{post.button_class}}"><span>{{post.title}}</span></a>
              <input type="hidden" name="keyword" value="{{post.title}}"/>
            </dt>
            <dd>{{post.prompt_post_title}}</dd>
