@@ -76,11 +76,11 @@ var app = new Framework7({
     },
     {
       path: '/user_account/',
-      url: 'html/user_account.html',
+      url: 'html/user.html',
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/user.js";
+          s.src = "js/user_account.js";
           $$('head').append(s);
         }
       }
@@ -91,7 +91,7 @@ var app = new Framework7({
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/user.js";
+          s.src = "js/user_static.js";
           $$('head').append(s);
         }
       }
@@ -102,7 +102,7 @@ var app = new Framework7({
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/user.js";
+          s.src = "js/user_static.js";
           $$('head').append(s);
         }
       }
@@ -216,6 +216,7 @@ var app = new Framework7({
 });
 
 var endpoint_hostname = 'http://differentdoors.durumi.io';
+// var endpoint_hostname = 'http://localhost:3000';
 
 //뷰 생성
 if (localStorage["dd-member-credentials"] === undefined ) {
