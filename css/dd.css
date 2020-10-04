@@ -117,6 +117,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .main-navbar .navbar-bg:after{content:none}
 .navbar-hidden-statusbar{display:none}
 
+.sub-navbar{position:fixed}
 .sub-navbar .title-large{height:80px}
 .sub-navbar .title-large-text strong{display:block;font-size:24px;line-height:2}
 .sub-navbar .title-large-text em{display:block;font-size:14px;font-style:normal;font-weight:normal}
@@ -130,6 +131,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .view-navbar{top:30px}
 .view-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
+.book-navbar{position:fixed}
 .book-navbar{height:146px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);background-color:#fff;overflow:hidden}
 .book-navbar .navbar-inner{padding:0}
 .book-navbar .right{right:20px !important}
