@@ -23,7 +23,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
   }
 
   app.request.json(endpoint, credentials, function(data){
-    console.log(data);
+    // console.log(data);
     var post = compiledMyPostShowTemplate({post: data});
     $$('.my_post_show_wrapper').html(post);
   });
@@ -83,7 +83,7 @@ $$('.fab01 > a').on('click', function(){
 //키워드 저장
 $$('#save_writing').on('submit', function(){
   var formData = app.form.convertToData($$(this));
-  console.log(JSON.stringify(formData));
+  // console.log(JSON.stringify(formData));
 
   var data = {
     member_email: localStorage["dd-member-email"],
@@ -101,7 +101,7 @@ $$('#save_writing').on('submit', function(){
       // console.log(data);
       var response_data = JSON.parse(data);
       // console.log(response_data);
-      console.log(response_data.is_success === true);
+      // console.log(response_data.is_success === true);
 
       if (response_data.is_success === true) {
         dialog.open();
