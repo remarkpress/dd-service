@@ -79,12 +79,16 @@ app.request.json(endpoint, credentials, function(data){
   }
 
   app.on('cardBeforeOpen', function (el, prevent) {
+    $$('.navbar.main-navbar').hide();
     //console.log(swiper.clickedIndex+":"+swiper.activeIndex);
     if(swiper.clickedIndex != swiper.activeIndex){
       swiper.slideTo(swiper.clickedIndex,100);
       return false;
       //sleep(200);
     }
+  });
+  app.on('cardClosed', function (el, prevent) {
+    $$('.navbar.main-navbar').show();
   });
   /* 스와이프 모드 변환 */
   $$('.navbar .right a.cList').on('click', function(){
