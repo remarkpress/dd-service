@@ -87,7 +87,7 @@ app.request.json(endpoint, credentials, function(data){
       //sleep(200);
     }
   });
-  app.on('cardClosed', function (el, prevent) {
+  app.on('cardClose', function (el, prevent) {
     $$('.navbar.main-navbar').show();
   });
   /* 스와이프 모드 변환 */
