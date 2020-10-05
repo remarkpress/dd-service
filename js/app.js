@@ -35,6 +35,11 @@ var app = new Framework7({
       on: {
         pageBeforeOut: function(e, page) {
           $$('.page.book').remove();
+        },
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/book.js";
+          $$('head').append(s);
         }
       }
     },

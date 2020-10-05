@@ -194,7 +194,7 @@
 
         <ul class="lc02">
           <li class="add">
-            <a href="/book_view/new/">
+            <a href="/book_view/new/?nickname={{nickname}}">
               <strong>+</strong>
             </a>
           </li>
@@ -208,6 +208,37 @@
           {{/each}}
         </ul>
       </div>
+    </script>
+    <script id="book-view-template" type="text/template7">
+      <form class="cf01" id="add-book-name" style="display:none">
+        <input type="text" name="book_name" placeholder="책 이름을 입력해 주세요"/>
+        <button>등록</button>
+      </form>
+
+      <!-- Swiper -->
+      <div class="ib02 swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <dl class="tc02">
+              <dt><a href="#">{{book.title}}</a></dt>
+              <dd>{{nickname}}</dd>
+            </dl>
+          </div>
+          <!-- 하위 글들이 들어갈 자리 -->
+        </div>
+        <div class="controls">
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Arrows -->
+<!--           <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div> -->
+          <div class="editBook">
+            <a href="/book_view_add/1/" class="add">추가하기</a>
+            <a href="/book_view_edit/1/" class="edit">수정하기</a>
+          </div>
+        </div>
+      </div>
+      <!-- //Swiper -->
     </script>
   </body>
 </html>
