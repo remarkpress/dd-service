@@ -14,6 +14,70 @@ if (book_id == "new") { //신규 책 만들기
   $$('.ib02 .controls').hide();
   $$('#add-book-name').find("input").focus();
 
+  //새 노트 제목 추가
+  // $$(document).on('submit', "#add-book-name", function(event){
+  $$(document).on('submit', "#add-book-name", function(event){
+    event.preventDefault();
+    var formData = app.form.convertToData($$(this));
+
+    if(formData.book_name == ''){
+      notification1.open();
+      $$(this).find("input").focus();
+      return false;
+    }
+
+    var endpoint = endpoint_hostname + '/api/books';
+    var data = {
+      member_email: localStorage["dd-member-email"],
+      member_token: localStorage["dd-member-token"],
+      book: {
+        title: formData.book_name
+      }
+    };
+    // console.log(data);
+    app.request.post( endpoint, data, function(data) {
+      var response_data = JSON.parse(data);
+
+      if (response_data.is_success === true) {
+        // console.log(response_data);
+        var book = response_data.data.book;
+        console.log(book);
+
+        // console.log($$('.editBook #populate_button').attr('href') = '/book_view_add/' + book.id );
+        $$('.editBook #populate_button').attr('href', '/book_view_add/' + book.id + '/');
+        $$('.editBook #arrange_button').attr('href', '/book_view_edit/' + book.id + '/');
+        $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
+        $$('.ib02 .controls').show();
+        $$("#add-book-name").hide();
+        return false;
+      } else {
+        alert('오류가 있습니다.');
+      }
+    });
+  });
+
+  var swiper = new Swiper('.ib02.swiper-container', {
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    on: {
+      init: function () {
+        console.log('book swiper created');
+      },
+      tap: function () {
+        if(this.clickedIndex == 0)  this.slideNext();
+        else if(this.clickedIndex > 0){
+          var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
+          view.router.navigate('/writing_view/'+keyword_id+'/');
+        }
+      },
+    }
+  });
 } else {
   var endpoint = endpoint_hostname + '/api/books/' + book_id;
 
@@ -28,71 +92,37 @@ if (book_id == "new") { //신규 책 만들기
     var book_object = compiledBookViewTemplate({book: data.book, nickname: data.nickname});
     // console.log(data.nickname);
     $$('.page-content.view-content').html(book_object);
+
+    var swiper = new Swiper('.ib02.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        init: function () {
+          console.log('book swiper created');
+        },
+        tap: function () {
+          if(this.clickedIndex == 0)  this.slideNext();
+          else if(this.clickedIndex > 0){
+            var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
+            view.router.navigate('/writing_view/'+keyword_id+'/');
+          }
+        },
+      }
+    });
   });
 }
-
-//// 새책만들기폼페이지에서는 pagination 없애려고 밑에 주석처리해놨는데, 책 상세에서 하위 글이 있을 경우에는 보여줘야함.
-var swiper = new Swiper('.ib02.swiper-container', {
-  // pagination: {
-  //   el: '.swiper-pagination',
-  //   type: 'fraction',
-  // },
-  // navigation: {
-  //   nextEl: '.swiper-button-next',
-  //   prevEl: '.swiper-button-prev',
-  // },
-  on: {
-    init: function () {
-      console.log('book swiper created');
-    },
-    tap: function () {
-      if(this.clickedIndex == 0)  this.slideNext();
-      else if(this.clickedIndex > 0){
-        var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
-        view.router.navigate('/writing_view/'+keyword_id+'/');
-      }
-    },
-  }
-});
 
 //돌아가기
 $$('.bookView .goBack').on('click', function(){
   view.router.back();
 });
 
-//새 노트 제목 추가
-$$("#add-book-name").submit(function(event){
-  event.preventDefault();
-  var formData = app.form.convertToData($$(this));
-
-  if(formData.book_name == ''){
-    notification1.open();
-    $$(this).find("input").focus();
-    return false;
-  }
-
-  var endpoint = endpoint_hostname + '/api/books';
-  var data = {
-    member_email: localStorage["dd-member-email"],
-    member_token: localStorage["dd-member-token"],
-    book: {
-      title: formData.book_name
-    }
-  };
-  // console.log(data);
-  app.request.post( endpoint, data, function(data) {
-    var response_data = JSON.parse(data);
-
-    if (response_data.is_success === true) {
-      $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
-      $$('.ib02 .controls').show();
-      $$("#add-book-name").hide();
-      return false;
-    } else {
-      alert('오류가 있습니다.');
-    }
-  });
-});
 // Create full-layout notification
 var notification1 = app.notification.create({
   icon: '<i class="xi-info"></i>',

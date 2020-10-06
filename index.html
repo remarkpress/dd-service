@@ -224,21 +224,81 @@
               <dd>{{nickname}}</dd>
             </dl>
           </div>
-          <!-- 하위 글들이 들어갈 자리 -->
+
+          {{#each book.chapters}}
+          <div class="swiper-slide">
+            <div class="cf02 viewer" data-item-id="0">
+              <dl class="header">
+                <dt>
+                  <span>{{this.post.title}}</span>
+                </dt>
+                <dd>{{this.post.question}}</dd>
+              </dl>
+              <div class="textArea">
+                {{this.post.body}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
         </div>
         <div class="controls">
           <!-- Add Pagination -->
           <div class="swiper-pagination"></div>
           <!-- Add Arrows -->
-<!--           <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div> -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
           <div class="editBook">
-            <a href="/book_view_add/1/" class="add">추가하기</a>
-            <a href="/book_view_edit/1/" class="edit">수정하기</a>
+            <a id="populate_button" href="/book_view_add/{{book.id}}/" class="add">추가하기</a>
+            <a id="arrange_button" href="/book_view_edit/{{book.id}}/" class="edit">수정하기</a>
           </div>
         </div>
       </div>
       <!-- //Swiper -->
+    </script>
+    <script id="book-view-add-template" type="text/template7">
+      <div class="page-content view-add-content">
+
+        <!-- Fixed/Dynamic Navbar -->
+        <div class="navbar book-navbar">
+          <div class="navbar-bg"></div>
+          <div class="navbar-inner sliding">
+            <div class="right">
+              <a class="goBack">돌아가기</a>
+            </div>
+            <div class="title">나의 모든 글</div>
+          </div>
+        </div>
+
+        <div class="block">
+          <!--
+            [btn03 option]
+            wrote : 사용자가 글을 작성한 키워드
+            added : 사용자가 직접 +를 눌러 추가한 키워드
+            book : '나만의 책'에서 태그에 포함한 키워드
+            yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
+          -->
+          <form class="cf03" id="book_add_form" onSubmit="return false;">
+            <div class="lc03 list media-list">
+              <ul>
+                {{#each posts}}
+                <li>
+                  <label class="item-checkbox item-content">
+                    <div class="item-inner">
+                      <div class="btn03 wrote added"><span>{{this.title}}</span></div>
+                      <div class="item-text">{{this.body}}</div>
+                    </div>
+                    <input type="checkbox" name="post_ids" value="{{this.id}}"/>
+                    <i class="icon icon-checkbox"></i>
+                  </label>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+            <button class="btn05">추가하기</button>
+          </form>
+        </div>
+      </div>
     </script>
   </body>
 </html>
