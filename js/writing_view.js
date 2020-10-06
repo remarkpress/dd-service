@@ -81,9 +81,10 @@ $$('.fab01 > a').on('click', function(){
 
 });
 //키워드 저장
-$$('#save_writing').on('submit', function(){
+$$(document).on('click', '#save_writing .btnA button', function(){
   var formData = app.form.convertToData($$(this));
   // console.log(JSON.stringify(formData));
+  console.log(writing_id);
 
   var data = {
     member_email: localStorage["dd-member-email"],
@@ -115,6 +116,7 @@ $$('#save_writing').on('submit', function(){
     });
   } else {  //수정
     //여기에 저장 프로시져
+    console.log('request to update!');
 
     // dialog.open();
     //   setTimeout(function () {
