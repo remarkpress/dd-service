@@ -5,7 +5,7 @@ var book_id = current_page.route.params.id;  //  넘겨받은 파라미터
 var bookViewAddTemplate = $$('script#book-view-add-template').html();
 var compiledBookViewAddTemplate = Template7.compile(bookViewAddTemplate);
 
-var endpoint = endpoint_hostname + '/api/books/available_posts/';
+var endpoint = endpoint_hostname + '/api/books/' + book_id + '/available_posts/';
 // console.log(endpoint);
 if (localStorage["dd-member-credentials"] === undefined ) {
   view.router.navigate('login');
@@ -41,8 +41,12 @@ app.request.json(endpoint, credentials, function(data){
       if (response_data.is_success === true) {
         //변경된 내용을 나의책 보기 슬라이드에 적용하는 코드(https://swiperjs.com/api/ 레퍼런스 참고)
         var swiper = document.querySelector('.page-previous .ib02.swiper-container').swiper;
+        swiper.removeAllSlides();
         var book = response_data.data.book;
-
+        // console.log(book);
+        var book_title = book.title;
+        var nickname = response_data.data.nickname;
+        swiper.prependSlide('<div class="swiper-slide"><dl class="tc02"><dt><a href="#">'+book_title+'</a></dt><dd>'+nickname+'</dd></dl></div>');
         //나의 책 슬라이더에 child 추가(실제 코드는 서버에서 조회한 데이터로 생성해야 함)
         for(var index in book.chapters) {
           var keyword = book.chapters[index].post.title;
