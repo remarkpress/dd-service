@@ -115,16 +115,33 @@ $$(document).on('submit', '#save_writing', function(){
     });
   } else {  //수정
     //여기에 저장 프로시져
-    console.log('request to update!');
+    var endpoint = endpoint_hostname + '/api/posts/' + writing_id
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", endpoint);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+      // console.log(this.readyState);
+      // console.log(this.status);
+      if (this.readyState == 4 && this.status == 200) {
+        var response = this.responseText;
+        // console.log(response);
+        var response_data = JSON.parse(response);
 
-    // dialog.open();
-    //   setTimeout(function () {
-    //     dialog.close();
-    //     view.router.back();
-    //   }, 2000);
-    // } else {
-    //   alert('오류가 있습니다.');
-    // }
+        if (response_data.is_success === true) {
+          dialog.open();
+          setTimeout(function () {
+            dialog.close();
+            view.router.back();
+          }, 2000);
+        } else {
+          alert('오류가 있습니다.');
+        }
+      }
+    }
+    // console.log(data);
+    var parsed_data = JSON.stringify(data);
+    // console.log(parsed_data);
+    xhr.send(parsed_data);
   }
 });
 
