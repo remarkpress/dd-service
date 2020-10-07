@@ -166,14 +166,14 @@ app.request.json(endpoint, credentials, function(data){
         prompt_id: formData["prompt_id"]
       }
     };
-    console.log(data);
+    // console.log(data);
     var form = $$(this);
     /*여기에 저장 프로시져 추가*/
     app.request.post(endpoint, data, function(data) {
       // console.log(data);
       var response_data = JSON.parse(data);
       // console.log(response_data);
-      console.log(response_data.is_success === true);
+      // console.log(response_data.is_success === true);
 
       if (response_data.is_success === true) {
         // notificationSave.open();

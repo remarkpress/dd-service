@@ -81,11 +81,10 @@ $$('.fab01 > a').on('click', function(){
 
 });
 //키워드 저장
-$$(document).on('click', '#save_writing .btnA button', function(){
+$$(document).on('submit', '#save_writing', function(){
   var formData = app.form.convertToData($$(this));
-  // console.log(JSON.stringify(formData));
-  console.log(writing_id);
-
+  // console.log(writing_id);
+  // console.log(formData);
   var data = {
     member_email: localStorage["dd-member-email"],
     member_token: localStorage["dd-member-token"],
