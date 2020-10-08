@@ -250,7 +250,9 @@
           <div class="swiper-button-prev"></div>
           <div class="editBook">
             <a id="populate_button" href="/book_view_add/{{book.id}}/" class="add">추가하기</a>
+
             <a id="arrange_button" href="/book_view_edit/{{book.id}}/" class="edit">수정하기</a>
+
           </div>
         </div>
       </div>
@@ -298,6 +300,53 @@
             <button class="btn05">추가하기</button>
           </form>
         </div>
+      </div>
+    </script>
+    <script id="book-view-edit-template" type="text/template7">
+
+      <!-- Fixed/Dynamic Navbar -->
+      <div class="navbar book-navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner sliding">
+          <div class="right">
+            <a class="goBack">돌아가기</a>
+          </div>
+          <div class="title"># {{book.title}}</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <!--
+          [btn03 option]
+          wrote : 사용자가 글을 작성한 키워드
+          added : 사용자가 직접 +를 눌러 추가한 키워드
+          book : '나만의 책'에서 태그에 포함한 키워드
+          yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
+        -->
+        <form class="cf03" id="book_edit_form" onSubmit="return false;">
+          <div class="lc03 lc03_01 list media-list sortable sortable-enabled" sortable:sort="onSort">
+            <ul>
+              {{#each book.chapters}}
+              <li class="swipeout">
+                <div class="item-content">
+                  <div class="swipeout-content">
+                    <div class="item-inner">
+                      <div class="btn03 wrote added"><span>{{this.post.title}}</span></div>
+                      <div class="item-text">{{this.post.body}}</div>
+                    </div>
+                  </div>
+                  <input type="hidden" class="order_input" name="{{@index}}" value="{{this.post.id}}" />
+                  <div class="swipeout-actions-right">
+                    <a href="#" class="swipeout-delete">삭제</a>
+                  </div>
+                </div>
+                <div class="sortable-handler"></div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          <button class="btn05">수정하기</button>
+        </form>
       </div>
     </script>
   </body>
