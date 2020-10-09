@@ -18,6 +18,9 @@ var app = new Framework7({
     {
       path: '/',
       url: 'html/main.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -32,6 +35,9 @@ var app = new Framework7({
     {
       path: '/book/',
       url: 'html/book.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageBeforeOut: function(e, page) {
           $$('.page.book').remove();
@@ -46,6 +52,9 @@ var app = new Framework7({
     {
       path: '/writing/',
       url: 'html/writing.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -60,6 +69,9 @@ var app = new Framework7({
     {
       path: '/user/',
       url: 'html/user.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -71,6 +83,9 @@ var app = new Framework7({
     {
       path: '/user_question/',
       url: 'html/user_question.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -82,6 +97,9 @@ var app = new Framework7({
     {
       path: '/user_account/',
       url: 'html/user.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -93,6 +111,9 @@ var app = new Framework7({
     {
       path: '/user_about/',
       url: 'html/user_about.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -104,6 +125,9 @@ var app = new Framework7({
     {
       path: '/user_contact/',
       url: 'html/user_contact.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -115,6 +139,9 @@ var app = new Framework7({
     {
       path: '/login/',
       url: 'html/login.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -126,6 +153,9 @@ var app = new Framework7({
     {
       path: '/join01/',
       url: 'html/join01.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -137,6 +167,9 @@ var app = new Framework7({
     {
       path: '/join02/',
       url: 'html/join02.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -148,6 +181,9 @@ var app = new Framework7({
     {
       path: '/join03/',
       url: 'html/join03.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -159,6 +195,9 @@ var app = new Framework7({
     {
       path: '/reset/',
       url: 'html/reset_password.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -198,6 +237,9 @@ var app = new Framework7({
     {
       path: '/book_view_add/:id/',
       url: 'html/book_view_add.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
@@ -209,6 +251,9 @@ var app = new Framework7({
     {
       path: '/book_view_edit/:id/',
       url: 'html/book_view_edit.html',
+      options: {
+        transition: 'f7-fade',
+      },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
