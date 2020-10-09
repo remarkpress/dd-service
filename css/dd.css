@@ -17,7 +17,7 @@
 }
 .page{z-index:auto}
 .page-content{z-index:auto}
-.page-content.main-content{overflow:hidden}
+.page-content.main-content{overflow:hidden;padding:0}
 .page-content.sub-content{padding:140px 0 0}
 .page-content.sub-content > .block{padding-bottom:89px}
 .page-content.view-content{background-color:#fff;z-index:10;padding-top:70px;overflow:hidden}
@@ -102,7 +102,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .main-navbar .left .user{width:20px;height:21px;background:url(../images/icon_user.png) no-repeat center center;background-size:cover;text-indent:-9999px}
 .main-navbar .title .logo{display:inline-block;width:27px;height:25px;background:url(../images/logo.png) no-repeat center center;background-size:cover;text-indent:-9999px}
 .main-navbar .right a{display:inline-block;text-indent:-9999px}
-.main-navbar .right a.cCar{background:url(../images/icon_card.png) no-repeat center center;width:21px;height:26px;background-size:cover;position:relative;top:3px}
+.main-navbar .right a.cCar{background:url(../images/icon_card.png) no-repeat center center;width:21px;height:21px;background-size:cover;position:relative}
 .main-navbar .right a.cList{background:url(../images/icon_list.png) no-repeat center center;width:21px;height:21px;background-size:cover}
 .main-navbar .horMode .right a.cCar{display:none}
 .main-navbar .horMode .right a.cList{display:block}
@@ -113,7 +113,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .main-navbar .verMode:after{content:"";display:block;width:100%;height:100%;position:absolute;left:0;bottom:0;background-color:#fff}
 .main-navbar .verMode .left{visibility:hidden}
 .main-navbar .verMode .title{visibility:hidden}
-.main-navbar .navbar-bg{background-color:transparent}
+.main-navbar .navbar-bg{background-color:transparent;backdrop-filter:none}
 .main-navbar .navbar-bg:after{content:none}
 .navbar-hidden-statusbar{display:none}
 
@@ -198,7 +198,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   opacity:1;
 }
 .ib01.swiper-container-horizontal .tc01 .card-opening .card-header-bg .card-header .title{display:block;padding:0 25px;box-sizing:border-box}
-.ib01.swiper-container-horizontal .tc01 .card-opening .card-header-bg .card-header .title em{display:block;position:static;transform:translate(0, 0);width:auto}
+.ib01.swiper-container-horizontal .tc01 .card-opening .card-header-bg .card-header .title em{display:block;position:static;transform:translate(0, 0);width:auto;visibility:hidden}
 .ib01.swiper-container-horizontal .tc01 .card-opening .card-header-bg .card-header .title h2{display:block;position:static;transform:translate(0,0);width:auto;text-align:center}
 .ib01.swiper-container-horizontal .tc01 .card-opening .card-content-padding{display:block !important}
 
@@ -464,7 +464,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .login-screen .login-screen-content{margin-top:0 !important}
 
 /* toolbar bottom */
-.toolbar-bottom{background-color:#fff;height:89px;box-shadow: 0px -1px 30px rgba(0, 0, 0, 0.11);z-index:10}
+.toolbar-bottom{background-color:#fff !important;height:89px;box-shadow: 0px -1px 30px rgba(0, 0, 0, 0.11);z-index:10}
 .toolbar-bottom.mainMode{box-shadow:none}
 .toolbar-bottom:before{content:none}
 .toolbar-bottom .book{background:url(../images/menu_book0.png) no-repeat center center;background-size:23px 22px;text-indent:-9999px}
