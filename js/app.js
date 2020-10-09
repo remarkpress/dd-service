@@ -129,7 +129,7 @@ var app = new Framework7({
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/form.js";
+          s.src = "js/join01.js";
           $$('head').append(s);
         }
       }
@@ -140,7 +140,7 @@ var app = new Framework7({
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/form.js";
+          s.src = "js/join02.js";
           $$('head').append(s);
         }
       }
@@ -151,7 +151,7 @@ var app = new Framework7({
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/form.js";
+          s.src = "js/join03.js";
           $$('head').append(s);
         }
       }
