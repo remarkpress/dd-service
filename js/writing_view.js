@@ -81,7 +81,7 @@ $$('.fab01 > a').on('click', function(){
 
 });
 //키워드 저장
-$$(document).on('submit', '#save_writing', function(){
+$$('#save_writing').on('submit', function(){
   var formData = app.form.convertToData($$(this));
   // console.log(writing_id);
   // console.log(formData);

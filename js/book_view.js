@@ -15,8 +15,7 @@ if (book_id == "new") { //신규 책 만들기
   $$('#add-book-name').find("input").focus();
 
   //새 노트 제목 추가
-  // $$(document).on('submit', "#add-book-name", function(event){
-  $$(document).on('submit', "#add-book-name", function(event){
+  $$("#add-book-name").on('submit', function(event){
     event.preventDefault();
     var formData = app.form.convertToData($$(this));
 
@@ -41,7 +40,7 @@ if (book_id == "new") { //신규 책 만들기
       if (response_data.is_success === true) {
         // console.log(response_data);
         var book = response_data.data.book;
-        console.log(book);
+        // console.log(book);
 
         // console.log($$('.editBook #populate_button').attr('href') = '/book_view_add/' + book.id );
         $$('.editBook #populate_button').attr('href', '/book_view_add/' + book.id + '/');

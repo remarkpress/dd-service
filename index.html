@@ -98,7 +98,7 @@
     </script>
 
     <script id="my-post-show-template" type="text/template7">
-       <form class="cf02" onSubmit="return false;" id="save_writing">
+       <form class="cf02" id="save_writing">
          <dl class="header">
           <!--
              [btn03 option]
@@ -323,7 +323,7 @@
           book : '나만의 책'에서 태그에 포함한 키워드
           yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
         -->
-        <form class="cf03" id="book_edit_form" onSubmit="return false;">
+        <form class="cf03" id="book_edit_form">
           <div class="lc03 lc03_01 list media-list sortable sortable-enabled" sortable:sort="onSort">
             <ul>
               {{#each book.chapters}}
