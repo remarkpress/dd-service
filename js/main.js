@@ -223,8 +223,7 @@ app.request.json(endpoint, credentials, function(data){
   });
   //답안 선택 저장 및 목록으로 돌아가기 안내
   var dialog = app.dialog.create({
-    text: '나의 기록에 담았어요!',
-    content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
+    text: '‘나의 글’에 담았어요!',
     on: {
       opened: function () {
       }

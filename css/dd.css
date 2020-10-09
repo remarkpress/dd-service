@@ -479,8 +479,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 */
 /* dialog */
 .dialog-backdrop.backdrop-in{background: rgba(255,255,255,.9);}
-.dialog{background-color:transparent}
-.dialog .dialog-inner{border:none}
+.dialog{background-color:transparent !important;backdrop-filter:none !important}
+.dialog .dialog-inner{border:none;background-color:transparent}
 .dialog .dialog-inner .dialog-title{display:none}
 .dialog .dialog-button:after{content:none !important}
 .dialog .dialog-inner::after{content:none !important}
