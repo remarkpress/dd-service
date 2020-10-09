@@ -33,7 +33,7 @@ app.request.json(endpoint, credentials, function(data){
     // });
 
     //키워드 book에 적용
-    $$(document).on('submit', '#book_edit_form', function(e) {
+    $$('#book_edit_form').on('submit', function(e) {
       dialog_pending.open();
       var components = $$(this).find('li.swipeout');
       var order_data = [];
