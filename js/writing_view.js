@@ -1,19 +1,59 @@
-
 var view = app.views.current;
 var current_page = $$('.page.writingView')[0].f7Page;
 var writing_id = current_page.route.params.id;  //  넘겨받은 파라미터
 // console.log(writing_id);
+var myPostShowTemplate = $$('script#my-post-show-template').html();
+// console.log(myPostShowTemplate);
+var compiledMyPostShowTemplate = Template7.compile(myPostShowTemplate);
 
 if ( writing_id == "new" ) { //신규 책 만들기
+  var post = compiledMyPostShowTemplate({post: ''});
+  $$('.my_post_show_wrapper').html(post);
+
   $$('.cf02 .header dt a span').text('+');
   $$('.btnArea').hide();
   $$('#save_writing .btnA').hide();
   $$('#add-writing-name').show();
   $$('#add-writing-name').find("input").focus();
+
+  $$('#save_writing').on('submit', function(event){
+    event.preventDefault();
+    // console.log('submitted how many?');
+    dialog_pending.open();
+    var formData = app.form.convertToData($$(this));
+    // console.log(writing_id);
+    // console.log(formData);
+    var data = {
+      member_email: localStorage["dd-member-email"],
+      member_token: localStorage["dd-member-token"],
+      post: {
+        title: formData["keyword"],
+        body: formData["content"]
+      }
+    };
+    //여기에 저장 프로시져
+    var endpoint = endpoint_hostname + '/api/posts'
+    app.request.post( endpoint, data, function(data) {
+      // console.log(data);
+      var response_data = JSON.parse(data);
+      // console.log(response_data);
+      // console.log(response_data.is_success === true);
+
+      if (response_data.is_success === true) {
+        dialog_pending.close();
+        dialog.open();
+        setTimeout(function () {
+          dialog.close();
+          view.router.back();
+        }, 2000);
+      } else {
+        dialog_pending.close();
+        alert('오류가 있습니다.');
+      }
+    });
+  });
+
 } else {
-  var myPostShowTemplate = $$('script#my-post-show-template').html();
-  // console.log(myPostShowTemplate);
-  var compiledMyPostShowTemplate = Template7.compile(myPostShowTemplate);
   var endpoint = endpoint_hostname + '/api/posts/' + writing_id;
 
   if (localStorage["dd-member-credentials"] === undefined ) {
@@ -26,6 +66,55 @@ if ( writing_id == "new" ) { //신규 책 만들기
     // console.log(data);
     var post = compiledMyPostShowTemplate({post: data});
     $$('.my_post_show_wrapper').html(post);
+
+    //키워드 저장
+    $$('#save_writing').on('submit', function(event){
+      event.preventDefault();
+      // console.log('submitted how many?');
+      dialog_pending.open();
+      var formData = app.form.convertToData($$(this));
+      // console.log(writing_id);
+      // console.log(formData);
+      var data = {
+        member_email: localStorage["dd-member-email"],
+        member_token: localStorage["dd-member-token"],
+        post: {
+          title: formData["keyword"],
+          body: formData["content"]
+        }
+      };
+
+      //여기에 저장 프로시져
+      var endpoint = endpoint_hostname + '/api/posts/' + writing_id
+      var xhr = new XMLHttpRequest();
+      xhr.open("PUT", endpoint);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        // console.log(this.readyState);
+        // console.log(this.status);
+        if (this.readyState == 4 && this.status == 200) {
+          var response = this.responseText;
+          // console.log(response);
+          var response_data = JSON.parse(response);
+
+          if (response_data.is_success === true) {
+            dialog_pending.close();
+            dialog.open();
+            setTimeout(function () {
+              dialog.close();
+              view.router.back();
+            }, 2000);
+          } else {
+            dialog_pending.close();
+            alert('오류가 있습니다.');
+          }
+        }
+      }
+      // console.log(data);
+      var parsed_data = JSON.stringify(data);
+      // console.log(parsed_data);
+      xhr.send(parsed_data);
+    });
   });
 }
 
@@ -38,7 +127,7 @@ $$('#save_writing .header dt .btn03').on('click', function(){ //신규 책 만�
 });
 
 //새 글 제목 추가/수정 폼
-$$("#add-writing-name").submit(function(event){
+$$("#add-writing-name").on('submit', function(event){
   event.preventDefault();
   var formData = app.form.convertToData($$(this));
 
@@ -80,73 +169,14 @@ $$('.fab01 > a').on('click', function(){
   );
 
 });
-//키워드 저장
-$$('#save_writing').on('submit', function(){
-  var formData = app.form.convertToData($$(this));
-  // console.log(writing_id);
-  // console.log(formData);
-  var data = {
-    member_email: localStorage["dd-member-email"],
-    member_token: localStorage["dd-member-token"],
-    post: {
-      title: formData["keyword"],
-      body: formData["content"]
-    }
-  };
-
-  if (writing_id == "new") {  //신규추가
-    //여기에 저장 프로시져
-    var endpoint = endpoint_hostname + '/api/posts'
-    app.request.post( endpoint, data, function(data) {
-      // console.log(data);
-      var response_data = JSON.parse(data);
-      // console.log(response_data);
-      // console.log(response_data.is_success === true);
-
-      if (response_data.is_success === true) {
-        dialog.open();
-        setTimeout(function () {
-          dialog.close();
-          view.router.back();
-        }, 2000);
-      } else {
-        alert('오류가 있습니다.');
-      }
-    });
-  } else {  //수정
-    //여기에 저장 프로시져
-    var endpoint = endpoint_hostname + '/api/posts/' + writing_id
-    var xhr = new XMLHttpRequest();
-    xhr.open("PUT", endpoint);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-      // console.log(this.readyState);
-      // console.log(this.status);
-      if (this.readyState == 4 && this.status == 200) {
-        var response = this.responseText;
-        // console.log(response);
-        var response_data = JSON.parse(response);
-
-        if (response_data.is_success === true) {
-          dialog.open();
-          setTimeout(function () {
-            dialog.close();
-            view.router.back();
-          }, 2000);
-        } else {
-          alert('오류가 있습니다.');
-        }
-      }
-    }
-    // console.log(data);
-    var parsed_data = JSON.stringify(data);
-    // console.log(parsed_data);
-    xhr.send(parsed_data);
-  }
-});
 
 var dialog = app.dialog.create({
   text: '변경내용을 저장하였습니다.',
+  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+});
+
+var dialog_pending = app.dialog.create({
+  text: '변경내용을 저장중입니다.',
   content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
 });
 // Create full-layout notification
