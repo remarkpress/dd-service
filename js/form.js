@@ -1,37 +1,7 @@
+// // 로그인 및 회원가입 관련 코드 다른 곳으전 이전
+
 var view=app.views.current;
 
-// //로그인
-// $$('#login_form').on('submit', function(){
-//   var formData = app.form.convertToData($$(this));
-//   //console.log(formData);
-//   alert(JSON.stringify(formData));
-//   view.router.navigate('/');
-// });
-//가입01
-$$('#join_form01').on('submit', function(){
-  var formData = app.form.convertToData($$(this));
-  //console.log(formData);
-  alert(JSON.stringify(formData));
-  view.router.navigate('/join02/');
-});
-//가입02
-$$('#join_form02').on('submit', function(){
-  var formData = app.form.convertToData($$(this));
-  alert(JSON.stringify(formData));
-  view.router.navigate('/join03/');
-});
-//가입03
-$$('#join_form03').on('submit', function(){
-  var formData = app.form.convertToData($$(this));
-  alert(JSON.stringify(formData));
-
-  dialog.open();
-  setTimeout(function () {
-    dialog.close();
-    view.router.navigate('/');
-  }, 2000);
-
-});
 //비밀번호 리셋
 $$('#reset_form01').on('submit', function(){
   var formData = app.form.convertToData($$(this));
@@ -65,11 +35,8 @@ var notification1 = app.notification.create({
   //text: 'This is a simple notification message',
   closeTimeout: 3000,
 });
+
 // 안내 상자
-var dialog = app.dialog.create({
-  text: '성공적으로 가입되었습니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
-});
 var dialog2 = app.dialog.create({
   text: '이메일로 임시 패스워드를 <br/>보내드렸습니다.',
   content: '<br/><i class="xi-mail" style="font-size:40px"></i>',
