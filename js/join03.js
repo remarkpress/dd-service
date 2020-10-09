@@ -2,20 +2,18 @@ var view=app.views.current;
 var current_join_page = $$('.page.join')[$$('.page.join').length -1 ].f7Page;
 var params = current_join_page.route.query;
 var email = params.email;
-var password = params["formData[password]"];
-var password_confirmation = params["formData[password2]"];
+var nickname = params.nickname;
 
 //가입03
 $$('#join_form03').on('submit', function(){
   var formData = app.form.convertToData($$(this));
-  // console.log(formData);
   var data = {
     member: {
       email: email,
-      password: password,
-      password_confirmation:  password_confirmation,
-       nickname: formData['nickname']
-     }
+      nickname: nickname,
+      password: formData['password'],
+      password_confirmation: formData['password2']
+    }
   }
   // console.log(data);
   var endpoint = endpoint_hostname + '/api/sign_up'
