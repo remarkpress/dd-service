@@ -496,6 +496,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .login-screen-content .item-inner:after{content:none}
 .login-screen-content .item-content.item-input .item-title{display:none}
 .login-screen-content .item-content.item-input input{text-align:center;font-size:14px}
+.login-screen-content .item-input-invalid input{color:var(--primary-color)}
+.login-screen-content .item-input-invalid input::placeholder{color: transparent}
 .login-screen-content .item-checkbox > label{margin:0 auto;font-size:14px;color:#B7B7B7}
 .login-screen-content .btnA{margin-bottom:30px}
 .login-screen-content .btnA li{text-align:center}
