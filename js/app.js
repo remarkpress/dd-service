@@ -13,6 +13,10 @@ var app = new Framework7({
   panel: {
     swipe: 'left',
   },
+  dialog: {
+    buttonOk: '예',
+    buttonCancel: '아니오'
+  },
   // Add default routes
   routes: [
     {
