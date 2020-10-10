@@ -53,7 +53,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .btn03.pink{background-color:#F19DBE;color:var(--primary-color) !important}
 .btn04{display:inline-block;width:auto;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;text-align:center;padding:11px 40px}
 .btn04.active-state{background-color:#999}
-.btn05{display:inline-block;width:auto;background-color:#fff;color:var(--primary-color);border-radius:22.5px;border:2px solid var(--primary-color);none;font-family:inherit;font-size:14px;text-align:center;padding:11px 60px;box-sizing:border-box}
+.btn05{display:inline-block;width:auto;background-color:#fff;color:var(--primary-color);border-radius:22.5px;border:2px solid var(--primary-color);none;font-family:inherit;font-size:14px;text-align:center;padding:11px 40px;box-sizing:border-box}
 .btn05.active-state{background-color:#999}
 
 /* add keyword form */
@@ -137,12 +137,13 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .view-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
 .book-navbar{position:fixed}
-.book-navbar{height:146px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);background-color:#fff;overflow:hidden}
+.book-navbar:after{content:"";display:block;width:100%;height:10px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);position:absolute;bottom:-10px;left:0;z-index:10}
+.book-navbar{height:146px;/*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3)*/;background-color:#EDEEF0;overflow:hidden}
 .book-navbar .navbar-inner{padding:0}
-.book-navbar .right{right:20px !important}
-.book-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px;position:relative;top:-20px}
+.book-navbar .right{right:40px !important;z-index:100}
+.book-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px;position:relative;top:40px}
 .book-navbar .navbar-bg{background-color:transparent}
-.book-navbar .title{padding:25px 30px;width:calc(100% - 60px);box-sizing:border-box;left:30px !important;bottom:-40px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);border-radius: 4px;text-align:left}
+.book-navbar .title{padding:25px 30px;width:calc(100% - 60px);box-sizing:border-box;left:30px !important;bottom:-40px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);border-radius: 4px;text-align:left;background-color:#fff}
 
 .user-navbar{height:80px;padding:30px 25px 0}
 .user-navbar .goBack{color:var(--primary-color)}
@@ -400,15 +401,28 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   color:#B7B7B7;
 }
 /* my book add keyword list */
-.lc03{padding-bottom:80px}
+.lc03{padding-bottom:80px;position:relative}
+.lc03:after{content:"";display:block;width:100%;height:150px;
+  background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 15%,
+            rgba(255, 255, 255, 0.3) 35%,
+            rgba(255, 255, 255, 0.9) 75%,
+            rgba(255, 255, 255, 1) 100%
+          );
+  position:fixed;bottom:0;left:0
+}
 .lc03 li{border-bottom:1px solid #B7B7B7}
-.lc03 li .item-inner{display:flex !important;padding:25px 10px 25px 0}
+.lc03 li .item-inner{display:flex !important;padding:25px 0}
 .lc03 li .item-inner::after{content:none}
-.lc03 li .item-inner .item-text{width:calc(100% - 110px);-webkit-line-clamp:3;max-height: calc(var(--f7-list-item-text-line-height) * 3);}
+.lc03 li .item-inner .item-text{width:calc(100% - 100px);-webkit-line-clamp:3;max-height: calc(var(--f7-list-item-text-line-height) * 3);}
 .lc03 li .item-checkbox{padding-left:0}
 .lc03 li .icon-checkbox{margin-right:0}
-.lc03_01 li .swipeout-actions-right{z-index:100}
+.lc03_01 li .swipeout-actions-right{z-index:100;right:-1px}
 .lc03_01 li .swipeout-actions-right .swipeout-delete{background-color:var(--primary-color)}
+#book_add_form .lc03 li{opacity:0.4}
+#book_add_form .lc03 li.checked{opacity:1}
+#book_add_form .lc03 li .icon-checkbox{display:none}
 /* 나의 질문 리스트 */
 .lc04{margin:0 20px}
 .lc04 li{margin-bottom:30px}

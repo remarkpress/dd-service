@@ -23,6 +23,11 @@ app.request.json(endpoint, credentials, function(data){
   $$('.goBack').on('click', function(){
     view.router.back();
   });
+  //키워드 선택
+  $$('#book_add_form .lc03 li').on('click', function(){
+    if($$(this).find('input').prop("checked"))  $$(this).addClass('checked');
+    else  $$(this).removeClass('checked');
+  });
 
   //키워드 book에 추가
   $$('#book_add_form').on('submit', function(){
@@ -73,7 +78,8 @@ app.request.json(endpoint, credentials, function(data){
   });
 });
 
+
 var dialog = app.dialog.create({
   text: '선택한 키워드를 추가 하였습니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+//  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
 });
