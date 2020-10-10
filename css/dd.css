@@ -346,7 +346,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .tc03{margin:0 50px;background:url(../images/con_about.png) no-repeat center top;background-size:156px 172px;padding-top:190px;text-align:center}
 .tc03 .block{margin-top:0}
 .tc03 p{word-break:keep-all;line-height:2;margin-bottom:50px}
-.tc03 .btn05{position:fixed;width:70%;left:50%;bottom:70px;transform:translate(-50%, 0)}
+.tc03 .btn05{position:fixed;width:130px;left:50%;padding:11px 0;;bottom:70px;transform:translate(-50%, 0)}
 /* contact */
 .tc04{margin:0 50px;text-align:center;overflow:hidden}
 .tc04 .block{margin-top:0}
@@ -355,7 +355,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .tc04 ul dl{display:table;width:100%}
 .tc04 ul dl dt{display:table-cell;width:40%;text-align:left;font-weight:bold}
 .tc04 ul dl dd{display:table-cell;margin-left:0;text-decoration:underline}
-.tc04 .btn05{position:fixed;width:70%;left:50%;bottom:70px;transform:translate(-50%, 0)}
+.tc04 .btn05{position:fixed;width:130px;padding:11px 0;left:50%;bottom:70px;transform:translate(-50%, 0)}
 .tc04 .btn05 +input{position:absolute;left:-9999px}
 
 /* my keywords */
@@ -472,15 +472,15 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ng04{display:flex;justify-content:space-around;border-bottom:1px solid #B7B7B7;padding-bottom:20px;margin-bottom:50px}
 .ng04 li{width:25%;text-align:center}
 .ng04 li span{display:block;width:100%;padding-top:100px;font-size:16px}
-.ng04 li.questions span{background:url(../images/menu_home_user.png) no-repeat center center;background-size:33.5px 50px}
-.ng04 li.books span{background:url(../images/menu_book0.png) no-repeat center center;background-size:37px 35px}
-.ng04 li.writings span{background:url(../images/menu_tag0.png) no-repeat center center;background-size:35px 35px}
+.ng04 li.questions span{background:url(../images/menu_home1.png) no-repeat center center;background-size:22px 34px}
+.ng04 li.books span{background:url(../images/menu_book0.png) no-repeat center center;background-size:24px 23px}
+.ng04 li.writings span{background:url(../images/menu_tag0.png) no-repeat center center;background-size:27px 27px}
 
 .ng05{display:table;width:100%}
 .ng05 li{display:table-cell;width:50%;text-align:center;vertical-align:middle}
 .ng05 li a{display:block;color:var(--primary-color);height:35px;line-height:35px;font-size:16px}
-.ng05 li.likes a:before{content:"";display:inline-block;width:35px;height:35px;background:url(../images/icon_heart_off.png) no-repeat center center;background-size:35px 35px;vertical-align:middle;margin-right:15px}
-.ng05 li.hates a:before{content:"";display:inline-block;width:35px;height:35px;background:url(../images/icon_heart_off.png) no-repeat center center;background-size:35px 35px;vertical-align:middle;margin-right:15px;transform: rotate(180deg);}
+.ng05 li.likes a:before{content:"";display:inline-block;width:35px;height:35px;background:url(../images/icon_heart_off.png) no-repeat center center;background-size:31px 31px;vertical-align:middle;margin-right:15px}
+.ng05 li.hates a:before{content:"";display:inline-block;width:35px;height:35px;background:url(../images/icon_heart_off.png) no-repeat center center;background-size:31px 31px;vertical-align:middle;margin-right:15px;transform: rotate(180deg);}
 
 .ng06 li{line-height:2.6}
 .ng06 li a{font-size:16px;color:var(--primary-color)}
