@@ -37,7 +37,7 @@ body{color:color:var(--primary-color)}
 .btn02 > span{display:block;width:60px;font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}
 .btn02.active-state{background-color:var(--secondary-color)}
 button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
-.btn03{display:block;width:95px;height:95px;border-radius:47.5px;border:none;color:var(--primary-color);background-color:var(--secondary-color);box-sizing:border-box;text-align:center;font-size:14px;position:relative}
+.btn03{display:block;width:78px;height:78px;border-radius:39px;border:none;color:var(--primary-color);background-color:var(--secondary-color);box-sizing:border-box;text-align:center;font-size:14px;position:relative}
 .btn03 > span{display:block;width:60px;font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}
 .btn03.active-state{background-color:var(--primary-color);color:#fff}
 .btn03.wrote{background-color:var(--primary-color);color:#fff}
@@ -66,7 +66,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /* my record form */
 .cf02 {padding:0 20px 100px}
 .cf02 .header{text-align:center;margin-bottom:50px}
-.cf02 .header dt{display:inline-block;width:95px;height:95px;border-radius:47.5px;background-color:var(--primary-color);color:#fff;text-align:center;font-size:14px;position:relative;margin-bottom:50px}
+.cf02 .header dt{display:inline-block;width:78px;height:78px;border-radius:39px;background-color:var(--primary-color);color:#fff;text-align:center;font-size:14px;position:relative;margin-bottom:50px}
 .cf02 .header dt > span{display:block;width:60px;font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}
 .cf02 .header dd{text-align:center;margin-left:0;color:#B7B7B7}
 .cf02 .textArea{margin-bottom:20px}
@@ -127,7 +127,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .sub-navbar .navbar-bg:after{content:none}
 .sub-navbar:after{content:"";display:block;background-color:#fff;width:100%;height:140px;top:0;left:0;position:absolute}
 .sub-navbar.navbar-large-collapsed .title-large-text{display:none}
-.sub-navbar.navbar-large-collapsed .navbar-bg{height:100px}
+.sub-navbar.navbar-large-collapsed .navbar-bg{height:100px;box-shadow:none;border-bottom:1px solid #b7b7b7;width:100%;left:0}
 .sub-navbar.navbar-large-collapsed:after{height:48px}
 
 .view-navbar{top:15px}
@@ -359,8 +359,12 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .lc01{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 1em;
+  grid-row-gap:12px;
+  width:290px;
+  margin:0 auto
 }
+.lc01 li{text-align:center}
+.lc01 li > a{display:inline-block}
 .lc01 li.add a{display:inline-block;background:url(../images/icon_plus.png) no-repeat center center;background-size:11px 11px;text-indent:-9999px}
 /* 나의책 리스트 */
 .lc02{padding-bottom:140px}
