@@ -48,6 +48,10 @@ app.request.json(endpoint, credentials, function(data){
       '로그아웃 하시겠습니까?',
       function () {
         //로그아웃 처리 코드
+        localStorage.removeItem('dd-member-credentials');
+        localStorage.removeItem('dd-member-email');
+        localStorage.removeItem('dd-member-token');
+
         view.router.navigate('/login/');
       }
     );
