@@ -46,9 +46,9 @@ app.request.json(endpoint, credentials, function(data){
           // console.log('failed');
           // console.log(response_data);
           if (response_data.data.error === 'taken') {
-            alert('이미 존재하는 이름입니다');
+            app.dialog.alert('이미 존재하는 이름입니다');
           } else {
-            alert('오류가 있습니다. 다시 시도해주세요.');
+            app.dialog.alert('오류가 있습니다. 다시 시도해주세요.');
           }
         }
       });
@@ -58,8 +58,29 @@ app.request.json(endpoint, credentials, function(data){
   $$('.ng06_01 .updatePassword').on('click', function () {
     app.dialog.password('새로운 비밀번호를 입력해 주세요.', function (password) {
       // 서버에 저장
-
-      app.dialog.alert('다음 비밀번호로 변경되었습니다 :' + password);
+      // 서버에 저장
+      var data = {
+        member_email: localStorage["dd-member-email"],
+        member_token: localStorage["dd-member-token"],
+        password: password
+      };
+      var endpoint = endpoint_hostname + '/api/update_password/'
+      // console.log(data);
+      // console.log(endpoint);
+      app.request.post(endpoint, data, function (data) {
+        var response_data = JSON.parse(data);
+        if (response_data.is_success === true) {
+          app.dialog.alert('다음 비밀번호로 변경되었습니다 :' + password);
+        } else {
+          // console.log('failed');
+          // console.log(response_data);
+          if (response_data.data.error === 'too_short') {
+            app.dialog.alert('6자 이상의 비밀번호를 사용해주세요.');
+          } else {
+            app.dialog.alert('오류가 있습니다. 다시 시도해주세요.');
+          }
+        }
+      });
     });
   });
   //로그아웃
