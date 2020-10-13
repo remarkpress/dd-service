@@ -426,7 +426,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   position:fixed;bottom:0;left:0
 }
 .lc03 li{border-bottom:1px solid #B7B7B7}
-.lc03 li .item-inner{display:flex !important;padding:20px 0}
+.lc03 li .item-inner{display:flex !important;padding:20px 0px}
 .lc03 li .item-inner::after{content:none}
 .lc03 li .item-inner .item-text{width:calc(100% - 100px);-webkit-line-clamp:3;max-height: calc(var(--f7-list-item-text-line-height) * 3);color:var(--primary-color)}
 .lc03 li .item-checkbox{padding-left:0}
@@ -437,6 +437,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 #book_add_form .lc03 li{opacity:0.4}
 #book_add_form .lc03 li.checked{opacity:1}
 #book_add_form .lc03 li .icon-checkbox{display:none}
+#book_edit_form .lc03 li .item-inner{padding:20px 50px 20px 0 !important}
+
 /* 나의 질문 리스트 */
 .lc04{margin:0 20px}
 .lc04 li{margin-bottom:30px}
