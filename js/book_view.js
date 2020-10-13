@@ -69,8 +69,10 @@ if (book_id == "new") { //신규 책 만들기
         console.log('book swiper created');
       },
       tap: function () {
-        if(this.clickedIndex == 0)  this.slideNext();
-        else if(this.clickedIndex > 0){
+        console.log('tap');
+        if(this.clickedIndex == 0) {
+          this.slideNext();
+        } else if(this.clickedIndex > 0) {
           var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
           view.router.navigate('/writing_view/'+keyword_id+'/');
         }
@@ -87,7 +89,7 @@ if (book_id == "new") { //신규 책 만들기
   }
 
   app.request.json(endpoint, credentials, function(data){
-    // console.log(data);
+    console.log(data);
     var book_object = compiledBookViewTemplate({book: data.book, nickname: data.nickname});
     // console.log(data.nickname);
     $$('.page-content.view-content').html(book_object);
@@ -106,9 +108,11 @@ if (book_id == "new") { //신규 책 만들기
           console.log('book swiper created');
         },
         tap: function () {
+          // console.log('tap', $$(this.clickedSlide));
           if(this.clickedIndex == 0)  this.slideNext();
           else if(this.clickedIndex > 0){
             var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
+            // console.log(keyword_id);
             view.router.navigate('/writing_view/'+keyword_id+'/');
           }
         },
