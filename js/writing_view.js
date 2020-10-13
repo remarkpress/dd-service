@@ -146,6 +146,9 @@ $$("#add-writing-name").on('submit', function(event){
   return false;
 });
 
+//$$('textarea.resizable').trigger('change');
+app.resizeTextarea("textarea.resizable");
+
 //돌아가기
 $$('.writingView .goBack').on('click', function(){
   //view.router.back(view.history[1],{force:true});
@@ -161,7 +164,7 @@ $$('.writingView .goBack').on('click', function(){
 //키워드 삭제
 $$('.fab01 > a').on('click', function(){
   app.dialog.confirm(
-    '해당 키워드를 삭제하시겠습니까?',
+    '삭제할까요?',
     function () {
       $$('.page-previous .lc01 li a[keyword-id="'+writing_id+'"]').parent().remove();
       view.router.back();

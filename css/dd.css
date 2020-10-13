@@ -76,7 +76,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .picArea img{max-width:100%}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
 .cf02 .bookArea span:before{content:"#"}
-.cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:19px 17px;text-indent:-9999px}
+.cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:35px auto;text-indent:-9999px}
 .cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
 
 /* add keyword to book form */
