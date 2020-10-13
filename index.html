@@ -175,39 +175,21 @@
       </div>
     </script>
     <script id="book-list-template" type="text/template7">
-      <div class="page-content sub-content">
-
-        <!-- Additional "navbar-transparent" class -->
-        <div class="navbar sub-navbar navbar-large">
-          <div class="navbar-bg"></div>
-          <div class="navbar-inner sliding">
-            <div class="title">나의 책</div>
-            <!-- Large title element -->
-            <div class="title-large">
-              <div class="title-large-text">
-                <strong>나의 책</strong>
-                <em>내가 쓴 글을 모아 나의 책을 엮어보세요.</em>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <ul class="lc02">
-          <li class="add">
-            <a href="/book_view/new/?nickname={{nickname}}">
-              <strong>+</strong>
-            </a>
-          </li>
-          {{#each books}}
-          <li>
-            <a href="/book_view/{{this.id}}/">
-              <strong>{{this.title}}</strong>
-              <span>{{this.created_at}}</span>
-            </a>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+      <ul class="lc02">
+        <li class="add">
+          <a href="/book_view/new/?nickname={{nickname}}">
+            <strong>+</strong>
+          </a>
+        </li>
+        {{#each books}}
+        <li>
+          <a href="/book_view/{{this.id}}/">
+            <strong>{{this.title}}</strong>
+            <span>{{this.created_at}}</span>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
     </script>
     <script id="book-view-template" type="text/template7">
       <form class="cf01" id="add-book-name" style="display:none">
