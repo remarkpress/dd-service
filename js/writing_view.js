@@ -118,6 +118,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
 }
 
 $$('#save_writing .header dt .btn03').on('click', function(){ //신규 책 만들기
+  if($$('#add-writing-name').css('display') != 'none')  return false;
   $$('.btnArea').hide();
   $$('#save_writing .btnA').hide();
   $$('#add-writing-name').show();
