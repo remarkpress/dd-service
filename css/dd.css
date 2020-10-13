@@ -128,8 +128,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .sub-navbar .navbar-bg:after{content:none}
 .sub-navbar:after{content:"";display:block;background-color:#fff;width:100%;height:120px;top:0;left:0;position:absolute}
 .sub-navbar.navbar-large-collapsed .title-large-text{display:none}
-.sub-navbar.navbar-large-collapsed .navbar-bg{height:100px;box-shadow:none;border-bottom:1px solid #b7b7b7;width:100%;left:0}
-.sub-navbar.navbar-large-collapsed .navbar-inner.sliding .title{left:50% !important;transform:translate(-50%, 0);font-weight:normal}
+.sub-navbar.navbar-large-collapsed .navbar-bg{height:110px;box-shadow:none;border-bottom:1px solid #b7b7b7;width:100%;left:0}
+.sub-navbar.navbar-large-collapsed .navbar-inner.sliding .title{left:50% !important;top:15px;transform:translate(-50%, 0);font-weight:normal}
 .sub-navbar.navbar-large-collapsed:after{height:48px}
 
 .view-navbar{top:15px}
