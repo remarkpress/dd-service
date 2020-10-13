@@ -30,8 +30,28 @@ app.request.json(endpoint, credentials, function(data){
   $$('.ng06_01 .updateNmae').on('click', function () {
     app.dialog.prompt('변경할 이름을 입력해 주세요', function (name) {
       // 서버에 저장
-
-      $$('.user-sub-navbar01 .title dt').text(name);
+      var data = {
+        member_email: localStorage["dd-member-email"],
+        member_token: localStorage["dd-member-token"],
+        name: name
+      };
+      var endpoint = endpoint_hostname + '/api/update_nickname/'
+      // console.log(data);
+      // console.log(endpoint);
+      app.request.post(endpoint, data, function (data) {
+        var response_data = JSON.parse(data);
+        if (response_data.is_success === true) {
+          $$('.user-sub-navbar01 .title dt').text(name);
+        } else {
+          // console.log('failed');
+          // console.log(response_data);
+          if (response_data.data.error === 'taken') {
+            alert('이미 존재하는 이름입니다');
+          } else {
+            alert('오류가 있습니다. 다시 시도해주세요.');
+          }
+        }
+      });
     });
   });
   // Password
@@ -48,6 +68,10 @@ app.request.json(endpoint, credentials, function(data){
       '로그아웃 하시겠습니까?',
       function () {
         //로그아웃 처리 코드
+        localStorage.removeItem('dd-member-credentials');
+        localStorage.removeItem('dd-member-email');
+        localStorage.removeItem('dd-member-token');
+
         view.router.navigate('/login/');
       }
     );
