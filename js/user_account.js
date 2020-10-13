@@ -28,7 +28,7 @@ app.request.json(endpoint, credentials, function(data){
 
   // 이름 수정
   $$('.ng06_01 .updateNmae').on('click', function () {
-    app.dialog.prompt('변경할 이름을 입력해 주세요', function (name) {
+    app.dialog.prompt('이름을 적어주세요', function (name) {
       // 서버에 저장
       var data = {
         member_email: localStorage["dd-member-email"],

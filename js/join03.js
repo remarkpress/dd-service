@@ -45,3 +45,8 @@ var dialog_failed = app.dialog.create({
   text: '오류가 있습니다. 처음부터 다시 진행해주세요.',
   content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
 });
+
+//돌아가기
+$$('.user-navbar .goBack').on('click', function(){
+  view.router.back();
+});

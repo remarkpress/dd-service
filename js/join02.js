@@ -34,3 +34,8 @@ var dialog_nickname_unavailable = app.dialog.create({
   text: '사용할 수 없는 이름입니다.',
   content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
 });
+
+//돌아가기
+$$('.user-navbar .goBack').on('click', function(){
+  view.router.back();
+});
