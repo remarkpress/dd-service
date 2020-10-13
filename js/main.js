@@ -41,14 +41,15 @@ app.request.json(endpoint, credentials, function(data){
           tap: function (event) {
             /*
             if(this.clickedIndex != this.activeIndex){
+              console.log('다름');
               event.stopPropagation();
               return false;
-            }*/
-            //if(this.clickedIndex != this.activeIndex) this.slideTo(this.clickedIndex,0);
-            this.clickedSlide.querySelector('.tc01').classList.remove('draggable');
-            this.detachEvents();
-          },
+            }
+            if(this.clickedIndex != this.activeIndex) this.slideTo(this.clickedIndex,100);
+            */
+            //console.log("tap" + this.clickedIndex);
 
+          },
 
         },
       });
@@ -69,9 +70,10 @@ app.request.json(endpoint, credentials, function(data){
         },
         on: {
           tap: function () {
+            //console.log("tap" + this.clickedIndex);
             //if(this.clickedIndex != this.activeIndex) return false;
             //if(this.clickedIndex != this.activeIndex) this.slideTo(this.clickedIndex,0);
-            this.detachEvents();
+            //this.detachEvents();
           },
         },
       });
@@ -79,16 +81,24 @@ app.request.json(endpoint, credentials, function(data){
   }
 
   app.on('cardBeforeOpen', function (el, prevent) {
-    $$('.navbar.main-navbar').hide();
-    //console.log(swiper.clickedIndex+":"+swiper.activeIndex);
-    if(swiper.clickedIndex != swiper.activeIndex){
+    if(swiper.clickedIndex != swiper.activeIndex){  //current슬라이드가 아닌경우
       swiper.slideTo(swiper.clickedIndex,100);
-      return false;
-      //sleep(200);
+//      console.log("cardBeforeOpen not current" + swiper.clickedIndex);
+      prevent();
+    }else{
+//      console.log("cardBeforeOpen current" + swiper.clickedIndex);
+      $$('.navbar.main-navbar').hide();    
+      swiper.clickedSlide.querySelector('.tc01').classList.remove('draggable');
+      swiper.detachEvents();
     }
   });
   app.on('cardClose', function (el, prevent) {
     $$('.navbar.main-navbar').show();
+    var current = $$(swiper.clickedSlide.querySelector('.tc01'));
+    current.scrollTop = 0;
+    current.addClass('draggable');
+    $$("#add-new-keyword").hide();
+    swiper.attachEvents();
   });
   /* 스와이프 모드 변환 */
   $$('.navbar .right a.cList').on('click', function(){
@@ -107,14 +117,14 @@ app.request.json(endpoint, credentials, function(data){
   })
 
 
-  /* 컨텐츠 닫기*/
+  /* 컨텐츠 닫기
   $$('.tc01 a.card-close').on('click', function(){
     $$(this).parents('.tc01').scrollTop = 0;
     $$(this).parents('.tc01').addClass('draggable');
     //swiper.clickedSlide.querySelector('.tc01').classList.add('draggable')
     $$("#add-new-keyword").hide();
     swiper.attachEvents();
-  })
+  })*/
 
   //새 답안 추가 폼 열기
   $$('.ng01 li.add > button').on('click', function(){
