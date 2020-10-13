@@ -147,7 +147,7 @@ $$("#add-writing-name").on('submit', function(event){
 });
 
 //$$('textarea.resizable').trigger('change');
-app.resizeTextarea("textarea.resizable");
+app.input.resizeTextarea("textarea.resizable");
 
 //돌아가기
 $$('.writingView .goBack').on('click', function(){
