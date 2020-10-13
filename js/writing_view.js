@@ -54,16 +54,15 @@ if ( writing_id == "new" ) { //신규 책 만들기
   });
 
 } else {
-  var endpoint = endpoint_hostname + '/api/posts/' + writing_id;
+  var endpoint = endpoint_hostname + '/api/posts/' + writing_id + "/";
+  var credentials = JSON.parse(localStorage["dd-member-credentials"]);
 
   if (localStorage["dd-member-credentials"] === undefined ) {
     view.router.navigate('login');
-  } else {
-    var credentials = JSON.parse(localStorage["dd-member-credentials"]);
   }
 
   app.request.json(endpoint, credentials, function(data){
-    // console.log(data);
+    // console.log(endpoint);
     var post = compiledMyPostShowTemplate({post: data});
     $$('.my_post_show_wrapper').html(post);
 
