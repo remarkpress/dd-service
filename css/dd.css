@@ -236,6 +236,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ib01.swiper-container-vertical .tc01 .card-expandable .card-content{height:100%;width:100%}
 .ib01.swiper-container-vertical .tc01{
   position:relative;
+  transform: translate(0px, 0)!important;
 }
 .ib01.swiper-container-vertical .tc01 .card-header{
   text-align:left;
