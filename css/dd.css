@@ -316,7 +316,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .tc01 .card-header .title em{font-size:16px;font-style:normal;color:var(--primary-color);display:block;text-align:center}
 .tc01 .card-header .title h2{text-align:center;word-break:keep-all;font-size:18px;font-weight:normal;line-height:1.5;margin:20px 0;color:var(--primary-color)}
 .tc01 form button.confirm{position:fixed;bottom:90px;left:50%;transform:translate(-50%,0)}
-.tc01 .card-close{position:absolute;right:35px;top:35px;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
+.tc01 .card-close{position:absolute;right:25px;top:25px;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
 /* 펼침 */
 .tc01 .card-opened{height:100%;border-radius:0 !important;position:relative;background-color:#fff !important;z-index:10000}
