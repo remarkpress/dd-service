@@ -59,7 +59,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /* add keyword form */
 .cf01{position:fixed;bottom:25px;left:0;width:100%;padding:0 35px;z-index:1100}
 .cf01 input{padding:10px 0;display:inline;width:75%}
-.cf01 button{position:fixed;bottom:25px;right:30px;width:38px;height:38px;border:none;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
+.cf01 button{position:fixed;bottom:25px;right:30px;width:38px;height:38px;border:none;background:url(../images/btn_check_new.png) no-repeat center center;background-size:19px 17px;text-indent:-9999px}
 .cf01 button.active-state{background-color:#999}
 /*
 .cf01#add-book-name:after{content:"";display:block;background-color:rgba(0,0,0,0.3);position:fixed;top:0;left:0;right:0;bottom:80px}
@@ -76,7 +76,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .picArea img{max-width:100%}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
 .cf02 .bookArea span:before{content:"#"}
-.cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
+.cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:35px auto;text-indent:-9999px}
 .cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
 
 /* add keyword to book form */
@@ -98,7 +98,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .fab02 a.edit{background:#fff url(../images/icon_edit.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 .fab02 a.link{background:#fff url(../images/icon_link.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
-.fab03 a{background:#fff url(../images/btn_check.png) no-repeat center center;background-size:38px 38px;text-indent:-9999px}
+.fab03 a{background:#fff url(../images/btn_check.png) no-repeat center center;background-size:19px 17px;text-indent:-9999px}
 
 /* navbar */
 .main-navbar .navbar-inner{padding:0 25px;height:60px;position:relative}
@@ -315,8 +315,9 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .tc01 .card-header{color:var(--primary-color);margin-bottom:50px}
 .tc01 .card-header .title em{font-size:16px;font-style:normal;color:var(--primary-color);display:block;text-align:center}
 .tc01 .card-header .title h2{text-align:center;word-break:keep-all;font-size:18px;font-weight:normal;line-height:1.5;margin:20px 0;color:var(--primary-color)}
-.tc01 form button.confirm{position:fixed;bottom:25px;left:50%;transform:translate(-50%,0)}
-.tc01 .card-close{position:absolute;right:35px;top:35px;background:url(../images/btn_close.png) no-repeat center center;width:25px;height:25px;background-size:cover;text-indent:-9999px}
+.tc01 form button.confirm{position:fixed;bottom:90px;left:50%;transform:translate(-50%,0)}
+.tc01 .card-close{position:absolute;right:25px;top:25px;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
+
 /* 펼침 */
 .tc01 .card-opened{height:100%;border-radius:0 !important;position:relative;background-color:#fff !important;z-index:10000}
 .tc01 .card-opened .card-header-bg{height:auto !important;padding-top:100px}
@@ -445,8 +446,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ng01{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-row-gap:10px;
-  width:280px;
+  grid-row-gap:15px;
+  width:300px;
   margin:0 auto;
 }
 .ng01 li{text-align:center}

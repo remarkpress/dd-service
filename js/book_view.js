@@ -9,7 +9,7 @@ if (book_id == "new") { //신규 책 만들기
   var book_object = compiledBookViewTemplate({nickname: nickname, book: ''});
   $$('.page-content.view-content').html(book_object);
 
-  $$('.ib02 .swiper-slide:first-child .tc02 dt a').text('(책 이름을 입력해 주세요)');
+  $$('.ib02 .swiper-slide:first-child .tc02 dt a').text('');
   $$('#add-book-name').show();
   $$('.ib02 .controls').hide();
   $$('#add-book-name').find("input").focus();
