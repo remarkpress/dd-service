@@ -520,9 +520,17 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .dialog .dialog-inner .dialog-title{display:none}
 .dialog .dialog-button:after{content:none !important}
 .dialog .dialog-inner::after{content:none !important}
-.dialog .dialog-buttons{height:auto}
+.dialog .dialog-buttons{height:auto;margin-top:10px}
 .dialog .dialog-buttons span{width:120px;height:45px;background-color:var(--primary-color);border-radius:22.5px !important;color:#fff;border:none;font-family:inherit;font-size:14px}
 .dialog .dialog-buttons span:last-of-type{margin-left:15px;background-color:#fff;color:var(--primary-color);border:2px solid var(--primary-color);box-sizing:border-box}
+.dialog input.dialog-input[type] {
+  border:none;
+  border-bottom:1px solid #b7b7b7;
+  border-radius:0;
+  margin-top:0;
+  text-align:center;
+}
+
 /* login/join */
 .login-screen-content .login-screen-title{padding-top:60px;background:url(../images/logo.png) no-repeat center top;background-size:24px auto;font-size:18px;font-weight:normal;margin-bottom:50px}
 .login-screen-content form{padding:0 40px}
