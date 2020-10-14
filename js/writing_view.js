@@ -16,6 +16,9 @@ if ( writing_id == "new" ) { //신규 책 만들기
   $$('#add-writing-name').show();
   $$('#add-writing-name').find("input").focus();
 
+  //$$('textarea.resizable').trigger('change');
+  app.input.resizeTextarea("textarea.resizable");
+
   $$('#save_writing').on('submit', function(event){
     event.preventDefault();
     // console.log('submitted how many?');
@@ -65,6 +68,9 @@ if ( writing_id == "new" ) { //신규 책 만들기
     // console.log(endpoint);
     var post = compiledMyPostShowTemplate({post: data});
     $$('.my_post_show_wrapper').html(post);
+
+    //$$('textarea.resizable').trigger('change');
+    app.input.resizeTextarea("textarea.resizable");
 
     //키워드 저장
     $$('#save_writing').on('submit', function(event){
@@ -145,9 +151,6 @@ $$("#add-writing-name").on('submit', function(event){
 
   return false;
 });
-
-//$$('textarea.resizable').trigger('change');
-app.input.resizeTextarea("textarea.resizable");
 
 //돌아가기
 $$('.writingView .goBack').on('click', function(){
