@@ -44,8 +44,9 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .btn03.added{position:relative}
 .btn03.added:before{content:"";display:block;width:100%;height:100%;background-image:url(../images/bg_tag.png);background-repeat:no-repeat;background-position:center center;background-size:75%;position:absolute;top:0;left:0}
 /*.btn03.wrote.added:before{opacity:0.3}*/
-.btn03.added:before{opacity:0.4}
+.btn03.added:before{opacity:0.6}
 .btn03.book.added:before{opacity:0.4}
+.btn03.wrote.added:before{opacity:0.4}
 .btn03.red{background-color:#EA7057;color:var(--primary-color) !important}
 .btn03.yellow{background-color:#F8B720;color:var(--primary-color) !important}
 .btn03.blue{background-color:#4686C7;color:var(--primary-color) !important}
