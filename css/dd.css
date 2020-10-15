@@ -459,10 +459,12 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   margin:0 auto;
 }
 .ng01 li{text-align:center}
+.ng01 li:last-child{grid-column:1 / 4}
 .ng01 li input[type=radio]{visibility:hidden;position:absolute}
 .ng01 li input[type=radio] + label{display:inline-block}
 .ng01 li input[type=radio]:checked + label{background-color:var(--secondary-color);color:var(--primary-color)}
 .ng01 li.add button{display:inline-block;background:url(../images/icon_plus.png) no-repeat center center;background-size:11px 11px;text-indent:-9999px}
+
 /*wishlist nav*/
 .ng02{margin-top:0;z-index:0;}
 .ng02 ul{
