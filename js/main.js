@@ -80,13 +80,15 @@ app.request.json(endpoint, credentials, function(data){
     }
   }
 
+  app.off('cardBeforeOpen');
+  app.off('cardClose');
   app.on('cardBeforeOpen', function (el, prevent) {
     if(swiper.clickedIndex != swiper.activeIndex){  //current슬라이드가 아닌경우
       swiper.slideTo(swiper.clickedIndex,100);
-//      console.log("cardBeforeOpen not current" + swiper.clickedIndex);
+      //console.log("cardBeforeOpen not current" + swiper.clickedIndex);
       prevent();
     }else{
-//      console.log("cardBeforeOpen current" + swiper.clickedIndex);
+      //console.log("cardBeforeOpen current" + swiper.clickedIndex);
       $$('.navbar.main-navbar').hide();    
       swiper.clickedSlide.querySelector('.tc01').classList.remove('draggable');
       swiper.detachEvents();
