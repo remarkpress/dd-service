@@ -66,7 +66,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 */
 /* my record form */
 .cf02 {padding:0 20px 100px}
-.cf02 .header{text-align:center;margin-bottom:50px}
+.cf02 .header{text-align:center;margin-bottom:40px}
 .cf02 .header dt{display:inline-block;width:78px;height:78px;border-radius:39px;background-color:var(--primary-color);color:#fff;text-align:center;font-size:14px;position:relative;margin-bottom:50px}
 .cf02 .header dt > span{display:block;width:60px;font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}
 .cf02 .header dd{text-align:center;margin-left:0;color:#B7B7B7}
@@ -77,7 +77,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
 .cf02 .bookArea span:before{content:"#"}
 .cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:35px auto;text-indent:-9999px}
-.cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
+.cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
 
 /* add keyword to book form */
 .cf03 button{position:fixed;bottom:70px;left:50%;transform:translate(-50%, 0);z-index:10}
@@ -145,8 +145,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .sub-navbar .navbar-bg:after{background-color:#fff;width:100%;height:100%;left:0;right:0;top:0;bottom:0;display:block;transform:none}
 .sub-navbar.navbar-large-collapsed .navbar-bg:before{box-shadow:none;width:100%;left:0;height:0px;top:initial;bottom:-1px;border-bottom:1px solid #b7b7b7}
 
-.view-navbar{top:15px}
-.view-navbar .right{right:18px!important}
+.view-navbar{top:20px}
+.view-navbar .right{right:22px!important}
 .view-navbar .right a{display:block;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
 .book-navbar{position:fixed}
@@ -301,22 +301,21 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ib01 .swiper-slide .swiper-slide-shadow-right{display:none}
 
 /* book swiper */
-.ib02{overflow:visible;height:70%;margin-top:50px}
-.ib02 .swiper-slide{padding:0 35px;box-sizing:border-box;height:100%;overflow-y:scroll}
-.ib02 .swiper-slide{overflow:visible}
-.ib02 .tc02{padding:70px 35px;margin:0;height:100%;box-sizing:border-box}
+.ib02{overflow:visible;position:absolute;top:50%;left:0;transform:translate(0,-50%);margin-top:-40px;width:100%;height:434px}
+.ib02 .swiper-slide{box-sizing:border-box;overflow:visible}
+.ib02 .tc02{padding:70px 35px;margin:0;width:303px;height:434px;box-sizing:border-box;margin:0 auto}
 .ib02 .tc02 > dt{margin-bottom:30px;width:80%;word-break:keep-all}
 .ib02 .tc02 > dt a{font-size:24px;border-bottom:1px solid;color:var(--primary-color)}
 .ib02 .tc02 > dt a:before{content:"#";margin-right:10px}
 .ib02 .tc02 > dd{margin-left:0}
 .ib02 .cf02{padding-bottom:30px}
 .ib02 .cf02 .header{margin-top:0}
-.ib02 .swiper-pagination{position:fixed;bottom:90px;width:60px;left:initial;right:85px}
-.ib02 .swiper-button-next{position:fixed;bottom:80px;top:initial;right:35px}
+.ib02 .swiper-pagination{position:fixed;bottom:-120px;width:60px;left:initial;right:85px}
+.ib02 .swiper-button-next{position:fixed;bottom:-130px;top:initial;right:35px}
 .ib02 .swiper-button-next::after{font-size:18px;color:var(--primary-color);font-weight:bold}
-.ib02 .swiper-button-prev{position:fixed;bottom:80px;top:initial;left:initial;right:160px}
+.ib02 .swiper-button-prev{position:fixed;bottom:-130px;top:initial;left:initial;right:160px}
 .ib02 .swiper-button-prev::after{font-size:18px;color:var(--primary-color);font-weight:bold}
-.ib02 .editBook{position:fixed;bottom:82px;left:35px}
+.ib02 .editBook{position:fixed;bottom:-128px;left:35px;z-index:10}
 .ib02 .editBook a{display:inline-block;width:40px;height:40px;box-sizing:border-box;background-color:#fff;border:none}
 .ib02 .editBook a.add{background:url(../images/icon_plus02.png) no-repeat center center;background-size:35px 35px;text-indent:-9999px;margin-right:15px}
 .ib02 .editBook a.edit{background:url(../images/icon_edit.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}

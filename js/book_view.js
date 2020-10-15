@@ -56,6 +56,7 @@ if (book_id == "new") { //신규 책 만들기
   });
 
   var swiper = new Swiper('.ib02.swiper-container', {
+    zoom: true,
     pagination: {
       el: '.swiper-pagination',
       type: 'fraction',
