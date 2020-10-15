@@ -2,47 +2,36 @@ var view=app.views.current;
 var current_join_page = $$('.page.join')[$$('.page.join').length -1 ].f7Page;
 var params = current_join_page.route.query;
 var email = params.email;
-var nickname = params.nickname;
+// console.log(email);
 
-//가입03
-$$('#join_form03').on('submit', function(){
+//가입02
+$$('#join_form02').on('submit', function(){
   var formData = app.form.convertToData($$(this));
-  var data = {
-    member: {
-      email: email,
-      nickname: nickname,
-      password: formData['password'],
-      password_confirmation: formData['password2']
-    }
-  }
+  var data = formData;
   // console.log(data);
-  var endpoint = endpoint_hostname + '/api/sign_up'
+  var endpoint = endpoint_hostname + '/api/check_nickname'
   app.request.post(endpoint, data, function(data) {
     var response_data = JSON.parse(data);
     // console.log(response_data);
     if ( response_data.is_success === true ) {
-      dialog.open();
-      setTimeout(function () {
-        dialog.close();
-        view.router.navigate('/login/');
-      }, 2000);
+      view.router.navigate({
+        path: '/join03/',
+        query: {
+          "email": email,
+          "nickname": response_data.data.nickname
+        }
+      });
     } else {
-      dialog_failed.open();
+      dialog_nickname_unavailable.open();
       setTimeout(function () {
-        dialog_failed.close();
-        view.router.navigate('/join01/', {force: true});
+        dialog_nickname_unavailable.close();
       }, 2000);
     }
   });
 });
 
-var dialog = app.dialog.create({
-  text: '성공적으로 가입되었습니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
-});
-
-var dialog_failed = app.dialog.create({
-  text: '오류가 있습니다. 처음부터 다시 진행해주세요.',
+var dialog_nickname_unavailable = app.dialog.create({
+  text: '사용할 수 없는 이름입니다.',
   content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
 });
 

@@ -25,7 +25,7 @@
 .page-content.user-content{background-color:#fff;z-index:10}
 .page-content.user-content .ng06{position:fixed;bottom:100px;left:50px}
 .page-content.user-content .ng06_01{position:static}
-.login-screen-content{z-index:10;padding-top:70px}
+.login-screen-content{z-index:10;padding-top:6%}
 ul{list-style-type:none;padding-left:0}
 body{color:color:var(--primary-color)}
 .block{padding:0 25px}
@@ -565,7 +565,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .login-screen-content .item-input-invalid input{color:var(--primary-color)}
 .login-screen-content .item-input-invalid input::placeholder{color: transparent}
 .login-screen-content .item-checkbox > label{margin:0 auto;font-size:14px;color:#B7B7B7}
-.login-screen-content .btnA{margin-bottom:30px}
+.login-screen-content .btnA{margin:100px 0 0}
+.login-screen-content form.loginForm .btnA{margin:40px 0 30px}
 .login-screen-content .btnA li{text-align:center}
 .login-screen-content .block-footer li{margin-bottom:15px}
 .login-screen-content .block-footer li a{color:#B7B7B7;font-size:13px}
