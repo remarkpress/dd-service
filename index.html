@@ -192,53 +192,63 @@
       </ul>
     </script>
     <script id="book-view-template" type="text/template7">
-      <form class="cf01" id="add-book-name" style="display:none">
-        <input type="text" name="book_name" placeholder="책 제목을 지어주세요"/>
-        <button>등록</button>
-      </form>
-
-      <!-- Swiper -->
-      <div class="ib02 swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <dl class="tc02">
-              <dt><a href="#">{{book.title}}</a></dt>
-              <dd>{{nickname}}</dd>
-            </dl>
-          </div>
-
-          {{#each book.chapters}}
-          <div class="swiper-slide">
-            <div class="cf02 tc02 viewer" data-item-id="{{this.post.id}}">
-              <dl class="header">
-                <dt>
-                  <span>{{this.post.title}}</span>
-                </dt>
-                <dd>{{this.post.question}}</dd>
-              </dl>
-              <div class="textArea">
-                {{this.post.body}}
-              </div>
-            </div>
-          </div>
-          {{/each}}
-
-        </div>
-        <div class="controls">
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
-          <!-- Add Arrows -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="editBook">
-            <a id="populate_button" href="/book_view_add/{{book.id}}/" class="add">추가하기</a>
-
-            <a id="arrange_button" href="/book_view_edit/{{book.id}}/" class="edit">수정하기</a>
-
+      <!-- Static Navbar -->
+      <div class="navbar view-navbar">
+        <div class="navbar-inner">
+          <div class="right">
+            <a class="goBack">돌아가기</a>
           </div>
         </div>
       </div>
-      <!-- //Swiper -->
+      <div class="page-content view-content">
+        <form class="cf01" id="add-book-name" style="display:none">
+          <input type="text" name="book_name" placeholder="책 제목을 지어주세요"/>
+          <button>등록</button>
+        </form>
+
+        <!-- Swiper -->
+        <div class="ib02 swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <dl class="tc02">
+                <dt><a href="#">{{book.title}}</a></dt>
+                <dd>{{nickname}}</dd>
+              </dl>
+            </div>
+
+            {{#each book.chapters}}
+            <div class="swiper-slide">
+              <div class="cf02 tc02 viewer" data-item-id="{{this.post.id}}">
+                <dl class="header">
+                  <dt>
+                    <span>{{this.post.title}}</span>
+                  </dt>
+                  <dd>{{this.post.question}}</dd>
+                </dl>
+                <div class="textArea">
+                  {{this.post.body}}
+                </div>
+              </div>
+            </div>
+            {{/each}}
+
+          </div>
+          <div class="controls">
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="editBook">
+              <a id="populate_button" href="/book_view_add/{{book.id}}/" class="add">추가하기</a>
+
+              <a id="arrange_button" href="/book_view_edit/{{book.id}}/" class="edit">수정하기</a>
+
+            </div>
+          </div>
+        </div>
+        <!-- //Swiper -->
+      </div>
     </script>
     <script id="book-view-add-template" type="text/template7">
       <div class="page-content view-add-content">

@@ -7,12 +7,17 @@ var compiledBookViewTemplate = Template7.compile(bookViewTemplate);
 if (book_id == "new") { //신규 책 만들기
   var nickname = current_page.route.query.nickname;
   var book_object = compiledBookViewTemplate({nickname: nickname, book: ''});
-  $$('.page-content.view-content').html(book_object);
+  $$('.page.bookView').html(book_object);
 
   $$('.ib02 .swiper-slide:first-child .tc02 dt a').text('');
   $$('#add-book-name').show();
   $$('.ib02 .controls').hide();
   $$('#add-book-name').find("input").focus();
+
+  //돌아가기
+  $$('.bookView .goBack').on('click', function(){
+    view.router.back();
+  });
 
   //새 노트 제목 추가
   $$("#add-book-name").on('submit', function(event){
@@ -90,10 +95,10 @@ if (book_id == "new") { //신규 책 만들기
   }
 
   app.request.json(endpoint, credentials, function(data){
-    console.log(data);
+    // console.log(data);
     var book_object = compiledBookViewTemplate({book: data.book, nickname: data.nickname});
     // console.log(data.nickname);
-    $$('.page-content.view-content').html(book_object);
+    $$('.page.bookView').html(book_object);
 
     var swiper = new Swiper('.ib02.swiper-container', {
       pagination: {
@@ -119,13 +124,12 @@ if (book_id == "new") { //신규 책 만들기
         },
       }
     });
+    //돌아가기
+    $$('.bookView .goBack').on('click', function(){
+      view.router.back();
+    });
   });
 }
-
-//돌아가기
-$$('.bookView .goBack').on('click', function(){
-  view.router.back();
-});
 
 // Create full-layout notification
 var notification1 = app.notification.create({
