@@ -75,6 +75,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .textArea textarea{font-size:14px;line-height:1.7;width:100%;overflow:hidden;}
 .cf02 .picArea{margin-bottom:20px}
 .cf02 .picArea img{max-width:100%}
+.cf02 .picArea input{width:0;height:0;position:absolute;visibility:hidden}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
 .cf02 .bookArea span:before{content:"#"}
 .cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:35px auto;text-indent:-9999px}

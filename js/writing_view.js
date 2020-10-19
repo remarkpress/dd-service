@@ -72,6 +72,12 @@ if ( writing_id == "new" ) { //신규 책 만들기
     //$$('textarea.resizable').trigger('change');
     app.input.resizeTextarea("textarea.resizable");
 
+    $$(".picArea img").on('click', function() {
+        $$('#writing_image').click();
+    });
+    $$(".picArea input").on('change', function() {
+        readURL(this,$$(this));
+    });
     //키워드 저장
     $$('#save_writing').on('submit', function(event){
       event.preventDefault();
@@ -194,3 +200,29 @@ var notification1 = app.notification.create({
   //text: 'This is a simple notification message',
   closeTimeout: 3000,
 });
+
+//폼에서 이미지 선택
+function readURL(input,obj) {
+   if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            obj.siblings('em').find('.previewImg').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+//사진추가 버튼
+$$(".fab.fab02.fab-right-bottom a.fab-label-button.picture").on('click', function() {
+  app.fab.close('.fab.fab02.fab-right-bottom');
+  $$('#writing_image').click();
+});
+//링크추가 버튼
+$$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function () {
+  app.fab.close('.fab.fab02.fab-right-bottom');
+  app.dialog.prompt('링크할 주소를 입력하세요', function (url) {
+    $$('.linkArea a').attr('href',url);
+    $$('.linkArea a').text(url);
+  },null,$$('.linkArea a').text());
+});
+
