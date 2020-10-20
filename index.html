@@ -284,7 +284,7 @@
                 <li class="{{this.already_included}}">
                   <label class="item-checkbox item-content">
                     <div class="item-inner">
-                      <div class="btn03 wrote added"><span>{{this.title}}</span></div>
+                      <div class="btn03 {{this.button_class}}"><span>{{this.title}}</span></div>
                       <div class="item-text">{{this.body}}</div>
                     </div>
                     <input type="checkbox" name="post_ids" value="{{this.id}}" {{this.already_included}} />
@@ -328,7 +328,7 @@
                 <div class="item-content">
                   <div class="swipeout-content">
                     <div class="item-inner">
-                      <div class="btn03 wrote added"><span>{{this.post.title}}</span></div>
+                      <div class="btn03 {{this.post.button_class}}"><span>{{this.post.title}}</span></div>
                       <div class="item-text">{{this.post.body}}</div>
                     </div>
                   </div>
