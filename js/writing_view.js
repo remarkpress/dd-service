@@ -175,8 +175,38 @@ $$('.fab01 > a').on('click', function(){
   app.dialog.confirm(
     '삭제할까요?',
     function () {
-      $$('.page-previous .lc01 li a[keyword-id="'+writing_id+'"]').parent().remove();
-      view.router.back();
+      // console.log(writing_id);
+      var data = {
+        member_email: localStorage["dd-member-email"],
+        member_token: localStorage["dd-member-token"]
+      };
+      // console.log(data);
+      var endpoint = endpoint_hostname + '/api/posts/' + writing_id
+      // console.log(endpoint);
+      var xhr = new XMLHttpRequest();
+      xhr.open("DELETE", endpoint);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        // console.log(this.readyState);
+        // console.log(this.status);
+        if (this.readyState == 4 && this.status == 200) {
+          var response = this.responseText;
+          // console.log(response);
+          var response_data = JSON.parse(response);
+
+          if (response_data.is_success === true) {
+            $$('.page-previous .lc01 li a[keyword-id="'+writing_id+'"]').parent().remove();
+            view.router.back();
+          } else {
+            dialog_pending.close();
+            alert('오류가 있습니다.');
+          }
+        }
+      }
+      // console.log(data);
+      var parsed_data = JSON.stringify(data);
+      // console.log(parsed_data);
+      xhr.send(parsed_data);
     }
   );
 
