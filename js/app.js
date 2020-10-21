@@ -86,14 +86,14 @@ var app = new Framework7({
     },
     {
       path: '/user_question/',
-      url: 'html/user_question.html',
+      url: 'html/user.html',
       options: {
         transition: 'f7-fade',
       },
       on: {
         pageInit: function (e, page) {
           var s = document.createElement('script');
-          s.src = "js/user.js";
+          s.src = "js/user_question.js";
           $$('head').append(s);
         }
       }
