@@ -173,7 +173,7 @@ $$('.writingView .goBack').on('click', function(){
 //키워드 삭제
 $$('.fab01 > a').on('click', function(){
   app.dialog.confirm(
-    '삭제할까요?',
+    '기록을 삭제할까요?',
     function () {
       // console.log(writing_id);
       var data = {
