@@ -14,13 +14,13 @@ if (localStorage["dd-member-credentials"] === undefined ) {
 }
 
 app.request.json(endpoint, credentials, function(data){
-  console.log(data);
+  // console.log(data);
   var posts = compiledUserTemplate({posts: data});
-  console.log(posts);
+  // console.log(posts);
   $$('.page.user').html(posts);
 
   //돌아가기
   $$('.page.user .goBack').on('click', function(){
-    view.router.back();
+    view.router.back('/user/', {force: true});
   });
 });

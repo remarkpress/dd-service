@@ -141,9 +141,8 @@
         <div class="block">
           <ul class="ng04">
             <li class="questions"><span>{{user.answered_post_count}}</span></li>
-            <!-- 한장 이상의 글이 들어간 책의 수  -->
-            <li class="writings"><span>{{user.id}}</span></li>
-            <li class="books"><span>{{user.written_post_count}}</span></li>
+            <li class="writings"><span>{{user.written_post_count}}</span></li>
+            <li class="books"><span>{{user.book_count}}</span></li>
           </ul>
           <ul class="ng05">
             <li class="likes"><a href="/user_question/">{{user.liked_post_count}}</a></li>
@@ -366,7 +365,7 @@
                   {{#each posts.liked}}
                   <li>
                     <span>
-                      <em>{{@index}}</em>
+                      <em>{{@index+1}}</em>
                       <b>{{this.title}}</b>
                     </span>
                   </li>
@@ -378,7 +377,7 @@
                   {{#each posts.dropped}}
                   <li>
                     <span>
-                      <em>{{@index}}</em>
+                      <em>{{@index+1}}</em>
                       <b>{{this.title}}</b>
                     </span>
                   </li>
