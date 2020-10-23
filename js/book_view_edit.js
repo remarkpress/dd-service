@@ -72,11 +72,12 @@ app.request.json(endpoint, credentials, function(data){
           //나의 책 슬라이더에 child 추가(실제 코드는 서버에서 조회한 데이터로 생성해야 함)
           for(var index in book.chapters) {
             var id = book.chapters[index].post.id;
+            var button_class = book.chapters[index].post.button_class;
             var keyword = book.chapters[index].post.title;
             var question = book.chapters[index].post.question;
             var content = book.chapters[index].post.body;
             var img_src = "";  //서버에서 불러온 이미지 경로
-            swiper.appendSlide('<div class="swiper-slide"><div class="cf02 tc02 viewer" data-item-id="'+id+'"><dl class="header"><dt><span>'+keyword+'</span></dt><dd>'+question+'</dd></dl><div class="textArea">'+content+'</div></div></div>');
+            swiper.appendSlide('<div class="swiper-slide"><div class="cf02 tc02 viewer" data-item-id="'+id+'"><dl class="header"><dt class="btn03 '+button_class+'"><span>'+keyword+'</span></dt><dd>'+question+'</dd></dl><div class="textArea">'+content+'</div></div></div>');
           }
 
           //얼럿
