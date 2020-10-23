@@ -363,11 +363,24 @@
               <div id="tab-1" class="page-content tab tab-active">
                 <ul class="lc04">
                   {{#each posts.liked}}
+                  <!--
                   <li>
                     <span>
                       <em>{{@index+1}}</em>
                       <b>{{this.title}}</b>
                     </span>
+                  </li>
+                  -->
+                  <li class="swipeout">
+                    <div class="swipeout-content item-content">
+                      <span>
+                        <em>{{@index+1}}</em>
+                        <b>{{this.title}}</b>
+                      </span>
+                    </div>
+                    <div class="swipeout-actions-right">
+                      <a href="#" class="swipeout-delete">최소</a>
+                    </div>
                   </li>
                   {{/each}}
                 </ul>

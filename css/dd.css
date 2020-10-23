@@ -467,6 +467,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .lc04 li span{display:table;width:100%}
 .lc04 li span em{display:table-cell;width:20%;font-style:normal}
 .lc04 li span b{display:table-cell;width:80%;font-weight:normal}
+.lc04 li .swipeout-delete{background-color:var(--primary-color)}
 /*radios*/
 .ng01{
   display: grid;
