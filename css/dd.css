@@ -464,7 +464,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 
 /* 나의 질문 리스트 */
 .lc04{margin:0 20px}
-.lc04 li{margin-bottom:30px}
+.lc04 li{padding:10px 0}
 .lc04 li span{display:table;width:100%}
 .lc04 li span em{display:table-cell;width:20%;font-style:normal}
 .lc04 li span b{display:table-cell;width:80%;font-weight:normal}
@@ -592,6 +592,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
       margin:50px auto;
       transform: translate(0,0);
   }
+  
+  .page-content.user-content .ng06{position:static;margin-top:50px}
 }
 
 
