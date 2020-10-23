@@ -2,6 +2,9 @@
 var $$ = Dom7;
 
 var app = new Framework7({
+  view: {
+    iosDynamicNavbar: false,
+  },
   // App root element
   root: '#app',
   // App Name
@@ -11,7 +14,7 @@ var app = new Framework7({
   theme: 'ios',
   // Enable swipe panel
   panel: {
-    swipe: 'left',
+  //  swipe: 'left',
   },
   dialog: {
     buttonOk: '예',

@@ -142,7 +142,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .sub-navbar.navbar-large-collapsed:after{height:48px}
 */
 .sub-navbar{background-color:#fff;height:60px}
-.sub-navbar .title{font-weight:normal;top:5px}
+.sub-navbar .title{font-weight:normal;top:5px;left:50%!important;transform:translate(-50%, 0)}
 .sub-navbar .title-large-text{padding:6px 25px}
 .sub-navbar .title-large-text strong{font-size:24px;line-height:2;font-weight:normal}
 .sub-navbar .title-large-text em{display:none}
@@ -449,15 +449,16 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .lc03 li{border-bottom:1px solid #B7B7B7}
 .lc03 li .item-inner{display:flex !important;padding:20px 0px}
 .lc03 li .item-inner::after{content:none}
-.lc03 li .item-inner .item-text{width:calc(100% - 100px);-webkit-line-clamp:3;max-height: calc(var(--f7-list-item-text-line-height) * 3);color:var(--primary-color)}
+.lc03 li .item-inner .item-text{width:calc(100% - 100px);-webkit-line-clamp:3;max-height: calc(var(--f7-list-item-text-line-height) * 3);color:var(--primary-color);word-break:break-all}
 .lc03 li .item-checkbox{padding-left:0}
 .lc03 li .icon-checkbox{margin-right:0}
 .lc03 li .btn03{width:70px;height:70px;border-radius:35px}
-.lc03_01 li .swipeout-actions-right{z-index:100;right:-1px}
+.lc03_01 li .swipeout-actions-right{z-index:100;right:-25px;}
 .lc03_01 li .swipeout-actions-right .swipeout-delete{background-color:var(--primary-color)}
 #book_add_form .lc03 li{opacity:0.4}
 #book_add_form .lc03 li.checked{opacity:1}
 #book_add_form .lc03 li .icon-checkbox{display:none}
+#book_edit_form .lc03 li{overflow:visible}
 #book_edit_form .lc03 li .item-inner{padding:20px 50px 20px 0 !important}
 .lc03.sortable li.sorting{box-shadow: 0px 9px 11px -9px rgba(0,0,0,0.25),  0px -9px 11px -9px rgba(0,0,0,0.25);}
 
