@@ -79,7 +79,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .picArea input{width:0;height:0;position:absolute;visibility:hidden}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
 .cf02 .bookArea span:before{content:"#"}
-.cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;border-radius:19px;background:url(../images/btn_check.png) no-repeat center center;background-size:35px auto;text-indent:-9999px;z-index:10}
+.cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;background:#eee url(../images/btn_check_new.png) no-repeat center center;background-size:21.5px 19.5px;text-indent:-9999px;z-index:10000}
+.cf02 .btnA button{visibility:hidden}
 .cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
 
 /* add keyword to book form */
@@ -91,6 +92,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .fab a.active-state{background-color:var(--secondary-color)}
 .fab.fab-left-bottom{left:35px}
 .fab.fab-right-bottom{right:100px}
+.fab03.fab-right-bottom{right:35px}
 
 .fab01 a{background:#fff url(../images/icon_minus.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
@@ -101,7 +103,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .fab02 a.edit{background:#fff url(../images/icon_edit.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 .fab02 a.link{background:#fff url(../images/icon_link.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
-.fab03 a{background:#fff url(../images/btn_check.png) no-repeat center center;background-size:19px 17px;text-indent:-9999px}
+.fab03 a{width:40px;height:40px;border:none;background:url(../images/btn_check_new.png) no-repeat center center;background-size:21.5px 19.5px;text-indent:-9999px;text-indent:-9999px}
 
 /* navbar */
 .main-navbar .navbar-inner{padding:0 25px;height:60px;position:relative}

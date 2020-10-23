@@ -81,7 +81,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
     //키워드 저장
     $$('#save_writing').on('submit', function(event){
       event.preventDefault();
-      // console.log('submitted how many?');
+      console.log('submitted how many?');
       dialog_pending.open();
       var formData = app.form.convertToData($$(this));
       // console.log(writing_id);
@@ -158,6 +158,7 @@ $$("#add-writing-name").on('submit', function(event){
   return false;
 });
 
+
 //돌아가기
 $$('.writingView .goBack').on('click', function(){
   //view.router.back(view.history[1],{force:true});
@@ -210,6 +211,10 @@ $$('.fab01 > a').on('click', function(){
     }
   );
 
+});
+//저장하기 버튼
+$$('.fab03 > a').on('click', function(){
+  $$('#save_writing .btnA button').click();
 });
 
 var dialog = app.dialog.create({
