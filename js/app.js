@@ -141,6 +141,20 @@ var app = new Framework7({
       }
     },
     {
+      path: '/user_auth/',
+      url: 'html/user_auth_gate.html',
+      options: {
+        transition: 'f7-fade',
+      },
+      on: {
+        pageInit: function (e, page) {
+          var s = document.createElement('script');
+          s.src = "js/user_auth_gate.js";
+          $$('head').append(s);
+        }
+      }
+    },
+    {
       path: '/login/',
       url: 'html/login.html',
       options: {
@@ -150,20 +164,6 @@ var app = new Framework7({
         pageInit: function (e, page) {
           var s = document.createElement('script');
           s.src = "js/login.js";
-          $$('head').append(s);
-        }
-      }
-    },
-    {
-      path: '/join01/',
-      url: 'html/join01.html',
-      options: {
-        transition: 'f7-fade',
-      },
-      on: {
-        pageInit: function (e, page) {
-          var s = document.createElement('script');
-          s.src = "js/join01.js";
           $$('head').append(s);
         }
       }
@@ -275,7 +275,7 @@ var endpoint_hostname = 'http://differentdoors.durumi.io';
 //뷰 생성
 if (localStorage["dd-member-credentials"] === undefined ) {
   app.views.create('.view-main', {
-    url: '/login/',   //초기 로딩 페이지
+    url: '/user_auth/',   //초기 로딩 페이지
   });
 } else {
   app.views.create('.view-main', {

@@ -93,7 +93,7 @@ app.request.json(endpoint, credentials, function(data){
         localStorage.removeItem('dd-member-email');
         localStorage.removeItem('dd-member-token');
 
-        view.router.navigate('/login/');
+        view.router.navigate('/user_auth/');
       }
     );
 
@@ -106,7 +106,7 @@ app.request.json(endpoint, credentials, function(data){
         //계정삭제 처리 코드
 
         app.dialog.alert('계정이 삭제되었습니다.<br/>이용해 주셔서 감사합니다!');
-        view.router.navigate('/login/');
+        view.router.navigate('/user_auth/');
       }
     );
 

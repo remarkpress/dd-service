@@ -1,10 +1,20 @@
 var view=app.views.current;
+var current_page = $$('.page.login')[$$('.page.login').length -1 ].f7Page;
+var params = current_page.route.query;
+var email = params.email;
+
 //로그인
 $$('#login_form').on('submit', function(){
   var formData = app.form.convertToData($$(this));
   var endpoint = endpoint_hostname + '/api/sign_in'
   // console.log(endpoint);
-  var data = formData;
+  var data = {
+    sign_in: {
+      email: email,
+      password: formData["sign_in[password]"]
+    }
+  }
+
   app.request.post(endpoint, data, function(data) {
     var response_data = JSON.parse(data);
     var email = response_data.data.member.email;
