@@ -101,7 +101,7 @@ app.request.json(endpoint, credentials, function(data){
   // 계정삭제
   $$('.ng06_01 .deleteAccount').on('click', function(){
     app.dialog.confirm(
-      '계정과 함께 지금까지 작성했던 <br/>모든 데이터가 사라져요. <br/>그래도 삭제하시겠어요? ',
+      '계정과 함께 지금까지 작성했던<br/>모든 데이터가 사라져요.<br/>그래도 삭제하시겠어요? ',
       function () {
         //계정삭제 처리 코드
 
