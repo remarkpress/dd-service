@@ -103,14 +103,11 @@ app.request.json(endpoint, credentials, function(data){
 });
 
 var dialog = app.dialog.create({
-  text: '수정한 사항을 적용 하였습니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '수정한 사항을 적용 하였습니다.'
 });
 var dialog_pending = app.dialog.create({
-  text: '수정한 사항을 적용중입니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '수정한 사항을 적용중입니다.'
 });
 var dialog_empty_posts = app.dialog.create({
-  text: '글이 없습니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '글이 없습니다.'
 });

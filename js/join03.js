@@ -61,18 +61,15 @@ $$('#join_form03').on('submit', function(){
 });
 
 var dialog_nickname_unavailable = app.dialog.create({
-  text: '사용할 수 없는 이름입니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '사용할 수 없는 이름입니다.'
 });
 
 var dialog = app.dialog.create({
-  text: '성공적으로 가입되었습니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '성공적으로 가입되었습니다.'
 });
 
 var dialog_failed = app.dialog.create({
-  text: '오류가 있습니다. 처음부터 다시 진행해주세요.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '오류가 있습니다. 처음부터 다시 진행해주세요.'
 });
 
 //돌아가기

@@ -38,6 +38,5 @@ var notification1 = app.notification.create({
 
 // 안내 상자
 var dialog2 = app.dialog.create({
-  text: '이메일로 임시 패스워드를 <br/>보내드렸습니다.',
-  content: '<br/><i class="xi-mail" style="font-size:40px"></i>',
+  text: '이메일로 임시 패스워드를 <br/>보내드렸습니다.'
 });

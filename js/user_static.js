@@ -21,6 +21,5 @@ $$('.tc04 .btn05').on('click', function(){
 });
 
 var dialog = app.dialog.create({
-  text: '메일 주소를 복사하였습니다.',
-  content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '메일 주소를 복사하였습니다.'
 });

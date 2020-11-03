@@ -89,7 +89,7 @@ app.request.json(endpoint, credentials, function(data){
       prevent();
     }else{
       //console.log("cardBeforeOpen current" + swiper.clickedIndex);
-      $$('.navbar.main-navbar').hide();    
+      $$('.navbar.main-navbar').hide();
       swiper.clickedSlide.querySelector('.tc01').classList.remove('draggable');
       swiper.detachEvents();
     }
@@ -244,7 +244,7 @@ app.request.json(endpoint, credentials, function(data){
   //질문 담기 완료 안내
   var dialog2 = app.dialog.create({
     text: '해당 질문을 담았어요!',
-    content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
+    // content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
     on: {
       opened: function () {
       }

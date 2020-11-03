@@ -218,13 +218,11 @@ $$('.fab03 > a').on('click', function(){
 });
 
 var dialog = app.dialog.create({
-  text: '기록을 저장했어요.',
-  // content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '기록을 저장했어요.'
 });
 
 var dialog_pending = app.dialog.create({
-  text: '기록을 저장중입니다.',
-  // content: '<br/><i class="xi-check-circle" style="font-size:40px"></i>',
+  text: '기록을 저장중입니다.'
 });
 // Create full-layout notification
 var notification1 = app.notification.create({
