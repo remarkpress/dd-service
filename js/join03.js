@@ -34,7 +34,7 @@ $$('#join_form03').on('submit', function(){
           dialog.open();
           setTimeout(function () {
             dialog.close();
-            view.router.navigate('/user_auth/');
+            view.router.navigate('/');
           }, 2000);
         } else {
           dialog_failed.open();
