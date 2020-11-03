@@ -30,7 +30,14 @@ $$('#join_form03').on('submit', function(){
       app.request.post(endpoint, data, function(data) {
         var response_data = JSON.parse(data);
         // console.log(response_data);
+        var email = response_data.data.member.email;
+        var token = response_data.data.member.authentication_token;
+
         if ( response_data.is_success === true ) {
+          localStorage.setItem('dd-member-credentials', JSON.stringify({ member_email: email, member_token: token }));
+          localStorage.setItem('dd-member-email', email);
+          localStorage.setItem('dd-member-token', token);
+
           dialog.open();
           setTimeout(function () {
             dialog.close();
