@@ -291,11 +291,12 @@ app.request.json(endpoint, credentials, function(data){
               if (response_data.is_success === true) {
                 //addLike(selectedItem);  //좋아요에 추가
                 setTimeout(function() {
-                  swiper.removeSlide(swiper.activeIndex);
+                  //swiper.removeSlide(swiper.activeIndex);
                   isRemoveSlide = false;
                   dialog2.open();
                   setTimeout(function () {
                     dialog2.close();
+                    swiper.slides[swiper.activeIndex].classList.remove("adding");
                   }, 1000);
                 }, 200);
               } else {
@@ -334,16 +335,20 @@ app.request.json(endpoint, credentials, function(data){
     if($$('.ib01').hasClass('swiper-container-vertical')) return false;
 
     var moved = event.pageY - event.y0;
-    if(moved > 200){  // 아래로 내려 좋아요
-      swiper.slides[swiper.activeIndex].innerHTML = "";
-      swiper.slides[swiper.activeIndex].classList.add("remove");
-      isRemoveSlide = 1;
-    }else if(moved < -200){  // 위로 올려 싫어요
-      swiper.slides[swiper.activeIndex].innerHTML = "";
-      swiper.slides[swiper.activeIndex].classList.add("remove");
-      isRemoveSlide = 2;
-    }else{
-      isRemoveSlide = 0;
+    if(moved != 0) {
+
+      if(moved > 200){  // 아래로 내려 좋아요
+        //swiper.slides[swiper.activeIndex].innerHTML = "";
+        swiper.slides[swiper.activeIndex].classList.add("adding");
+        isRemoveSlide = 1;
+      }else if(moved < -200){  // 위로 올려 싫어요
+        swiper.slides[swiper.activeIndex].innerHTML = "";
+        swiper.slides[swiper.activeIndex].classList.add("remove");
+        isRemoveSlide = 2;
+      }else{
+        isRemoveSlide = 0;
+      }
+
     }
     //좋아요 싫어요 아이콘 보이기
     var tc01 = swiper.slides[swiper.activeIndex].querySelector('.tc01');
@@ -359,6 +364,7 @@ app.request.json(endpoint, credentials, function(data){
         tc01.classList.remove('moveup');
       }
     }
+
 
     var target = event.target
     // keep the dragged position in the data-x/data-y attributes

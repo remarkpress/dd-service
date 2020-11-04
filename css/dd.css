@@ -196,6 +196,9 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .ib01.swiper-container-horizontal .swiper-slide.remove{
   width:0px;
 }
+.ib01.swiper-container-horizontal .swiper-slide.adding{
+  opacity:0.4
+}
 .ib01.swiper-container-horizontal .tc01{height:100%;position:relative}
 .ib01.swiper-container-horizontal .tc01.movedown:before{content:"좋아요";position:absolute;left:50%;top:-70px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like01.png) no-repeat center top;background-size:32px 32px;color:#DCDCDC;font-size:16px}
 .ib01.swiper-container-horizontal .tc01.moveup:after{content:"싫어요";position:absolute;left:50%;bottom:-100px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like02.png) no-repeat center top;background-size:32px 32px;color:#DCDCDC;font-size:16px}
