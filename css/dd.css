@@ -109,6 +109,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 /* navbar */
 .main-navbar .navbar-inner{padding:0 25px;height:60px;position:relative}
 .main-navbar .left .user{width:20px;height:21px;background:url(../images/icon_user.png) no-repeat center center;background-size:cover;text-indent:-9999px}
+.main-navbar .left .user.adding{position:relative}
+.main-navbar .left .user.adding:after{position:absolute;content:"";right:-10px;bottom:-5px;display:block;width:17px;height:17px;background:url(../images/icon_heart.png) no-repeat center center;background-size:cover}
 .main-navbar .title .logo{display:inline-block;width:27px;height:25px;background:url(../images/logo.png) no-repeat center center;background-size:cover;text-indent:-9999px}
 .main-navbar .right a{display:inline-block;text-indent:-9999px}
 .main-navbar .right a.cCar{background:url(../images/icon_card.png) no-repeat center center;width:21px;height:21px;background-size:cover;position:relative}
@@ -200,8 +202,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   opacity:0.4
 }
 .ib01.swiper-container-horizontal .tc01{height:100%;position:relative}
-.ib01.swiper-container-horizontal .tc01.movedown:before{content:"좋아요";position:absolute;left:50%;top:-70px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like01.png) no-repeat center top;background-size:32px 32px;color:#DCDCDC;font-size:16px}
-.ib01.swiper-container-horizontal .tc01.moveup:after{content:"싫어요";position:absolute;left:50%;bottom:-100px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like02.png) no-repeat center top;background-size:32px 32px;color:#DCDCDC;font-size:16px}
+.ib01.swiper-container-horizontal .tc01.movedown:before{content:"싫어요";color:#fff;position:absolute;left:50%;top:-70px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like01.png) no-repeat center top;background-size:32px 32px;font-size:16px}
+.ib01.swiper-container-horizontal .tc01.moveup:after{content:"좋아요";color:#fff;position:absolute;left:50%;bottom:-100px;transform:translate(-50%, 0);padding-top:36px;background:url(../images/icon_like02.png) no-repeat center top;background-size:32px 32px;font-size:16px}
 
 .ib01.swiper-container-horizontal .tc01 .card{height:100%;margin:0;border-radius:152.5px 152.5px 5px 5px;box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);transition-property:transform}
 

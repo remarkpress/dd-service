@@ -294,9 +294,11 @@ app.request.json(endpoint, credentials, function(data){
                   //swiper.removeSlide(swiper.activeIndex);
                   isRemoveSlide = false;
                   dialog2.open();
+                  $$('.main-navbar .left .user').addClass('adding');
                   setTimeout(function () {
                     dialog2.close();
                     swiper.slides[swiper.activeIndex].classList.remove("adding");
+                    $$('.main-navbar .left .user').removeClass('adding');
                   }, 1000);
                 }, 200);
               } else {
