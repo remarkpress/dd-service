@@ -21,7 +21,7 @@
             <div class="item-inner">
               <div class="item-title item-label">비밀번호 확인</div>
               <div class="item-input-wrap">
-                <input id="password_two" name="password2" type="password" pattern="^\S{6,}$" placeholder="다시 한번 입력해 주세요" data-error-message="두 비밀번호가 달라요!" required validate>
+                <input id="password_two" name="password2" type="password" pattern="^\S{6,}$" placeholder="다시 한번 입력해 주세요" data-error-message="두 비밀번호가 달라요!" required validate onfocus="window.setTimeout(function(){window.scrollTo(0,250)},300)">
                 <span class="input-clear-button"></span>
               </div>
             </div>

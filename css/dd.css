@@ -25,6 +25,8 @@
 .page-content.user-content{background-color:#fff;z-index:10}
 .page-content.user-content .ng06{position:fixed;bottom:100px;left:50px}
 .page-content.user-content .ng06_01{position:static}
+.page.login .marginBox{height:110px}
+.page.join .marginBox{height:110px}
 .login-screen-content{z-index:10;padding-top:6%}
 ul{list-style-type:none;padding-left:0}
 body{color:color:var(--primary-color)}
@@ -128,6 +130,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .main-navbar .navbar-bg{background-color:transparent;backdrop-filter:none}
 .main-navbar .navbar-bg:after{content:none}
 .navbar-hidden-statusbar{display:none}
+.page.reset .navbar{margin-bottom:66px;position:relative}
 
 /*
 .sub-navbar{position:fixed}
