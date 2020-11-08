@@ -294,11 +294,10 @@ app.request.json(endpoint, credentials, function(data){
                   //swiper.removeSlide(swiper.activeIndex);
                   isRemoveSlide = false;
                   dialog2.open();
-                  $$('.main-navbar .left .user').addClass('adding');
                   setTimeout(function () {
                     dialog2.close();
                     swiper.slides[swiper.activeIndex].classList.remove("adding");
-                    $$('.main-navbar .left .user').removeClass('adding');
+                    $$('.main-navbar .left .user').removeClass('adding').removeClass('like');
                   }, 1000);
                 }, 200);
               } else {
@@ -315,6 +314,7 @@ app.request.json(endpoint, credentials, function(data){
                   swiper.removeSlide(swiper.activeIndex);
                   isRemoveSlide = false;
                   notificationDelete.open();
+                  $$('.main-navbar .left .user').removeClass('adding').removeClass('dislike');
                 }, 200);
               } else {
                 alert('오류가 있습니다.');
@@ -358,12 +358,15 @@ app.request.json(endpoint, credentials, function(data){
       if(moved > 50){  // 아래로 내림
         tc01.classList.remove('moveup');
         if(!tc01.classList.contains('movedown')) tc01.classList.add('movedown');
+        if(!$$('.main-navbar .left .user').hasClass('adding')) $$('.main-navbar .left .user').addClass('adding').addClass('like');
       }else if(moved < -50){  // 위로 올림
         tc01.classList.remove('movedown');
         if(!tc01.classList.contains('moveup')) tc01.classList.add('moveup');
+        if(!$$('.main-navbar .left .user').hasClass('adding')) $$('.main-navbar .left .user').addClass('adding').addClass('dislike');
       }else{
         tc01.classList.remove('movedown');
         tc01.classList.remove('moveup');
+        $$('.main-navbar .left .user').removeClass('adding').removeClass('like').removeClass('dislike');
       }
     }
 

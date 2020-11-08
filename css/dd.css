@@ -111,6 +111,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .main-navbar .left .user{width:20px;height:21px;background:url(../images/icon_user.png) no-repeat center center;background-size:cover;text-indent:-9999px}
 .main-navbar .left .user.adding{position:relative}
 .main-navbar .left .user.adding:after{position:absolute;content:"";right:-10px;bottom:-5px;display:block;width:17px;height:17px;background:url(../images/icon_heart.png) no-repeat center center;background-size:cover}
+.main-navbar .left .user.adding.dislike:after{transform: rotate(180deg)}
 .main-navbar .title .logo{display:inline-block;width:27px;height:25px;background:url(../images/logo.png) no-repeat center center;background-size:cover;text-indent:-9999px}
 .main-navbar .right a{display:inline-block;text-indent:-9999px}
 .main-navbar .right a.cCar{background:url(../images/icon_card.png) no-repeat center center;width:21px;height:21px;background-size:cover;position:relative}
