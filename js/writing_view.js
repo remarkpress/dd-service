@@ -14,7 +14,11 @@ if ( writing_id == "new" ) { //신규 책 만들기
   $$('.btnArea').hide();
   $$('#save_writing .btnA').hide();
   $$('#add-writing-name').show();
-  $$('#add-writing-name').find("input").focus();
+
+  window.setTimeout(function(){
+    $$('#add-writing-name').find("input").focus();
+    //document.querySelector('#add-writing-name input').select();
+  },1000);
 
   //$$('textarea.resizable').trigger('change');
   app.input.resizeTextarea("textarea.resizable");
