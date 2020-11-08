@@ -82,5 +82,5 @@ app.request.json(endpoint, credentials, function(data){
 
 
 var dialog = app.dialog.create({
-  text: '선택한 키워드를 추가 하였습니다.'
+  text: '선택한 기록을 책에 넣었어요.'
 });
