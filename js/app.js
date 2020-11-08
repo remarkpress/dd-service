@@ -303,3 +303,22 @@ function sleep(milliseconds) {
   }
 }
 
+//이미지 프리로딩
+function preloading (imageArray) { 
+  let n = imageArray.length; 
+  for (let i = 0; i < n; i++) { 
+    let img = new Image(); 
+    img.src = imageArray[i]; 
+  } 
+} 
+preloading(
+  [ 
+    './images/icon_heart.png', 
+    './images/icon_like01.png', 
+    './images/icon_like02.png' ,
+    './images/icon_heart_off.png' 
+  ]
+);
+
+
+
