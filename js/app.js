@@ -99,7 +99,7 @@ var app = new Framework7({
           s.src = "js/user_question.js";
           $$('head').append(s);
         }
-      }
+      },
     },
     {
       path: '/user_account/',

@@ -475,6 +475,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .lc04{margin:0 20px}
 .lc04 li{padding:10px 0}
 .lc04 li span{display:table;width:100%}
+.lc04 li a{color:var(--primary-color);text-align:left}
 .lc04 li span em{display:table-cell;width:20%;font-style:normal}
 .lc04 li span b{display:table-cell;width:80%;font-weight:normal}
 .lc04 li .swipeout-delete{background-color:var(--primary-color)}
@@ -568,6 +569,11 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
   margin-top:0;
   text-align:center;
 }
+
+/*popup*/
+.popup.popup-question .navbarPop{height:110px;position:relative}
+.popup.popup-question  .navbarPop .popup-close{position:absolute;right:25px;top:25px;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
+
 
 /* login/join */
 .login-screen-content .login-screen-title{padding-top:60px;background:url(../images/logo.png) no-repeat center top;background-size:24px auto;font-size:18px;font-weight:normal;margin-bottom:50px}
