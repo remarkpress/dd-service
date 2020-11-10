@@ -1,5 +1,8 @@
 var view = app.views.current;
 var current_page = $$('.page.writingView')[0].f7Page;
+var last_path = view.router.history[view.router.history.length - 2];
+// console.log(last_path);
+// console.log(last_path.includes("/book_view/"));
 var writing_id = current_page.route.params.id;  //  넘겨받은 파라미터
 // console.log(writing_id);
 var myPostShowTemplate = $$('script#my-post-show-template').html();
@@ -85,7 +88,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
     //키워드 저장
     $$('#save_writing').on('submit', function(event){
       event.preventDefault();
-      console.log('submitted how many?');
+      // console.log('submitted how many?');
       dialog_pending.open();
       var formData = app.form.convertToData($$(this));
       // console.log(writing_id);
@@ -115,10 +118,17 @@ if ( writing_id == "new" ) { //신규 책 만들기
           if (response_data.is_success === true) {
             dialog_pending.close();
             dialog.open();
-            setTimeout(function () {
-              dialog.close();
-              view.router.back();
-            }, 2000);
+            if (last_path.includes("/book_view/")) {
+              setTimeout(function () {
+                dialog.close();
+                view.router.back(last_path, {force: true});
+              }, 2000);
+            } else {
+              setTimeout(function () {
+                dialog.close();
+                view.router.back();
+              }, 2000);
+            }
           } else {
             dialog_pending.close();
             alert('오류가 있습니다.');
