@@ -72,7 +72,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 {padding:0 20px 120px;overflow:scroll}
 .cf02 .header{text-align:center;margin-bottom:40px}
 /*.cf02 .header dt{display:inline-block;width:78px;height:78px;border-radius:39px;background-color:var(--primary-color);color:#fff;text-align:center;font-size:14px;position:relative;margin-bottom:50px}*/
-.cf02 .header dt{display:inline-block;margin-bottom:50px}
+.cf02 .header dt{display:inline-block;margin-bottom:30px}
 .cf02 .header dt > span{display:block;width:60px;font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}
 .cf02 .header dd{text-align:center;margin-left:0;color:#B7B7B7}
 .cf02 .textArea{margin-bottom:20px}
@@ -84,7 +84,8 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf02 .bookArea span:before{content:"#"}
 .cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;background:#eee url(../images/btn_check_new.png) no-repeat center center;background-size:21.5px 19.5px;text-indent:-9999px;z-index:10000}
 .cf02 .btnA button{visibility:hidden}
-.cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
+/*.cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}*/
+.cf02.viewer .textArea{margin-bottom:0;overflow-y:scroll;overflow-x:hidden;height:160px}
 
 /* add keyword to book form */
 .cf03 button{position:fixed;bottom:70px;left:50%;transform:translate(-50%, 0);z-index:10}
@@ -324,7 +325,7 @@ html.device-android .user-navbar{padding:45px 25px 0}
 /* book swiper */
 .ib02{overflow:visible;position:absolute;top:50%;left:0;transform:translate(0,-50%);margin-top:-40px;width:100%;height:434px}
 .ib02 .swiper-slide{box-sizing:border-box;overflow:visible}
-.ib02 .tc02{padding:70px 35px;margin:0;width:303px;height:434px;box-sizing:border-box;margin:0 auto}
+.ib02 .tc02{padding:50px 35px;margin:0;width:303px;height:434px;box-sizing:border-box;margin:0 auto}
 .ib02 .tc02 > dt{margin-bottom:30px;width:80%;word-break:keep-all}
 .ib02 .tc02 > dt a{font-size:24px;border-bottom:1px solid;color:var(--primary-color)}
 .ib02 .tc02 > dt a:before{content:"#";margin-right:10px}
