@@ -605,9 +605,6 @@ html.device-android .user-navbar{padding:45px 25px 0}
   
   .toolbar-bottom{height:55px}
 
-  .tc01 .card-opened .card-header-bg{padding-top:60px}
-  .tc01 .card-opened .card-header-bg .card-header{margin-bottom:50px}
-
   .tc01 form button.confirm {
       position:static;
       display:block;
