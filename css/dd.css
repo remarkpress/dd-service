@@ -137,7 +137,7 @@ html.device-android .main-navbar .navbar-inner.verMode{padding-bottom:25px;heigh
 html.device-android .main-navbar .navbar-inner.verMode .right a.cCar{margin-top:10px}
 html.device-android .tc01 .card-close{top:40px}
 html.device-android .view-navbar{top:35px}
-
+html.device-android .user-navbar{padding:45px 25px 0}
 /*
 .sub-navbar{position:fixed}
 .sub-navbar .title-large{height:60px}
