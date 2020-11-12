@@ -135,7 +135,14 @@ app.request.json(endpoint, credentials, function(data){
     $$("#add-new-keyword").find("input").focus();
     $$(".tc01 form button.confirm").css('display','none');
   });
-
+  //다른영역 클릭시 폼 닫기
+  $$(document).mouseup(function(e) { 
+//      var container = $$("#add-new-keyword");
+//      if(container.has(e.target).length === 0) { 
+        $$("#add-new-keyword").hide();
+        $$(".tc01 form button.confirm").css('display','');
+//      } 
+  });
   //새 답안 추가
   $$("#add-new-keyword").submit(function(event){
     event.preventDefault();
