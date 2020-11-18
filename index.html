@@ -108,7 +108,8 @@
              yellow,blue,green,pink,red : '나만의 책'에서 태그에 포함한 키워드의 색상 구분
            -->
            <dt>
-             <a class="btn03 {{post.button_class}}"><span>{{post.title}}</span></a>
+             <!-- <a class="btn03 writing-title {{post.button_class}}"><span>{{post.title}}</span></a> -->
+             <div class="btn03 writing-title {{post.button_class}}"><span>{{post.title}}</span></div>
              <input type="hidden" name="keyword" value="{{post.title}}"/>
            </dt>
            <dd>{{post.question}}</dd>

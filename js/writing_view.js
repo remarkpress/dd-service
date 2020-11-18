@@ -13,7 +13,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
   var post = compiledMyPostShowTemplate({post: ''});
   $$('.my_post_show_wrapper').html(post);
 
-  $$('.cf02 .header dt a span').text('+');
+  // $$('.cf02 .header dt a span').text('+');
   $$('.btnArea').hide();
   $$('#save_writing .btnA').hide();
   $$('#add-writing-name').show();
