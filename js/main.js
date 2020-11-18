@@ -136,12 +136,12 @@ app.request.json(endpoint, credentials, function(data){
     $$(".tc01 form button.confirm").css('display','none');
   });
   //다른영역 클릭시 폼 닫기
-  $$(document).mouseup(function(e) { 
+  $$(document).mouseup(function(e) {
 //      var container = $$("#add-new-keyword");
-//      if(container.has(e.target).length === 0) { 
+//      if(container.has(e.target).length === 0) {
         $$("#add-new-keyword").hide();
         $$(".tc01 form button.confirm").css('display','');
-//      } 
+//      }
   });
   //새 답안 추가
   $$("#add-new-keyword").submit(function(event){
@@ -232,14 +232,15 @@ app.request.json(endpoint, credentials, function(data){
     //text: 'This is a simple notification message',
     closeTimeout: 3000,
   });
-  var notificationDelete = app.notification.create({
-    icon: '<i class="xi-cloud-download"></i>',
-    title: '질문 카드',
-    //titleRightText: 'now',
-    subtitle: '해당 질문 카드를 삭제하였어요!',
-    //text: 'This is a simple notification message',
-    closeTimeout: 3000,
+  var dialogDelete = app.dialog.create({
+    text: '해당 질문을 목록에서 지웠어요!',
+    // content: '<br/><i class="xi-file-check" style="font-size:40px"></i>',
+    on: {
+      opened: function () {
+      }
+    }
   });
+
   //답안 선택 저장 및 목록으로 돌아가기 안내
   var dialog = app.dialog.create({
     text: '‘나의 글’에 담았어요!',
@@ -320,8 +321,11 @@ app.request.json(endpoint, credentials, function(data){
                 setTimeout(function() {
                   swiper.removeSlide(swiper.activeIndex);
                   isRemoveSlide = false;
-                  notificationDelete.open();
-                  $$('.main-navbar .left .user').removeClass('adding').removeClass('dislike');
+                  dialogDelete.open();
+                  setTimeout(function () {
+                    $$('.main-navbar .left .user').removeClass('adding').removeClass('dislike');
+                    dialogDelete.close();
+                  }, 1000);
                 }, 200);
               } else {
                 alert('오류가 있습니다.');
