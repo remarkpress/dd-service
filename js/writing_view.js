@@ -156,13 +156,12 @@ $$('#save_writing .header dt .btn03').on('click', function(){ //신규 책 만�
 $$("#add-writing-name").on('submit', function(event){
   event.preventDefault();
   var formData = app.form.convertToData($$(this));
-
   if (formData.writing_name == '') {
     notification1.open();
     $$(this).find("input").focus();
     return false;
   }
-  $$('.cf02 .header dt a span').text(formData.writing_name);
+  $$('.cf02 .header dt .btn03 span').text(formData.writing_name);
   $$('.cf02 .header dt input[name="keyword"]').val(formData.writing_name);
 
   $$("#add-writing-name").hide();
