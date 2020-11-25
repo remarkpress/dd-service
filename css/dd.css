@@ -15,14 +15,17 @@
 .ios {
  --f7-page-bg-color:#fff;
 }
+/*.view.router-transition-custom .toolbar-bottom{display:none}*/
 .page{z-index:auto}
+.page.user{overflow-y:scroll;z-index:10}
+
 .page-content{z-index:auto}
 .page-content.main-content{overflow:hidden;padding:0}
 .page-content.sub-content{padding:120px 0 0}
 .page-content.sub-content > .block{padding-bottom:89px}
 .page-content.view-content{background-color:#fff;z-index:10;padding-top:70px;overflow:hidden}
 .page-content.view-add-content{background-color:#fff;z-index:10;padding-top:110px}
-.page-content.user-content{background-color:#fff;z-index:10}
+.page-content.user-content{background-color:#fff;z-index:10;height:auto}
 .page-content.user-content .ng06{position:fixed;bottom:100px;left:50px}
 .page-content.user-content .ng06_01{position:static}
 .page.login .marginBox{height:110px}
@@ -387,7 +390,7 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .tc03{margin:0 50px;background:url(../images/con_about.png) no-repeat center top;background-size:156px 172px;padding-top:190px;text-align:center}
 .tc03 .block{margin-top:0}
 .tc03 p{word-break:keep-all;line-height:2;margin-bottom:50px}
-.tc03 .btn05{position:fixed;width:130px;left:50%;padding:11px 0;;bottom:70px;transform:translate(-50%, 0)}
+.tc03 .btn05{width:130px;padding:11px 0;}
 /* contact */
 .tc04{margin:0 50px;text-align:center;overflow:hidden}
 .tc04 .block{margin-top:0}

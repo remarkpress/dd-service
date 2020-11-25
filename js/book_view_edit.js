@@ -13,6 +13,8 @@ if (localStorage["dd-member-credentials"] === undefined ) {
   var credentials = JSON.parse(localStorage["dd-member-credentials"]);
 }
 
+$$('.toolbar-bottom').hide();
+
 app.request.json(endpoint, credentials, function(data){
   var book = data.book;
   // console.log(book);
@@ -26,6 +28,9 @@ app.request.json(endpoint, credentials, function(data){
     //돌아가기
     $$('.goBack').on('click', function(){
       view.router.back();
+      setTimeout(function(){
+        $$('.toolbar-bottom').show();
+      },800)
     });
     // // 순서변경액션
     // $$('.sortable').on('sortable:sort', function(e) {

@@ -17,9 +17,11 @@ app.request.json(endpoint, credentials, function(data){
   // console.log(data);
   var user = compiledUserTemplate({user: data});
   $$('.page.user').html(user);
+  $$('.toolbar-bottom').hide();
 
   //돌아가기
   $$('.page.user .goBack').on('click', function(){
+  	$$('.toolbar-bottom').show();
     view.router.back();
   });
 });

@@ -12,6 +12,7 @@ if (localStorage["dd-member-credentials"] === undefined ) {
 } else {
   var credentials = JSON.parse(localStorage["dd-member-credentials"]);
 }
+$$('.toolbar-bottom').hide();
 
 app.request.json(endpoint, credentials, function(data){
   // console.log(data);
@@ -22,6 +23,9 @@ app.request.json(endpoint, credentials, function(data){
   //돌아가기
   $$('.goBack').on('click', function(){
     view.router.back();
+    setTimeout(function(){
+      $$('.toolbar-bottom').show();
+    },800)
   });
   //키워드 선택
   $$('#book_add_form .lc03 li').on('click', function(){
