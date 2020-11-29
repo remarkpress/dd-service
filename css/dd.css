@@ -68,8 +68,11 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .cf01 input{padding:10px 0;display:inline;width:75%}
 .cf01 button{position:fixed;bottom:25px;right:30px;width:38px;height:38px;border:none;background:url(../images/btn_check_new.png) no-repeat center center;background-size:19px 17px;text-indent:-9999px}
 .cf01 button.active-state{background-color:#999}
+form#add-new-keyword{position:absolute;bottom:300px;left:50%;transform:translate(-50%, 0);width:78px;height:78px}
+form#add-new-keyword input{width:68px;height:30px;padding:0;text-align:center;margin-top:24px;margin-left:5px}
+form#add-new-keyword button{display:none}
 form#add-writing-name{position:absolute;bottom:initial;top:120px;left:50%;transform:translate(-50%, 0);width:78px;height:78px}
-form#add-writing-name input{width:78px;height:78px;border-radius: 39px;background-color:#ddd;padding:0;text-align:center}
+form#add-writing-name input{width:68px;height:30px;padding:0;text-align:center;margin-top:24px;margin-left:5px}
 form#add-writing-name button{display:none;position:absolute;bottom:-40px;left:50%;transform:translate(-50%, 0)}
 /*
 .cf01#add-book-name:after{content:"";display:block;background-color:rgba(0,0,0,0.3);position:fixed;top:0;left:0;right:0;bottom:80px}

@@ -130,40 +130,64 @@ app.request.json(endpoint, credentials, function(data){
 
   //새 답안 추가 폼 열기
   $$('.ng01 li.add > button').on('click', function(){
+    $$(this).css('background-size','0px');
     $$("#add-new-keyword").show();
     $$("#add-new-keyword").find("input").val('');
     $$("#add-new-keyword").find("input").focus();
-    $$(".tc01 form button.confirm").css('display','none');
+    $$(".card-opened form button.confirm").css('display','none');
+
+    const clientRect = $$(".card-opened .ng01")[0].getBoundingClientRect(); 
+    const bottom = clientRect.bottom;
+    console.log(top);
+    $$("#add-new-keyword").css('top',(bottom - 78) + 'px');
+  });
+  //답안 다시 수정하기
+  $$( document ).on( 'click', '.ng01 li > label.editable', function(){
+      $$(this).find('span').hide();
+      $$("#add-new-keyword").show();
+      $$("#add-new-keyword").find("input").val($$(this).find('span').text());
+      $$("#add-new-keyword").find("input").focus();
+      $$(".card-opened form button.confirm").css('display','none');
   });
   //다른영역 클릭시 폼 닫기
   $$(document).mouseup(function(e) {
 //      var container = $$("#add-new-keyword");
 //      if(container.has(e.target).length === 0) {
+        $$('.card-opened .ng01 li.add > button').css('background-size','11px 11px');
+        $$('.card-opened .ng01 li > label.editable span').show();
         $$("#add-new-keyword").hide();
-        $$(".tc01 form button.confirm").css('display','');
+        $$(".card-opened form button.confirm").css('display','');
 //      }
   });
   //새 답안 추가
   $$("#add-new-keyword").submit(function(event){
     event.preventDefault();
-    var word = $$("#add-new-keyword input").val();
+    var word = $$(this).find('input').val();
     if(word == ''){
       notification1.open();
-      $$("#add-new-keyword").find("input").focus();
+      $$(this).find("input").focus();
       return false;
     }
-    var prompt_id = $$('.swiper-slide-active ul.ng01 li input[type="hidden"]').val();
-    var q_name = $$('.swiper-slide-active ul.ng01 li input[type="radio"]').attr('name');
-    var opt_no = $$('.swiper-slide-active ul.ng01 li').length;
-    var id = 'answer-'+prompt_id+'-'+opt_no ;
-    var answer = $$("<li/>");
-    answer.append('<input type="radio" name="'+q_name+'" id="'+id+'" value="'+word+'"/>');
-    answer.append('<label class="btn02" for="'+id+'"><span>'+word+'</span></label>');
-    answer.insertBefore($$('.swiper-slide-active ul.ng01 li.add'));
-    answer.find('label').click();
-    $$('.swiper-slide-active ul.ng01 li.add').remove();
+
+    if($$('.card-opened .ng01 li > label.editable').length > 0){ //키워드 수정인 경우
+      $$('.card-opened .ng01 li > label.editable span').text(word);
+      $$('.card-opened .ng01 li > label.editable').siblings('input').val(word);
+    }else{  //키워드 신규추가인 경우
+      var prompt_id = $$('.card-opened ul.ng01 li input[type="hidden"]').val();
+      var q_name = $$('.card-opened ul.ng01 li input[type="radio"]').attr('name');
+      var opt_no = $$('.card-opened ul.ng01 li').length;
+      var id = 'answer-'+prompt_id+'-'+opt_no ;
+      var answer = $$("<li/>");
+      answer.append('<input type="radio" name="'+q_name+'" id="'+id+'" value="'+word+'"/>');
+      answer.append('<label class="btn02 editable" for="'+id+'"><span>'+word+'</span></label>');
+      answer.insertBefore($$('.card-opened ul.ng01 li.add'));
+      answer.find('label').click();
+      $$('.card-opened ul.ng01 li.add').remove();
+    }
+
     $$("#add-new-keyword").hide();
-    $$(".tc01 form button.confirm").css('display','');
+    $$('.card-opened .ng01 li > label.editable span').show();
+    $$(".card-opened form button.confirm").css('display','');
     return false;
   });
 

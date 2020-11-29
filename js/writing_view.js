@@ -146,9 +146,10 @@ if ( writing_id == "new" ) { //신규 책 만들기
 $$('#save_writing .header dt .btn03').on('click', function(){ //신규 책 만들기
   if($$('#add-writing-name').css('display') != 'none')  return false;
   $$('.btnArea').hide();
-  $$('#save_writing .btnA').hide();
+  $$(this).find('span').hide();
+  //$$('#save_writing .btnA').hide();
   $$('#add-writing-name').show();
-  $$('#add-writing-name').find("input").val($$('.cf02 .header dt a span').text());
+  $$('#add-writing-name').find("input").val($$('.cf02 .header dt span').text());
   $$('#add-writing-name').find("input").focus();
 });
 
@@ -161,16 +162,20 @@ $$("#add-writing-name").on('submit', function(event){
     $$(this).find("input").focus();
     return false;
   }
-  $$('.cf02 .header dt .btn03 span').text(formData.writing_name);
+  $$('.cf02 .header dt .btn03 span').text(formData.writing_name).show();
   $$('.cf02 .header dt input[name="keyword"]').val(formData.writing_name);
 
   $$("#add-writing-name").hide();
   $$('.btnArea').show();
-  $$('#save_writing .btnA').show();
+  //$$('#save_writing .btnA').show();
 
   return false;
 });
-
+$$("#add-writing-name input").on("blur", function(){
+  $$('.cf02 .header dt .btn03 span').show();
+  $$("#add-writing-name").hide();
+  $$('.btnArea').show();
+});
 
 //돌아가기
 $$('.writingView .goBack').on('click', function(){
