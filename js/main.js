@@ -135,6 +135,7 @@ app.request.json(endpoint, credentials, function(data){
     $$("#add-new-keyword").find("input").val('');
     $$("#add-new-keyword").find("input").focus();
     $$(".card-opened form button.confirm").css('display','none');
+    $$(".card-opened .card-content-padding").addClass('inputMode');
 
     const clientRect = $$(".card-opened .ng01")[0].getBoundingClientRect(); 
     const bottom = clientRect.bottom;
@@ -148,6 +149,7 @@ app.request.json(endpoint, credentials, function(data){
       $$("#add-new-keyword").find("input").val($$(this).find('span').text());
       $$("#add-new-keyword").find("input").focus();
       $$(".card-opened form button.confirm").css('display','none');
+      $$(".card-opened .card-content-padding").addClass('inputMode');
   });
   //다른영역 클릭시 폼 닫기
   $$(document).mouseup(function(e) {
@@ -157,6 +159,7 @@ app.request.json(endpoint, credentials, function(data){
         $$('.card-opened .ng01 li > label.editable span').show();
         $$("#add-new-keyword").hide();
         $$(".card-opened form button.confirm").css('display','');
+        $$(".card-opened .card-content-padding").removeClass('inputMode');
 //      }
   });
   //새 답안 추가
@@ -188,6 +191,7 @@ app.request.json(endpoint, credentials, function(data){
     $$("#add-new-keyword").hide();
     $$('.card-opened .ng01 li > label.editable span').show();
     $$(".card-opened form button.confirm").css('display','');
+    $$(".card-opened .card-content-padding").removeClass('inputMode');
     return false;
   });
 

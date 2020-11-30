@@ -4,6 +4,75 @@ var book_id = current_page.route.params.id;  //  넘겨받은 파라미터
 var bookViewTemplate = $$('script#book-view-template').html();
 var compiledBookViewTemplate = Template7.compile(bookViewTemplate);
 
+
+//타이틀 변경
+$$( document ).on( 'click', '.tc02.front > dt a', function(event){
+  event.stopPropagation();
+  console.log('aa');
+  $$('#add-book-name').show();
+  $$('.ib02 .controls').hide();
+  $$('#add-book-name').find("input").val($$(this).text()).focus();
+});
+$$(document).mouseup(function(e) {
+//var container = $$("#add-book-name");
+//if(container.has(e.target).length === 0) {
+    if($$('.controls').css('display') == "none"){
+      $$('.ib02 .controls').show();
+      $$("#add-book-name").hide();
+    }
+//}
+});
+$$( document ).on( 'submit', '#add-book-name', function(event){
+  event.preventDefault();
+  var formData = app.form.convertToData($$(this));
+
+  if(formData.book_name == ''){
+    notification1.open();
+    $$(this).find("input").focus();
+    return false;
+  }
+
+/**************************** 임시코드 영역 ***********************************/
+  $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
+  alert('해당기능은 수정중입니다. 변경된 이름이 서버에 저장되지 않습니다.');
+  $$('.ib02 .controls').show();
+  $$("#add-book-name").hide();
+  return false;
+/*********************** 하단 부분을 수정해 주세요 ****************************/
+
+  var endpoint = endpoint_hostname + '/api/books';
+  var data = {
+    member_email: localStorage["dd-member-email"],
+    member_token: localStorage["dd-member-token"],
+    book: {
+      title: formData.book_name
+    }
+  };
+  // console.log(data);
+  app.request.post( endpoint, data, function(data) {
+    var response_data = JSON.parse(data);
+
+    if (response_data.is_success === true) {
+      // console.log(response_data);
+      var book = response_data.data.book;
+      // console.log(book);
+
+      // console.log($$('.editBook #populate_button').attr('href') = '/book_view_add/' + book.id );
+      $$('.editBook #populate_button').attr('href', '/book_view_add/' + book.id + '/');
+      $$('.editBook #arrange_button').attr('href', '/book_view_edit/' + book.id + '/');
+      $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
+      $$('.ib02 .controls').show();
+      $$("#add-book-name").hide();
+      return false;
+    } else {
+      alert('오류가 있습니다.');
+      $$('.ib02 .controls').show();
+      $$("#add-book-name").hide();
+    }
+  });
+});
+
+
 if (book_id == "new") { //신규 책 만들기
   var nickname = current_page.route.query.nickname;
   var book_object = compiledBookViewTemplate({nickname: nickname, book: ''});
@@ -19,46 +88,6 @@ if (book_id == "new") { //신규 책 만들기
     view.router.back();
   });
 
-  //새 노트 제목 추가
-  $$("#add-book-name").on('submit', function(event){
-    event.preventDefault();
-    var formData = app.form.convertToData($$(this));
-
-    if(formData.book_name == ''){
-      notification1.open();
-      $$(this).find("input").focus();
-      return false;
-    }
-
-    var endpoint = endpoint_hostname + '/api/books';
-    var data = {
-      member_email: localStorage["dd-member-email"],
-      member_token: localStorage["dd-member-token"],
-      book: {
-        title: formData.book_name
-      }
-    };
-    // console.log(data);
-    app.request.post( endpoint, data, function(data) {
-      var response_data = JSON.parse(data);
-
-      if (response_data.is_success === true) {
-        // console.log(response_data);
-        var book = response_data.data.book;
-        // console.log(book);
-
-        // console.log($$('.editBook #populate_button').attr('href') = '/book_view_add/' + book.id );
-        $$('.editBook #populate_button').attr('href', '/book_view_add/' + book.id + '/');
-        $$('.editBook #arrange_button').attr('href', '/book_view_edit/' + book.id + '/');
-        $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
-        $$('.ib02 .controls').show();
-        $$("#add-book-name").hide();
-        return false;
-      } else {
-        alert('오류가 있습니다.');
-      }
-    });
-  });
 
   var swiper = new Swiper('.ib02.swiper-container', {
     zoom: true,
@@ -77,7 +106,7 @@ if (book_id == "new") { //신규 책 만들기
       tap: function () {
         console.log('tap');
         if(this.clickedIndex == 0) {
-          this.slideNext();
+          //this.slideNext();
         } else if(this.clickedIndex > 0) {
           var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
           view.router.navigate('/writing_view/'+keyword_id+'/');
@@ -114,9 +143,10 @@ if (book_id == "new") { //신규 책 만들기
           console.log('book swiper created');
         },
         tap: function () {
-          // console.log('tap', $$(this.clickedSlide));
-          if(this.clickedIndex == 0)  this.slideNext();
-          else if(this.clickedIndex > 0){
+          //console.log('tap', $$(this.clickedSlide));
+          if(this.clickedIndex == 0) {
+            //this.slideNext();
+          }else if(this.clickedIndex > 0){
             var keyword_id = $$(this.clickedSlide).find('.cf02').attr('data-item-id');
             // console.log(keyword_id);
             view.router.navigate('/writing_view/'+keyword_id+'/');
