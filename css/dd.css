@@ -98,6 +98,7 @@ form#add-writing-name button{display:none;position:absolute;bottom:-40px;left:50
 .cf02 .btnA button{visibility:hidden}
 /*.cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}*/
 .cf02.viewer .textArea{margin-bottom:0;overflow-y:scroll;overflow-x:hidden;height:160px}
+.device-android .cf02.inputMode{position:relative;top:-100px}
 
 /* add keyword to book form */
 .cf03 button{position:fixed;bottom:70px;left:50%;transform:translate(-50%, 0);z-index:10}
@@ -385,7 +386,7 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .tc01 .card-opened .card-header-bg .card-header .title h2{display:block;position:static;transform:translate(0,0);width:auto;text-align:center}
 
 .tc01 .card-opened .card-content-padding{display:block !important}
-.tc01 .card-opened .card-content-padding.inputMode{position:relative;top:-150px;background-color:#fff}
+.device-android .tc01 .card-opened .card-content-padding.inputMode{position:relative;top:-150px;background-color:#fff}
 
 /* book title */
 .tc02{

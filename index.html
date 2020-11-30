@@ -124,7 +124,7 @@
            <dd>{{post.question}}</dd>
          </dl>
          <div class="textArea">
-           <textarea name="content" maxlength="150" class="resizable" placeholder="나의 글을 적어주세요">{{post.body}}</textarea>
+           <textarea name="content" maxlength="150" class="resizable" placeholder="나의 글을 적어주세요" onfocus="$$('#save_writing').addClass('inputMode');" onblur="$$('#save_writing').removeClass('inputMode');">{{post.body}}</textarea>
          </div>
          <div class="picArea">
             <!-- <em><img class="previewImg" src="https://placeimg.com/200/100/any/grayscale"/></em> -->

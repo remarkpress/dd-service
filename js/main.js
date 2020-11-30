@@ -135,7 +135,7 @@ app.request.json(endpoint, credentials, function(data){
     $$("#add-new-keyword").find("input").val('');
     $$("#add-new-keyword").find("input").focus();
     $$(".card-opened form button.confirm").css('display','none');
-    $$(".card-opened .card-content-padding").addClass('inputMode');
+    $$(".card-opened .card-content-padding").addClass('inputMode');//(안드로이드앱)
 
     const clientRect = $$(".card-opened .ng01")[0].getBoundingClientRect(); 
     const bottom = clientRect.bottom;
@@ -149,7 +149,7 @@ app.request.json(endpoint, credentials, function(data){
       $$("#add-new-keyword").find("input").val($$(this).find('span').text());
       $$("#add-new-keyword").find("input").focus();
       $$(".card-opened form button.confirm").css('display','none');
-      $$(".card-opened .card-content-padding").addClass('inputMode');
+      $$(".card-opened .card-content-padding").addClass('inputMode');//(안드로이드앱)
   });
   //다른영역 클릭시 폼 닫기
   $$(document).mouseup(function(e) {

@@ -28,6 +28,8 @@ if ( writing_id == "new" ) { //신규 책 만들기
 
   $$('#save_writing').on('submit', function(event){
     event.preventDefault();
+    $$(this).removeClass('inputMode');
+
     // console.log('submitted how many?');
     dialog_pending.open();
     var formData = app.form.convertToData($$(this));
@@ -88,6 +90,8 @@ if ( writing_id == "new" ) { //신규 책 만들기
     //키워드 저장
     $$('#save_writing').on('submit', function(event){
       event.preventDefault();
+      $$(this).removeClass('inputMode');
+
       // console.log('submitted how many?');
       dialog_pending.open();
       var formData = app.form.convertToData($$(this));
