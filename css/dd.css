@@ -573,7 +573,7 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .toolbar-bottom .tab-link-active:after{content:"";display:block;width:100%;height:4px;border-radius:2px;background-color:var(--primary-color)}
 */
 /* dialog */
-.dialog-backdrop.backdrop-in{background: rgba(255,255,255,.9);}
+.dialog-backdrop.backdrop-in{background: rgba(255,255,255,1);}
 .dialog{background-color:transparent !important;backdrop-filter:none !important}
 .dialog .dialog-inner{border:none;background-color:transparent}
 .dialog .dialog-inner .dialog-title{display:none}
