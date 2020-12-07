@@ -4,11 +4,10 @@ var book_id = current_page.route.params.id;  //  넘겨받은 파라미터
 var bookViewTemplate = $$('script#book-view-template').html();
 var compiledBookViewTemplate = Template7.compile(bookViewTemplate);
 
-
 //타이틀 변경
 $$( document ).on( 'click', '.tc02.front > dt a', function(event){
   event.stopPropagation();
-  console.log('aa');
+  // console.log('aa');
   $$('#add-book-name').show();
   $$('.ib02 .controls').hide();
   $$('#add-book-name').find("input").val($$(this).text()).focus();
@@ -22,25 +21,25 @@ $$(document).mouseup(function(e) {
     }
 //}
 });
-$$( document ).on( 'submit', '#add-book-name', function(event){
+
+// $$( '#add-book-name' ).on( 'submit', function(event){ // 이렇게 하면 submit 이 안되고 메인페이지로 넘어감
+$$( document ).on( 'submit', '#add-book-name', function(event){ //이렇게 하면 데이타가 여러번 submit 됨..
   event.preventDefault();
   var formData = app.form.convertToData($$(this));
 
   if(formData.book_name == ''){
-    notification1.open();
+    dialogEmptyBookTitle.open();
+    setTimeout(function () {
+      dialogEmptyBookTitle.close();
+    }, 1500);
     $$(this).find("input").focus();
     return false;
   }
 
-/**************************** 임시코드 영역 ***********************************/
   $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
-  alert('해당기능은 수정중입니다. 변경된 이름이 서버에 저장되지 않습니다.');
   $$('.ib02 .controls').show();
   $$("#add-book-name").hide();
-  return false;
-/*********************** 하단 부분을 수정해 주세요 ****************************/
 
-  var endpoint = endpoint_hostname + '/api/books';
   var data = {
     member_email: localStorage["dd-member-email"],
     member_token: localStorage["dd-member-token"],
@@ -49,27 +48,56 @@ $$( document ).on( 'submit', '#add-book-name', function(event){
     }
   };
   // console.log(data);
-  app.request.post( endpoint, data, function(data) {
-    var response_data = JSON.parse(data);
-
-    if (response_data.is_success === true) {
-      // console.log(response_data);
-      var book = response_data.data.book;
-      // console.log(book);
-
-      // console.log($$('.editBook #populate_button').attr('href') = '/book_view_add/' + book.id );
-      $$('.editBook #populate_button').attr('href', '/book_view_add/' + book.id + '/');
-      $$('.editBook #arrange_button').attr('href', '/book_view_edit/' + book.id + '/');
-      $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
-      $$('.ib02 .controls').show();
-      $$("#add-book-name").hide();
-      return false;
-    } else {
-      alert('오류가 있습니다.');
-      $$('.ib02 .controls').show();
-      $$("#add-book-name").hide();
+  if ( book_id == "new" ) {
+    var endpoint = endpoint_hostname + '/api/books';
+    app.request.post( endpoint, data, function(data) {
+      var response_data = JSON.parse(data);
+      if (response_data.is_success === true) {
+        // console.log(response_data);
+        var book = response_data.data.book;
+        // console.log(book);
+        // console.log($$('.editBook #populate_button').attr('href') = '/book_view_add/' + book.id );
+        $$('.editBook #populate_button').attr('href', '/book_view_add/' + book.id + '/');
+        $$('.editBook #arrange_button').attr('href', '/book_view_edit/' + book.id + '/');
+        $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
+        $$('.ib02 .controls').show();
+        $$("#add-book-name").hide();
+        return false;
+      } else {
+        alert('오류가 있습니다.');
+        $$('.ib02 .controls').show();
+        $$("#add-book-name").hide();
+      }
+    });
+  } else {
+    var endpoint = endpoint_hostname + '/api/books/' + book_id
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", endpoint);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+      // console.log(this.readyState);
+      // console.log(this.status);
+      if (this.readyState == 4 && this.status == 200) {
+        var response = this.responseText;
+        // console.log(response);
+        var response_data = JSON.parse(response);
+        console.log(response_data);
+        if (response_data.is_success === true) {
+          console.log('book title updated successfully');
+          // view.router.navigate('/book_view/'+book_id+'/');
+          return false;
+        } else {
+          alert('오류가 있습니다.');
+          $$('.ib02 .controls').show();
+          $$("#add-book-name").hide();
+        }
+      }
     }
-  });
+    // console.log(data);
+    var parsed_data = JSON.stringify(data);
+    // console.log(parsed_data);
+    xhr.send(parsed_data);
+  }
 });
 
 
@@ -161,12 +189,6 @@ if (book_id == "new") { //신규 책 만들기
   });
 }
 
-// Create full-layout notification
-var notification1 = app.notification.create({
-  icon: '<i class="xi-info"></i>',
-  title: '노트 추가',
-  //titleRightText: 'now',
-  subtitle: '노트 이름을 입력해 주세요',
-  //text: 'This is a simple notification message',
-  closeTimeout: 3000,
+var dialogEmptyBookTitle = app.dialog.create({
+  text: '노트 이름을 입력해 주세요'
 });
