@@ -137,7 +137,7 @@ app.request.json(endpoint, credentials, function(data){
     $$(".card-opened form button.confirm").css('display','none');
     $$(".card-opened .card-content-padding").addClass('inputMode');//(안드로이드앱)
 
-    const clientRect = $$(".card-opened .ng01")[0].getBoundingClientRect(); 
+    const clientRect = $$(".card-opened .ng01")[0].getBoundingClientRect();
     const bottom = clientRect.bottom;
     console.log(top);
     $$("#add-new-keyword").css('top',(bottom - 78) + 'px');
@@ -167,7 +167,10 @@ app.request.json(endpoint, credentials, function(data){
     event.preventDefault();
     var word = $$(this).find('input').val();
     if(word == ''){
-      notification1.open();
+      dialogNoKeyword.open();
+      setTimeout(function () {
+        dialogNoKeyword.close();
+      }, 1500);
       $$(this).find("input").focus();
       return false;
     }
@@ -199,7 +202,10 @@ app.request.json(endpoint, credentials, function(data){
   $$(".tc01 form").submit(function(event){
     event.preventDefault();
     if($$(this).find('input[type="radio"]:checked').length < 1){
-      notification2.open();
+      dialogNonSelected.open();
+      setTimeout(function () {
+        dialogNonSelected.close();
+      }, 1500);
       return false;
     }
     // console.log(credentials);
@@ -223,10 +229,9 @@ app.request.json(endpoint, credentials, function(data){
       // console.log(response_data.is_success === true);
 
       if (response_data.is_success === true) {
-        // notificationSave.open();
-        dialog.open();
+        dialogSave.open();
         setTimeout(function () {
-          dialog.close();
+          dialogSave.close();
         }, 2000);
         form.parents('.tc01').find('a.card-close').click();
       } else {
@@ -236,29 +241,19 @@ app.request.json(endpoint, credentials, function(data){
   });
 
   // Create full-layout notification
-  var notification1 = app.notification.create({
-    icon: '<i class="xi-info"></i>',
-    title: '키워드 추가',
-    //titleRightText: 'now',
-    subtitle: '키워드를 입력해 주세요',
-    //text: 'This is a simple notification message',
-    closeTimeout: 3000,
+  var dialogNoKeyword = app.dialog.create({
+    text: '키워드를 입력해 주세요',
+    on: {
+      opened: function () {
+      }
+    }
   });
-  var notification2 = app.notification.create({
-    icon: '<i class="xi-info"></i>',
-    title: '나의 기록 추가',
-    //titleRightText: 'now',
-    subtitle: '키워드를 선택해 주세요',
-    //text: 'This is a simple notification message',
-    closeTimeout: 3000,
-  });
-  var notificationSave = app.notification.create({
-    icon: '<i class="xi-cloud-download"></i>',
-    title: '나의 기록 추가',
-    //titleRightText: 'now',
-    subtitle: '나의 기록에 담았어요!',
-    //text: 'This is a simple notification message',
-    closeTimeout: 3000,
+  var dialogNonSelected = app.dialog.create({
+    text: '키워드를 선택해 주세요',
+    on: {
+      opened: function () {
+      }
+    }
   });
   var dialogDelete = app.dialog.create({
     text: '해당 질문을 목록에서 지웠어요!',
@@ -270,7 +265,7 @@ app.request.json(endpoint, credentials, function(data){
   });
 
   //답안 선택 저장 및 목록으로 돌아가기 안내
-  var dialog = app.dialog.create({
+  var dialogSave = app.dialog.create({
     text: '‘나의 글’에 담았어요!',
     on: {
       opened: function () {
