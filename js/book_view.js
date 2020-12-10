@@ -23,6 +23,7 @@ $$(document).mouseup(function(e) {
 });
 
 // $$( '#add-book-name' ).on( 'submit', function(event){ // 이렇게 하면 submit 이 안되고 메인페이지로 넘어감
+$$('#add-book-name').off('submit');
 $$( document ).on( 'submit', '#add-book-name', function(event){ //이렇게 하면 데이타가 여러번 submit 됨..
   event.preventDefault();
   var formData = app.form.convertToData($$(this));
