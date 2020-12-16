@@ -355,6 +355,7 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .ib02 .editBook{position:fixed;bottom:-88px;left:35px;z-index:10}
 .ib02 .editBook a{display:inline-block;width:40px;height:40px;box-sizing:border-box;background-color:#fff;border:none}
 .ib02 .editBook a.add{background:url(../images/icon_plus02.png) no-repeat center center;background-size:35px 35px;text-indent:-9999px;margin-right:15px}
+.ib02 .editBook a.subtract{background:url(../images/icon_minus.png) no-repeat center center;background-size:24px 24px;text-indent:-9999px;margin-right:15px}
 .ib02 .editBook a.edit{background:url(../images/icon_edit.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
 /* 질문 뷰 화면 */
