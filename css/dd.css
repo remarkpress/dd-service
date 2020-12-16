@@ -494,12 +494,15 @@ html.device-android .user-navbar{padding:45px 25px 0}
 
 /* 나의 질문 리스트 */
 .lc04{margin:0 20px}
+.lc04:before{content:none !important}
+.lc04:after{content:none !important}
 .lc04 li{padding:10px 0}
 .lc04 li span{display:table;width:100%}
 .lc04 li a{color:var(--primary-color);text-align:left}
 .lc04 li span em{display:table-cell;width:20%;font-style:normal}
 .lc04 li span b{display:table-cell;width:80%;font-weight:normal}
 .lc04 li .swipeout-delete{background-color:var(--primary-color);color:#fff}
+.lc04 li .swipeout-actions-right{right: -1px;}
 /*radios*/
 .ng01{
   display: grid;

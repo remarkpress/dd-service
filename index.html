@@ -371,116 +371,120 @@
           <div class="tabs-swipeable-wrap">
             <div class="tabs">
               <div id="tab-1" class="page-content tab">
-                <ul class="lc04">
-                  {{#each posts.liked}}
-                  <li class="swipeout">
-                    <div class="swipeout-content item-content">
-                      <a class="button popup-open" href="#" data-popup=".popup-liked-{{this.id}}">
-                        <span>
-                          <em>{{@index+1}}</em>
-                          <b>{{this.title}}</b>
-                        </span>
-                      </a>
-                    </div>
-                    <div class="swipeout-actions-right">
-                      <a href="{{this.id}}" id="" class="swipeout-delete">취소</a>
-                    </div>
-                  </li>
+                <div class="list">
+                  <ul class="lc04">
+                    {{#each posts.liked}}
+                    <li class="swipeout">
+                      <div class="swipeout-content item-content">
+                        <a class="button popup-open" href="#" data-popup=".popup-liked-{{this.id}}">
+                          <span>
+                            <em>{{@index+1}}</em>
+                            <b>{{this.title}}</b>
+                          </span>
+                        </a>
+                      </div>
+                      <div class="swipeout-actions-right">
+                        <a href="{{this.id}}" id="" class="swipeout-delete">취소</a>
+                      </div>
+                    </li>
 
-                  <div class="popup popup-liked-{{this.id}} popup-question">
-                    <div class="navbarPop">
-                      <a class="link popup-close" href="#">Close popup</a>
-                    </div>
-                    <!-- tc01 -->
-                    <div class="tc01" data-item-id="{{this.id}}">
-                      <div class="card-content">
-                        <div class="card-header-bg">
-                          <div class="card-header text-color-white display-block">
-                            <div class="title">
-                              <em>{{ @index+1 }}</em>
-                              <h2>{{ this.title }}</h2>
+                    <div class="popup popup-liked-{{this.id}} popup-question">
+                      <div class="navbarPop">
+                        <a class="link popup-close" href="#">Close popup</a>
+                      </div>
+                      <!-- tc01 -->
+                      <div class="tc01" data-item-id="{{this.id}}">
+                        <div class="card-content">
+                          <div class="card-header-bg">
+                            <div class="card-header text-color-white display-block">
+                              <div class="title">
+                                <em>{{ @index+1 }}</em>
+                                <h2>{{ this.title }}</h2>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="card-content-padding">
-                          <form>
-                            <ul class="ng01">
-                              {{#each answer_choices.split(',')}}
-                              <li>
-                                <input type="hidden" id="prompt_id" name="prompt_id" value="{{../id}}">
-                                <input type="radio" name="title" id="answer-{{../id}}-{{@index+1}}" value="{{this}}"/>
-                                <label class="btn02" for="answer-{{../id}}-{{@index+1}}"><span>{{this}}</span></label>
-                              </li>
-                              {{/each}}
-                              <li class="add">
-                                <!--<button class="btn02" type="button">추가</button>-->
-                              </li>
-                            </ul>
-                            <!-- <button class="btn04 confirm">대답하기</button> -->
-                          </form>
+                          <div class="card-content-padding">
+                            <form>
+                              <ul class="ng01">
+                                {{#each answer_choices.split(',')}}
+                                <li>
+                                  <input type="hidden" id="prompt_id" name="prompt_id" value="{{../id}}">
+                                  <input type="radio" name="title" id="answer-{{../id}}-{{@index+1}}" value="{{this}}"/>
+                                  <label class="btn02" for="answer-{{../id}}-{{@index+1}}"><span>{{this}}</span></label>
+                                </li>
+                                {{/each}}
+                                <li class="add">
+                                  <!--<button class="btn02" type="button">추가</button>-->
+                                </li>
+                              </ul>
+                              <!-- <button class="btn04 confirm">대답하기</button> -->
+                            </form>
+                          </div>
                         </div>
                       </div>
+                      <!-- //tc01 -->
                     </div>
-                    <!-- //tc01 -->
-                  </div>
-                  {{/each}}
-                </ul>
+                    {{/each}}
+                  </ul>
+                </div>
               </div>
               <div id="tab-2" class="page-content tab">
-                <ul class="lc04">
-                  {{#each posts.dropped}}
-                  <li class="swipeout">
-                    <div class="swipeout-content item-content">
-                      <a class="button popup-open" href="#" data-popup=".popup-dropped-{{this.id}}">
-                        <span>
-                          <em>{{@index+1}}</em>
-                          <b>{{this.title}}</b>
-                        </span>
-                      </a>
-                    </div>
-                    <div class="swipeout-actions-right">
-                      <a href="{{this.id}}" id="" class="swipeout-delete">취소</a>
-                    </div>
-                  </li>
+                <div class="list">
+                  <ul class="lc04">
+                    {{#each posts.dropped}}
+                    <li class="swipeout">
+                      <div class="swipeout-content item-content">
+                        <a class="button popup-open" href="#" data-popup=".popup-dropped-{{this.id}}">
+                          <span>
+                            <em>{{@index+1}}</em>
+                            <b>{{this.title}}</b>
+                          </span>
+                        </a>
+                      </div>
+                      <div class="swipeout-actions-right">
+                        <a href="{{this.id}}" id="" class="swipeout-delete">취소</a>
+                      </div>
+                    </li>
 
-                  <div class="popup popup-dropped-{{this.id}} popup-question">
-                    <div class="navbarPop">
-                      <a class="link popup-close" href="#">Close popup</a>
-                    </div>
-                    <!-- tc01 -->
-                    <div class="tc01" data-item-id="{{this.id}}">
-                      <div class="card-content">
-                        <div class="card-header-bg">
-                          <div class="card-header text-color-white display-block">
-                            <div class="title">
-                              <em>{{ @index+1 }}</em>
-                              <h2>{{ this.title }}</h2>
+                    <div class="popup popup-dropped-{{this.id}} popup-question">
+                      <div class="navbarPop">
+                        <a class="link popup-close" href="#">Close popup</a>
+                      </div>
+                      <!-- tc01 -->
+                      <div class="tc01" data-item-id="{{this.id}}">
+                        <div class="card-content">
+                          <div class="card-header-bg">
+                            <div class="card-header text-color-white display-block">
+                              <div class="title">
+                                <em>{{ @index+1 }}</em>
+                                <h2>{{ this.title }}</h2>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="card-content-padding">
-                          <form>
-                            <ul class="ng01">
-                              {{#each answer_choices.split(',')}}
-                              <li>
-                                <input type="hidden" id="prompt_id" name="prompt_id" value="{{../id}}">
-                                <input type="radio" name="title" id="answer-{{../id}}-{{@index+1}}" value="{{this}}"/>
-                                <label class="btn02" for="answer-{{../id}}-{{@index+1}}"><span>{{this}}</span></label>
-                              </li>
-                              {{/each}}
-                              <li class="add">
-                                <!--<button class="btn02" type="button">추가</button>-->
-                              </li>
-                            </ul>
-                            <!--<button class="btn04 confirm">대답하기</button>-->
-                          </form>
+                          <div class="card-content-padding">
+                            <form>
+                              <ul class="ng01">
+                                {{#each answer_choices.split(',')}}
+                                <li>
+                                  <input type="hidden" id="prompt_id" name="prompt_id" value="{{../id}}">
+                                  <input type="radio" name="title" id="answer-{{../id}}-{{@index+1}}" value="{{this}}"/>
+                                  <label class="btn02" for="answer-{{../id}}-{{@index+1}}"><span>{{this}}</span></label>
+                                </li>
+                                {{/each}}
+                                <li class="add">
+                                  <!--<button class="btn02" type="button">추가</button>-->
+                                </li>
+                              </ul>
+                              <!--<button class="btn04 confirm">대답하기</button>-->
+                            </form>
+                          </div>
                         </div>
                       </div>
+                      <!-- //tc01 -->
                     </div>
-                    <!-- //tc01 -->
-                  </div>
-                  {{/each}}
-                </ul>
+                    {{/each}}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
