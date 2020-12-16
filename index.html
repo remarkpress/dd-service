@@ -43,6 +43,7 @@
     <!-- Path to Framework7 Library Bundle JS-->
     <script type="text/javascript" src="//unpkg.com/framework7@5.7.10/js/framework7.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/app.js"></script>
     <style>
@@ -127,8 +128,11 @@
            <textarea name="content" maxlength="150" class="resizable" placeholder="나의 글을 적어주세요" onfocus="$$('#save_writing').addClass('inputMode');" onblur="$$('#save_writing').removeClass('inputMode');">{{post.body}}</textarea>
          </div>
          <div class="picArea">
-            <!-- <em><img class="previewImg" src="https://placeimg.com/200/100/any/grayscale"/></em> -->
+            <em></em>
             <input type="file" accept=".jpg, .jpeg, .jpe, .gif, .png" name="writing_image" id="writing_image"/>
+         </div>
+         <div class="drawArea">
+            <em></em>
          </div>
          <div class="linkArea">
             <a href="#"></a>

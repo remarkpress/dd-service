@@ -14,16 +14,16 @@
       <a href="#">삭제</a>
     </div>
     <div class="fab fab02 fab-right-bottom">
-<!--       <a href="#">
+      <a href="#">
         <i class="plus"></i>
         <i class="close"></i>
       </a>
- -->      <div class="fab-buttons fab-buttons-top">
+      <div class="fab-buttons fab-buttons-top">
         <a href="#" class="fab-label-button picture">
           <span>사진</span>
         </a>
-        <a href="#" class="fab-label-button edit">
-          <span>편집</span>
+        <a href="#" class="fab-label-button button edit popup-open" data-popup=".popup-drawing">
+          <span>그리기</span>
         </a>
         <a href="#" class="fab-label-button link">
           <span>링크</span>
@@ -35,7 +35,22 @@
     </div>
   </div>
   <!-- //FAB -->
-  <div class="page-content view-content">
+<div class="popup popup-drawing">
+  <div class="navbarPop">
+    <a class="link popup-close" href="#">Close popup</a>
+  </div>
+  <div class="signA">
+    <div class="wrapper">
+      <canvas id="signature-pad" class="signature-pad"></canvas>
+    </div>
+    <div class="btnA">
+      <a id="undo">Undo</a>
+      <a id="clear">Clear</a>
+      <a id="save-png">Save</a>
+    </div>
+  </div>
+</div>
+<div class="page-content view-content">
     <form class="cf01" id="add-writing-name" style="display:none">
       <input type="text" name="writing_name" placeholder="제목입력"/>
       <button>등록</button>

@@ -262,7 +262,13 @@ function readURL(input,obj) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            obj.siblings('em').find('.previewImg').attr('src', e.target.result);
+          var img = obj.siblings('em').find('.previewImg');
+          if(img.length > 0){
+            img.attr('src', e.target.result);
+          }else{
+            img = $$('<img/>').addClass('previewImg').attr('src', e.target.result);
+            obj.siblings('em').append(img);
+          }
         }
         reader.readAsDataURL(input.files[0]);
     }
@@ -281,3 +287,96 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function (
   },null,$$('.linkArea a').text());
 });
 
+
+//그리기
+var canvas = 0;
+var signaturePad;
+
+$$('.popup-drawing').on('popup:opened', function (e) {
+  app.fab.close('.fab.fab02.fab-right-bottom');
+  if(canvas != 0){
+    return false;
+  } 
+  canvas = document.getElementById('signature-pad');
+
+  // Adjust canvas coordinate space taking into account pixel ratio,
+  // to make it look crisp on mobile devices.
+  // This also causes canvas to be cleared.
+  function resizeCanvas() {
+      // When zoomed out to less than 100%, for some very strange reason,
+      // some browsers report devicePixelRatio as less than 1
+      // and only part of the canvas is cleared then.
+      var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+      canvas.getContext("2d").scale(ratio, ratio);
+  }
+
+  window.onresize = resizeCanvas;
+  resizeCanvas();
+
+  signaturePad = new SignaturePad(canvas, {
+    minWidth: 1,
+    maxWidth: 1,
+    backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+  });
+
+  document.getElementById('save-png').addEventListener('click', function () {
+    if (signaturePad.isEmpty()) {
+      return alert("Please provide a signature first.");
+    }
+    
+    var data = signaturePad.toDataURL('image/png');
+
+
+    var img = $$('.drawArea em').find('.drawImg');
+    if(img.length > 0){
+      img.attr('src', data);
+    }else{
+      img = $$('<img/>').addClass('drawImg').attr('src', data);
+      $$('.drawArea em').append(img);
+    }
+
+    app.popup.close();
+    //console.log(data);
+    //window.open(data);
+  });
+  /*
+  document.getElementById('save-jpeg').addEventListener('click', function () {
+    if (signaturePad.isEmpty()) {
+      return alert("Please provide a signature first.");
+    }
+
+    var data = signaturePad.toDataURL('image/jpeg');
+    console.log(data);
+    window.open(data);
+  });
+
+  document.getElementById('save-svg').addEventListener('click', function () {
+    if (signaturePad.isEmpty()) {
+      return alert("Please provide a signature first.");
+    }
+
+    var data = signaturePad.toDataURL('image/svg+xml');
+    console.log(data);
+    console.log(atob(data.split(',')[1]));
+    window.open(data);
+  });
+  */
+  document.getElementById('clear').addEventListener('click', function () {
+    signaturePad.clear();
+  });
+
+  document.getElementById('undo').addEventListener('click', function () {
+    var data = signaturePad.toData();
+    if (data) {
+      data.pop(); // remove the last dot or line
+      signaturePad.fromData(data);
+    }
+  });
+
+});
+
+$$('.popup-drawing').on('popup:closed', function (e) {
+    signaturePad.clear();
+});
