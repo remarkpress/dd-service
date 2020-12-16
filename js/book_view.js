@@ -3,7 +3,7 @@ var current_page = $$('.page.bookView')[0].f7Page;
 var book_id = current_page.route.params.id;  //  넘겨받은 파라미터
 var bookViewTemplate = $$('script#book-view-template').html();
 var compiledBookViewTemplate = Template7.compile(bookViewTemplate);
-// console.log(book_id);
+
 $$(document).mouseup(function(e) {
 // var container = $$("#add-book-name");
 // if(container.has(e.target).length === 0) {
@@ -26,6 +26,20 @@ if (book_id == "new") { //신규 책 만들기
 
   $$( '.tc02.front > dt a' ).on( 'click', function(event){
     event.stopPropagation();
+
+    // 책생성(1차 제목작성)후에 제목을 수정하려고 할때 책 상세 페이지로 리디렉션 /입구/
+    if (localStorage['dd-new-book_id'].length ) {
+      dialogLoading.open();
+      var new_book_id_to_redirect_to = localStorage['dd-new-book_id'];
+      // console.log(new_book_id_to_redirect_to);
+      view.router.navigate('/book_view/'+ new_book_id_to_redirect_to  + '/', {
+        force: true,
+        reloadAll: true,
+        ignoreCache: true,
+      });
+      // return false;
+    }
+
     // console.log('aa');
     $$('#add-book-name').show();
     $$('.ib02 .controls').hide();
@@ -67,7 +81,7 @@ if (book_id == "new") { //신규 책 만들기
         // console.log(book);
         var new_book_id = response_data.data.book.id;
         // console.log(new_book_id);
-        localStorage.setItem('dd-new-book_id-for-deletion', new_book_id);
+        localStorage.setItem('dd-new-book_id', new_book_id);
         // console.log($$('.editBook #populate_button').attr('href') = '/book_view_add/' + book.id );
         $$('.editBook #populate_button').attr('href', '/book_view_add/' + book.id + '/');
         $$('.editBook #arrange_button').attr('href', '/book_view_edit/' + book.id + '/');
@@ -143,7 +157,7 @@ if (book_id == "new") { //신규 책 만들기
           member_token: localStorage["dd-member-token"]
         };
         // console.log(data);
-        if (localStorage["dd-new-book_id-for-deletion"] === undefined) {
+        if (localStorage["dd-new-book_id"] === undefined) {
           dialogRetry.open();
           setTimeout(function () {
             dialogRetry.close();
@@ -155,7 +169,7 @@ if (book_id == "new") { //신규 책 만들기
             // });
           }, 1500);
         } else {
-          var new_book_id = localStorage["dd-new-book_id-for-deletion"];
+          var new_book_id = localStorage["dd-new-book_id"];
           var endpoint = endpoint_hostname + '/api/books/' + new_book_id
           // console.log(endpoint);
           var xhr = new XMLHttpRequest();
@@ -171,7 +185,7 @@ if (book_id == "new") { //신규 책 만들기
               if (response_data.is_success === true) {
                 // $$('.page-previous .lc01 li a[keyword-id="'+writing_id+'"]').parent().remove();
                 // console.log('삭제 성공');
-                localStorage.removeItem('dd-new-book_id-for-deletion');
+                localStorage.removeItem('dd-new-book_id');
                 view.router.navigate('/book/', {
                   force: true,
                   reloadAll: true,
@@ -179,7 +193,7 @@ if (book_id == "new") { //신규 책 만들기
                 });
                 dialogDeletePending.close();
               } else {
-                localStorage.removeItem('dd-new-book_id-for-deletion');
+                localStorage.removeItem('dd-new-book_id');
                 dialogDeletePending.close();
                 dialogFailed.open();
                 setTimeout(function () {
@@ -197,15 +211,16 @@ if (book_id == "new") { //신규 책 만들기
     );
   });
 } else { // when book_id is not 'new'
-  var endpoint = endpoint_hostname + '/api/books/' + book_id;
-
   if (localStorage["dd-member-credentials"] === undefined ) {
     view.router.navigate('login');
   } else {
     var credentials = JSON.parse(localStorage["dd-member-credentials"]);
   }
+  dialogLoading.close();
 
+  var endpoint = endpoint_hostname + '/api/books/' + book_id;
   app.request.json(endpoint, credentials, function(data){
+    dialogLoading.close();
     // console.log(data);
     var book_object = compiledBookViewTemplate({book: data.book, nickname: data.nickname});
     // console.log(data.nickname);
@@ -237,6 +252,20 @@ if (book_id == "new") { //신규 책 만들기
       }
     });
 
+    // 책생성(1차 제목작성)후에 제목을 수정하려고 할때 책 상세 페이지로 리디렉션 /출구/
+    if (localStorage["dd-new-book_id"] === book_id) {
+      // console.log(localStorage["dd-new-book_id"]);
+      var persisting_book_title = data.book.title;
+      // console.log(persisting_book_title);
+      $$('form#add-book-name').find('input[name=book_name]').removeAttr('placeholder');
+      $$('form#add-book-name').find('input[name=book_name]').val(persisting_book_title);
+      // $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(persisting_book_title);
+      $$('#add-book-name').show();
+      $$('.ib02 .controls').hide();
+      $$('#add-book-name').find("input").focus();
+      localStorage.removeItem('dd-new-book_id');
+    }
+
     $$( '.tc02.front > dt a' ).on( 'click', function(event){
       event.stopPropagation();
       // console.log('aa');
@@ -245,6 +274,7 @@ if (book_id == "new") { //신규 책 만들기
       $$('#add-book-name').find("input").val($$(this).text()).focus();
       $$('#add-book-name').off('submit');
     });
+
     $$('#add-book-name').off('submit');
     // $$( '#add-book-name' ).on( 'submit', function(event){
     $$( document ).on( 'submit', '#add-book-name', function(event){
@@ -378,4 +408,8 @@ var dialogFailed = app.dialog.create({
 
 var dialogRetry = app.dialog.create({
   text: '다시 시도해주세요.'
+})
+
+var dialogLoading = app.dialog.create({
+  text: '로딩중입니다.'
 })
