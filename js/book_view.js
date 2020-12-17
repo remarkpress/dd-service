@@ -216,7 +216,10 @@ if (book_id == "new") { //신규 책 만들기
   } else {
     var credentials = JSON.parse(localStorage["dd-member-credentials"]);
   }
-  dialogLoading.close();
+
+  if (dialogLoading !== undefined) {
+    dialogLoading.close();
+  }
 
   var endpoint = endpoint_hostname + '/api/books/' + book_id;
   app.request.json(endpoint, credentials, function(data){
