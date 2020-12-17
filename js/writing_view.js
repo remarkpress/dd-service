@@ -399,4 +399,7 @@ $$( document ).on( 'click', '.cf02 .drawArea em img', function(){
     $$('.cf02 .drawArea em img').remove();
   });
 });
+$$( document ).on( 'click', '.cf02 .linkArea a', function(){
+  window.open($$(this).attr('href'));
+});
 
