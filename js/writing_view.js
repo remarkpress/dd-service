@@ -246,6 +246,9 @@ var dialog = app.dialog.create({
 var dialog_pending = app.dialog.create({
   text: '기록을 저장중입니다.'
 });
+var dialog_drawing = app.dialog.create({
+  text: '그림을 그려주세요.'
+});
 // Create full-layout notification
 var notification1 = app.notification.create({
   icon: '<i class="xi-info"></i>',
@@ -323,7 +326,11 @@ $$('.popup-drawing').on('popup:opened', function (e) {
 
   document.getElementById('save-png').addEventListener('click', function () {
     if (signaturePad.isEmpty()) {
-      return alert("Please provide a signature first.");
+      dialog_drawing.open();
+      setTimeout(function () {
+        dialog_drawing.close();
+      }, 1000);    
+      return false;
     }
     
     var data = signaturePad.toDataURL('image/png');
@@ -380,3 +387,16 @@ $$('.popup-drawing').on('popup:opened', function (e) {
 $$('.popup-drawing').on('popup:closed', function (e) {
     signaturePad.clear();
 });
+
+$$( document ).on( 'click', '.cf02 .picArea em img', function(){
+  app.dialog.confirm('이미지를 삭제할까요?', function () {
+    $$('.cf02 .picArea em img').remove();
+  });
+});
+
+$$( document ).on( 'click', '.cf02 .drawArea em img', function(){
+  app.dialog.confirm('그림을 삭제할까요?', function () {
+    $$('.cf02 .drawArea em img').remove();
+  });
+});
+

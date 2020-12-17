@@ -34,7 +34,7 @@
 ul{list-style-type:none;padding-left:0}
 body{color:color:var(--primary-color)}
 .block{padding:0 25px}
-.my_post_show_wrapper{height:100%;overflow:scroll;position:relative}
+.my_post_show_wrapper{height:100%;overflow-y:scroll;position:relative;margin:0 !important;padding-top:35px}
 .my_post_show_wrapper:after{content:"";display:block;width:100%;height:120px;background:#fff;position:fixed;bottom:0;left:0}
 /* buttons */
 .btn01{position:fixed;bottom:80px}
@@ -81,7 +81,7 @@ form#add-writing-name button{display:none;position:absolute;bottom:-40px;left:50
 .cf01#add-book-name:after{content:"";display:block;background-color:rgba(0,0,0,0.3);position:fixed;top:0;left:0;right:0;bottom:80px}
 */
 /* my record form */
-.cf02 {padding:0 20px 120px;overflow:scroll}
+.cf02 {padding:0 20px 120px;overflow-y:scroll}
 .cf02 .header{text-align:center;margin-bottom:40px}
 /*.cf02 .header dt{display:inline-block;width:78px;height:78px;border-radius:39px;background-color:var(--primary-color);color:#fff;text-align:center;font-size:14px;position:relative;margin-bottom:50px}*/
 .cf02 .header dt{display:inline-block;margin-bottom:30px}
