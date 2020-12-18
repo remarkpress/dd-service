@@ -262,7 +262,7 @@ if (book_id == "new") { //신규 책 만들기
       // console.log(persisting_book_title);
       $$('form#add-book-name').find('input[name=book_name]').removeAttr('placeholder');
       $$('form#add-book-name').find('input[name=book_name]').val(persisting_book_title);
-      // $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(persisting_book_title);
+      $$('.ib02 .swiper-slide:first-child .tc02 dt a').text('');
       $$('#add-book-name').show();
       $$('.ib02 .controls').hide();
       $$('#add-book-name').find("input").focus();
@@ -275,6 +275,7 @@ if (book_id == "new") { //신규 책 만들기
       $$('#add-book-name').show();
       $$('.ib02 .controls').hide();
       $$('#add-book-name').find("input").val($$(this).text()).focus();
+      $$('.ib02 .swiper-slide:first-child .tc02 dt a').text('');
       $$('#add-book-name').off('submit');
     });
 
@@ -284,14 +285,14 @@ if (book_id == "new") { //신규 책 만들기
       event.preventDefault();
       dialogPending.open();
       var formData = app.form.convertToData($$(this));
-      // if(formData.book_name == ''){
-      //   dialogEmptyBookTitle.open();
-      //   setTimeout(function () {
-      //     dialogEmptyBookTitle.close();
-      //   }, 1500);
-      //   $$(this).find("input").focus();
-      //   return false;
-      // }
+      if(formData.book_name == ''){
+        dialogEmptyBookTitle.open();
+        setTimeout(function () {
+          dialogEmptyBookTitle.close();
+        }, 1500);
+        $$(this).find("input").focus();
+        return false;
+      }
       $$('.ib02 .swiper-slide:first-child .tc02 dt a').text(formData.book_name);
       $$('.ib02 .controls').show();
       $$("#add-book-name").hide();
