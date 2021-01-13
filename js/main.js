@@ -383,6 +383,7 @@ app.request.json(endpoint, credentials, function(data){
         isRemoveSlide = 2;
       }else{
         isRemoveSlide = 0;
+        swiper.slides[swiper.activeIndex].classList.remove("adding");
       }
 
     }
