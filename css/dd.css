@@ -31,6 +31,7 @@ input, textarea {
 /*.view.router-transition-custom .toolbar-bottom{display:none}*/
 .page{z-index:auto}
 .page.user{overflow-y:scroll;z-index:10}
+.page.join{z-index:10}
 
 .page-content{z-index:auto}
 .page-content.main-content{overflow:hidden;padding:0}
