@@ -84,7 +84,7 @@ app.request.json(endpoint, credentials, function(data){
   app.off('cardClose');
   app.on('cardBeforeOpen', function (el, prevent) { //카드 오픈
     if(swiper.clickedIndex != swiper.activeIndex){  //current슬라이드가 아닌경우
-      swiper.slideTo(swiper.clickedIndex,100);
+      //swiper.slideTo(swiper.clickedIndex,100);
       //console.log("cardBeforeOpen not current" + swiper.clickedIndex);
       prevent();
     }else{
@@ -96,7 +96,7 @@ app.request.json(endpoint, credentials, function(data){
   });
   app.on('cardClose', function (el, prevent) {  //카드 클로즈
     $$('.navbar.main-navbar').show();
-    setTimeout(function(){
+    setTimeout(function(){  //가끔 하단 탭메뉴가 사라지는 문제 보완
       if($$('.toolbar-bottom.mainMode').hasClass('toolbar-hidden')) $$('.toolbar-bottom.mainMode').removeClass('toolbar-hidden');
     },100);
     var current = $$(swiper.clickedSlide.querySelector('.tc01'));
