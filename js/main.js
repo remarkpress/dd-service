@@ -82,7 +82,7 @@ app.request.json(endpoint, credentials, function(data){
 
   app.off('cardBeforeOpen');
   app.off('cardClose');
-  app.on('cardBeforeOpen', function (el, prevent) {
+  app.on('cardBeforeOpen', function (el, prevent) { //카드 오픈
     if(swiper.clickedIndex != swiper.activeIndex){  //current슬라이드가 아닌경우
       swiper.slideTo(swiper.clickedIndex,100);
       //console.log("cardBeforeOpen not current" + swiper.clickedIndex);
@@ -94,8 +94,11 @@ app.request.json(endpoint, credentials, function(data){
       swiper.detachEvents();
     }
   });
-  app.on('cardClose', function (el, prevent) {
+  app.on('cardClose', function (el, prevent) {  //카드 클로즈
     $$('.navbar.main-navbar').show();
+    setTimeout(function(){
+      if($$('.toolbar-bottom.mainMode').hasClass('toolbar-hidden')) $$('.toolbar-bottom.mainMode').removeClass('toolbar-hidden');
+    },100);
     var current = $$(swiper.clickedSlide.querySelector('.tc01'));
     current.scrollTop = 0;
     current.addClass('draggable');
