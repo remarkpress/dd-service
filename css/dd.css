@@ -74,7 +74,7 @@ button.btn02{background-color:#fff;color:#C4C4C4;font-size:18px}
 .btn03.pink{background-color:#F19DBE;color:var(--primary-color) !important}
 .btn04{display:inline-block;width:auto;background-color:var(--primary-color);border-radius:22.5px;color:#fff;border:none;font-family:inherit;font-size:14px;text-align:center;padding:11px 40px}
 .btn04.active-state{background-color:#999}
-.btn05{display:inline-block;width:auto;background-color:#fff;color:var(--primary-color);border-radius:22.5px;border:2px solid var(--primary-color);none;font-family:inherit;font-size:14px;text-align:center;padding:11px 40px;box-sizing:border-box}
+.btn05{display:inline-block;width:auto;background-color:#fff;color:var(--primary-color);border-radius:22.5px;border:2px solid var(--primary-color);none;font-family:inherit;font-size:14px;text-align:center;padding:5px 40px;box-sizing:border-box}
 .btn05.active-state{background-color:#999}
 
 /* add keyword form */
@@ -415,7 +415,7 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .tc03{margin:0 50px;background:url(../images/con_about.png) no-repeat center top;background-size:156px 172px;padding-top:190px;text-align:center}
 .tc03 .block{margin-top:0}
 .tc03 p{word-break:keep-all;line-height:2;margin-bottom:50px}
-.tc03 .btn05{width:130px;padding:11px 0;}
+.tc03 .btn05{width:130px;padding:5px 0;display:block;margin:20px auto 0}
 /* contact */
 .tc04{margin:0 50px;text-align:center;overflow:hidden}
 .tc04 .block{margin-top:0}
