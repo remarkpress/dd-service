@@ -7,7 +7,7 @@
 }
 
 /* custom */
-/*
+
 * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -21,7 +21,7 @@ input, textarea {
   -khtml-user-select: auto;
   user-select: auto;
 }
-*/
+
 :root {
   --f7-font-family:RIDIBatang,Helvetica,Arial,sans-serif;
   --primary-color:#282828;
