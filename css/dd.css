@@ -7,19 +7,21 @@
 }
 
 /* custom */
+/*
 * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
 }
+
 input, textarea {
   -webkit-touch-callout: auto;
   -webkit-user-select: auto;
   -khtml-user-select: auto;
   user-select: auto;
 }
-
+*/
 :root {
   --f7-font-family:RIDIBatang,Helvetica,Arial,sans-serif;
   --primary-color:#282828;
@@ -110,6 +112,13 @@ form#add-writing-name button{display:none;position:absolute;bottom:-40px;left:50
 .cf02 .drawArea img{max-width:100%}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
 .cf02 .bookArea span:before{content:"#"}
+.cf02 .linkArea a{display:block;border:1px solid #ddd;overflow:hidden}
+.cf02 .linkArea .thumb{display:block;width:98px;height:68px;overflow:hidden;float:left;margin-right:15px}
+.cf02 .linkArea .thumb img{width:100%;display:block}
+.cf02 .linkArea .meta{display:block;padding:10px 10px 0}
+.cf02 .linkArea .meta b{color:#000;font-weight:400;font-size:11px;height:30px;display:block;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
+.cf02 .linkArea .meta em{color:#C4C4C4;font-style:normal;font-size:10px}
+
 .cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;background:#eee url(../images/btn_check_new.png) no-repeat center center;background-size:21.5px 19.5px;text-indent:-9999px;z-index:10000}
 .cf02 .btnA button{visibility:hidden}
 /*.cf02.viewer .textArea{margin-bottom:0;display:block;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}*/
@@ -415,7 +424,7 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .tc03{margin:0 50px;background:url(../images/con_about.png) no-repeat center top;background-size:156px 172px;padding-top:190px;text-align:center}
 .tc03 .block{margin-top:0}
 .tc03 p{word-break:keep-all;line-height:2;margin-bottom:50px}
-.tc03 .btn05{width:130px;padding:5px 0;display:block;margin:20px auto 0}
+.tc03 .btn05{width:130px;padding:5px 0;display:block;margin:50px auto 0}
 /* contact */
 .tc04{margin:0 50px;text-align:center;overflow:hidden}
 .tc04 .block{margin-top:0}

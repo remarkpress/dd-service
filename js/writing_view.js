@@ -272,6 +272,22 @@ function readURL(input,obj) {
             img = $$('<img/>').addClass('previewImg').attr('src', e.target.result);
             obj.siblings('em').append(img);
           }
+          //이미지 삭제(롱 탭)
+          var pressTimer;
+          img.touchend(function(){
+            clearTimeout(pressTimer);
+            // Clear timeout
+            return false;
+          }).touchstart(function(){
+            // Set timeout
+            var $this = $$(this);
+            pressTimer = window.setTimeout(function() {
+              app.dialog.confirm('이미지를 삭제할까요?', function () {
+                $this.remove();
+              });
+            },300);
+            return false; 
+          });
         }
         reader.readAsDataURL(input.files[0]);
     }
@@ -285,9 +301,34 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.picture").on('click', functio
 $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function () {
   app.fab.close('.fab.fab02.fab-right-bottom');
   app.dialog.prompt('링크할 주소를 입력하세요', function (url) {
-    $$('.linkArea a').attr('href',url);
-    $$('.linkArea a').text(url);
-  },null,$$('.linkArea a').text());
+    var img_url = "http://placeimg.com/320/320/any";  //가져온 이미지 url
+    var page_title = "링크된 웹페이지의 타이틀 출력";  //가져온 페이지 타이틀
+
+    var a = $$("<a/>").attr('href',url);
+    var thumb = $$('<div class="thumb"/>').append($$('<img src="'+ img_url +'"/>'));
+    var meta = $$('<div class="meta"/>').append($$('<b>'+ page_title +'</b>')).append($$('<em>'+ url +'</em>'));
+    a.append(thumb).append(meta);
+    $$('.linkArea ').append(a);
+
+    //링크 삭제(롱 탭)
+    var pressTimer;
+    a.touchend(function(){
+      clearTimeout(pressTimer);
+      // Clear timeout
+      return false;
+    }).touchstart(function(){
+      // Set timeout
+      var $this = $$(this);
+      pressTimer = window.setTimeout(function() {
+        app.dialog.confirm('링크를 삭제할까요?', function () {
+          $this.remove();
+        });
+      },300);
+      return false; 
+    });
+
+
+  },null,$$('.linkArea a .meta em').text());
 });
 
 
@@ -344,6 +385,23 @@ $$('.popup-drawing').on('popup:opened', function (e) {
       $$('.drawArea em').append(img);
     }
 
+    //그리기 삭제(롱 탭)
+    var pressTimer;
+    img.touchend(function(){
+      clearTimeout(pressTimer);
+      // Clear timeout
+      return false;
+    }).touchstart(function(){
+      // Set timeout
+      var $this = $$(this);
+      pressTimer = window.setTimeout(function() {
+        app.dialog.confirm('이미지를 삭제할까요?', function () {
+          $this.remove();
+        });
+      },300);
+      return false; 
+    });
+
     app.popup.close();
     //console.log(data);
     //window.open(data);
@@ -388,18 +446,8 @@ $$('.popup-drawing').on('popup:closed', function (e) {
     signaturePad.clear();
 });
 
-$$( document ).on( 'click', '.cf02 .picArea em img', function(){
-  app.dialog.confirm('이미지를 삭제할까요?', function () {
-    $$('.cf02 .picArea em img').remove();
-  });
-});
-
-$$( document ).on( 'click', '.cf02 .drawArea em img', function(){
-  app.dialog.confirm('그림을 삭제할까요?', function () {
-    $$('.cf02 .drawArea em img').remove();
-  });
-});
 $$( document ).on( 'click', '.cf02 .linkArea a', function(){
+  event.preventDefault();
   window.open($$(this).attr('href'));
 });
 
