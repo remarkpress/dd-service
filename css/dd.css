@@ -109,7 +109,7 @@ form#add-writing-name button{display:none;position:absolute;bottom:-40px;left:50
 .cf02 .picArea img{max-width:100%}
 .cf02 .picArea input{width:0;height:0;position:absolute;visibility:hidden}
 .cf02 .drawArea{margin-bottom:20px}
-.cf02 .drawArea img{max-width:100%}
+.cf02 .drawArea img{max-width:100%;border:1px solid #ddd}
 .cf02 .bookArea{position:fixed;bottom:140px;font-size:14px;text-decoration:underline}
 .cf02 .bookArea span:before{content:"#"}
 .cf02 .linkArea a{display:block;border:1px solid #ddd;overflow:hidden}
@@ -624,17 +624,21 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .popup.popup-question .navbarPop{height:110px;position:relative}
 .popup.popup-question  .navbarPop .popup-close{position:absolute;right:25px;top:25px;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 
-.popup-drawing{width:90%;margin-left:5%;height:500px;top:50%;margin-top:-250px}
-.popup-drawing .btnA{text-align:center}
-.popup-drawing .btnA a{margin:0 10px}
+.popup-drawing{width:90%;margin-left:5%;height:360px;top:50%;margin-top:-250px}
+.popup-drawing .btnA{display:grid;grid-template-columns:3fr 1fr 1fr}
+.popup-drawing .btnA a{display:block;width:40px;height:40px;background:url(../images/btn_draw_clear.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
+.popup-drawing .btnA a#clear{background-image:url(../images/btn_draw_clear.png)}
+.popup-drawing .btnA a#undo{background-image:url(../images/btn_draw_undo.png);justify-self:end}
+.popup-drawing .btnA a#save-png{background-image:url(../images/btn_check_new.png);justify-self:end;background-size:18px 16px}
+
 .popup-drawing .navbarPop{height:80px;position:relative}
 .popup-drawing .navbarPop .popup-close{position:absolute;right:25px;top:25px;width:40px;height:40px;background:url(../images/btn_close.png) no-repeat center center;background-size:20px 20px;text-indent:-9999px}
 .popup-drawing .signA .wrapper {
   position: relative;
   width: calc(100% - 20px);
-  height: 300px;
+  height: 180px;
   border:1px solid #ddd;
-  margin:10px;
+  margin:10px 10px 20px;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
