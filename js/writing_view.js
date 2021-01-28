@@ -40,7 +40,10 @@ if ( writing_id == "new" ) { //신규 책 만들기
       member_token: localStorage["dd-member-token"],
       post: {
         title: formData["keyword"],
-        body: formData["content"]
+        body: formData["content"],
+        link: formData["link"],
+        picture: formData["picture"],
+        doodle: formData["doodle"]
       }
     };
     //여기에 저장 프로시져
@@ -75,8 +78,30 @@ if ( writing_id == "new" ) { //신규 책 만들기
 
   app.request.json(endpoint, credentials, function(data){
     // console.log(endpoint);
+    // console.log(data);
     var post = compiledMyPostShowTemplate({post: data});
     $$('.my_post_show_wrapper').html(post);
+
+    if (data.picture) {
+      var persisted_picture = $$('<img/>').addClass('previewImg').attr('src', data.picture);
+      $$('.picArea em').append(persisted_picture);
+    }
+
+    if (data.doodle) {
+      var persisted_doodle = $$('<img/>').addClass('drawImg').attr('src', data.doodle);
+      $$('.drawArea em').append(persisted_doodle);
+    }
+
+    if (data.link) {
+      var dummy_img_url = "http://placeimg.com/320/320/any";  //가져온 이미지 url
+      var dummy_page_title = "링크된 웹페이지의 타이틀 출력";  //가져온 페이지 타이틀
+
+      var persisted_a = $$("<a/>").attr('href',data.link);
+      var dummy_thumb = $$('<div class="thumb"/>').append($$('<img src="'+ dummy_img_url +'"/>'));
+      var dummy_meta = $$('<div class="meta"/>').append($$('<b>'+ dummy_page_title +'</b>')).append($$('<em>'+ data.link +'</em>'));
+      persisted_a.append(dummy_thumb).append(dummy_meta);
+      $$('.linkArea ').append(persisted_a);
+    }
 
     //$$('textarea.resizable').trigger('change');
     app.input.resizeTextarea("textarea.resizable");
@@ -92,7 +117,6 @@ if ( writing_id == "new" ) { //신규 책 만들기
       event.preventDefault();
       $$(this).removeClass('inputMode');
 
-      // console.log('submitted how many?');
       dialog_pending.open();
       var formData = app.form.convertToData($$(this));
       // console.log(writing_id);
@@ -102,7 +126,10 @@ if ( writing_id == "new" ) { //신규 책 만들기
         member_token: localStorage["dd-member-token"],
         post: {
           title: formData["keyword"],
-          body: formData["content"]
+          body: formData["content"],
+          link: formData["link"],
+          picture: formData["picture"],
+          doodle: formData["doodle"]
         }
       };
 
@@ -261,17 +288,22 @@ var notification1 = app.notification.create({
 
 //폼에서 이미지 선택
 function readURL(input,obj) {
-   if (input.files && input.files[0]) {
+    if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
           var img = obj.siblings('em').find('.previewImg');
+          var img_data = e.target.result;
+          // console.log(img_data);
+
           if(img.length > 0){
             img.attr('src', e.target.result);
           }else{
             img = $$('<img/>').addClass('previewImg').attr('src', e.target.result);
             obj.siblings('em').append(img);
           }
+          $$('.picArea').append('<input type="hidden" name="picture" value="'+ img_data +'">');
+
           //이미지 삭제(롱 탭)
           var pressTimer;
           img.touchend(function(){
@@ -286,7 +318,7 @@ function readURL(input,obj) {
                 $this.remove();
               });
             },300);
-            return false; 
+            return false;
           });
         }
         reader.readAsDataURL(input.files[0]);
@@ -309,6 +341,7 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function (
     var meta = $$('<div class="meta"/>').append($$('<b>'+ page_title +'</b>')).append($$('<em>'+ url +'</em>'));
     a.append(thumb).append(meta);
     $$('.linkArea ').append(a);
+    $$('.linkArea').append('<input type="hidden" name="link" value="'+ url +'">');
 
     //링크 삭제(롱 탭)
     var pressTimer;
@@ -324,7 +357,7 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function (
           $this.remove();
         });
       },300);
-      return false; 
+      return false;
     });
 
 
@@ -340,7 +373,7 @@ $$('.popup-drawing').on('popup:opened', function (e) {
   app.fab.close('.fab.fab02.fab-right-bottom');
   if(canvas != 0){
     return false;
-  } 
+  }
   canvas = document.getElementById('signature-pad');
 
   // Adjust canvas coordinate space taking into account pixel ratio,
@@ -370,12 +403,11 @@ $$('.popup-drawing').on('popup:opened', function (e) {
       dialog_drawing.open();
       setTimeout(function () {
         dialog_drawing.close();
-      }, 1000);    
+      }, 1000);
       return false;
     }
-    
-    var data = signaturePad.toDataURL('image/png');
 
+    var data = signaturePad.toDataURL('image/png');
 
     var img = $$('.drawArea em').find('.drawImg');
     if(img.length > 0){
@@ -384,6 +416,7 @@ $$('.popup-drawing').on('popup:opened', function (e) {
       img = $$('<img/>').addClass('drawImg').attr('src', data);
       $$('.drawArea em').append(img);
     }
+    $$('.drawArea').append('<input type="hidden" name="doodle" value="'+ data +'">');
 
     //그리기 삭제(롱 탭)
     var pressTimer;
@@ -399,7 +432,7 @@ $$('.popup-drawing').on('popup:opened', function (e) {
           $this.remove();
         });
       },300);
-      return false; 
+      return false;
     });
 
     app.popup.close();
