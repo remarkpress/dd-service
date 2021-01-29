@@ -23,6 +23,10 @@ if ( writing_id == "new" ) { //신규 책 만들기
     //document.querySelector('#add-writing-name input').select();
   },1000);
 
+  $$(".picArea input").on('change', function() {
+      readURL(this,$$(this));
+  });
+
   //$$('textarea.resizable').trigger('change');
   app.input.resizeTextarea("textarea.resizable");
 
