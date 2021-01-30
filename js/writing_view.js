@@ -1,3 +1,7 @@
+if (localStorage["dd-member-credentials"] === undefined ) {
+  view.router.navigate('login');
+}
+
 var view = app.views.current;
 var current_page = $$('.page.writingView')[0].f7Page;
 var last_path = view.router.history[view.router.history.length - 2];
@@ -8,6 +12,7 @@ var writing_id = current_page.route.params.id;  //  넘겨받은 파라미터
 var myPostShowTemplate = $$('script#my-post-show-template').html();
 // console.log(myPostShowTemplate);
 var compiledMyPostShowTemplate = Template7.compile(myPostShowTemplate);
+var credentials = JSON.parse(localStorage["dd-member-credentials"]);
 
 if ( writing_id == "new" ) { //신규 책 만들기
   var post = compiledMyPostShowTemplate({post: ''});
@@ -74,11 +79,6 @@ if ( writing_id == "new" ) { //신규 책 만들기
 
 } else {
   var endpoint = endpoint_hostname + '/api/posts/' + writing_id + "/";
-  var credentials = JSON.parse(localStorage["dd-member-credentials"]);
-
-  if (localStorage["dd-member-credentials"] === undefined ) {
-    view.router.navigate('login');
-  }
 
   app.request.json(endpoint, credentials, function(data){
     // console.log(endpoint);
@@ -97,14 +97,28 @@ if ( writing_id == "new" ) { //신규 책 만들기
     }
 
     if (data.link) {
-      var dummy_img_url = "http://placeimg.com/320/320/any";  //가져온 이미지 url
-      var dummy_page_title = "링크된 웹페이지의 타이틀 출력";  //가져온 페이지 타이틀
+      var link_data = {
+        member_email: localStorage["dd-member-email"],
+        member_token: localStorage["dd-member-token"],
+        url: data.link
+      };
+      app.request.post(endpoint_hostname + '/api/link_preview', link_data, function(response){
+        // console.log(response);
+        var response_data = JSON.parse(response);
+        if (response_data.is_success === true) {
+          var img_url = response_data.data.image;
+          var page_title = response_data.data.title;
 
-      var persisted_a = $$("<a/>").attr('href',data.link);
-      var dummy_thumb = $$('<div class="thumb"/>').append($$('<img src="'+ dummy_img_url +'"/>'));
-      var dummy_meta = $$('<div class="meta"/>').append($$('<b>'+ dummy_page_title +'</b>')).append($$('<em>'+ data.link +'</em>'));
-      persisted_a.append(dummy_thumb).append(dummy_meta);
-      $$('.linkArea ').append(persisted_a);
+        } else {
+          var img_url = 'images/logo_dummy.png';
+          var page_title = '링크';
+        }
+        var persisted_a = $$("<a/>").attr('href',data.link);
+        var persisted_thumb = $$('<div class="thumb"/>').append($$('<img src="'+ img_url +'"/>'));
+        var persisted_meta = $$('<div class="meta"/>').append($$('<b>'+ page_title +'</b>')).append($$('<em>'+ data.link +'</em>'));
+        persisted_a.append(persisted_thumb).append(persisted_meta);
+        $$('.linkArea ').append(persisted_a);
+      });
     }
 
     //$$('textarea.resizable').trigger('change');
@@ -337,16 +351,30 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.picture").on('click', functio
 $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function () {
   app.fab.close('.fab.fab02.fab-right-bottom');
   app.dialog.prompt('링크할 주소를 입력하세요', function (url) {
-    var img_url = "http://placeimg.com/320/320/any";  //가져온 이미지 url
-    var page_title = "링크된 웹페이지의 타이틀 출력";  //가져온 페이지 타이틀
-
     var a = $$("<a/>").attr('href',url);
-    var thumb = $$('<div class="thumb"/>').append($$('<img src="'+ img_url +'"/>'));
-    var meta = $$('<div class="meta"/>').append($$('<b>'+ page_title +'</b>')).append($$('<em>'+ url +'</em>'));
-    a.append(thumb).append(meta);
-    $$('.linkArea ').append(a);
-    $$('.linkArea').append('<input type="hidden" name="link" value="'+ url +'">');
 
+    var data = {
+      member_email: localStorage["dd-member-email"],
+      member_token: localStorage["dd-member-token"],
+      url: url
+    };
+    app.request.post(endpoint_hostname + '/api/link_preview', data, function(response){
+      // console.log(response);
+      var response_data = JSON.parse(response);
+      if (response_data.is_success === true) {
+        var img_url = response_data.data.image;
+        var page_title = response_data.data.title;
+      } else {
+        var img_url = 'images/logo_dummy.png';
+        var page_title = '링크';
+      }
+      var thumb = $$('<div class="thumb"/>').append($$('<img src="'+ img_url +'"/>'));
+      var meta = $$('<div class="meta"/>').append($$('<b>'+ page_title +'</b>')).append($$('<em>'+ url +'</em>'));
+      a.append(thumb).append(meta);
+      $$('.linkArea ').empty();
+      $$('.linkArea ').append(a);
+      $$('.linkArea').append('<input type="hidden" name="link" value="'+ url +'">');
+    });
     //링크 삭제(롱 탭)
     var pressTimer;
     a.touchend(function(){
@@ -363,8 +391,6 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function (
       },300);
       return false;
     });
-
-
   },null,$$('.linkArea a .meta em').text());
 });
 
