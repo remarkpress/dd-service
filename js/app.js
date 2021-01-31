@@ -272,7 +272,9 @@ var app = new Framework7({
   ]
 });
 
-var endpoint_hostname = '//differentdoors.durumi.io';
+
+var endpoint_hostname = '//ec2-3-35-132-28.ap-northeast-2.compute.amazonaws.com';
+// var endpoint_hostname = '//differentdoors.durumi.io';
 // var endpoint_hostname = 'http://localhost:3000';
 
 //뷰 생성
@@ -304,19 +306,19 @@ function sleep(milliseconds) {
 }
 
 //이미지 프리로딩
-function preloading (imageArray) { 
-  let n = imageArray.length; 
-  for (let i = 0; i < n; i++) { 
-    let img = new Image(); 
-    img.src = imageArray[i]; 
-  } 
-} 
+function preloading (imageArray) {
+  let n = imageArray.length;
+  for (let i = 0; i < n; i++) {
+    let img = new Image();
+    img.src = imageArray[i];
+  }
+}
 preloading(
-  [ 
-    './images/icon_heart.png', 
-    './images/icon_like01.png', 
+  [
+    './images/icon_heart.png',
+    './images/icon_like01.png',
     './images/icon_like02.png' ,
-    './images/icon_heart_off.png' 
+    './images/icon_heart_off.png'
   ]
 );
 
