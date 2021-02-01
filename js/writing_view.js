@@ -39,9 +39,16 @@ if ( writing_id == "new" ) { //신규 책 만들기
     event.preventDefault();
     $$(this).removeClass('inputMode');
 
+    var formData = app.form.convertToData($$(this));
+    if (formData["content"] === '') {
+      dialog_body_empty.open();
+      setTimeout(function () {
+        dialog_body_empty.close();
+      }, 1000);
+      return false;
+    }
     // console.log('submitted how many?');
     dialog_pending.open();
-    var formData = app.form.convertToData($$(this));
     // console.log(writing_id);
     // console.log(formData);
     var data = {
@@ -135,8 +142,15 @@ if ( writing_id == "new" ) { //신규 책 만들기
       event.preventDefault();
       $$(this).removeClass('inputMode');
 
-      dialog_pending.open();
       var formData = app.form.convertToData($$(this));
+      if (formData["content"] === '') {
+        dialog_body_empty.open();
+        setTimeout(function () {
+          dialog_body_empty.close();
+        }, 1000);
+        return false;
+      }
+      dialog_pending.open();
       // console.log(writing_id);
       // console.log(formData);
       var data = {
@@ -293,6 +307,9 @@ var dialog_pending = app.dialog.create({
 });
 var dialog_drawing = app.dialog.create({
   text: '그림을 그려주세요.'
+});
+var dialog_body_empty = app.dialog.create({
+  text: '본문에 글을 써주세요.'
 });
 // Create full-layout notification
 var notification1 = app.notification.create({
