@@ -273,7 +273,7 @@ var app = new Framework7({
 });
 
 
-var endpoint_hostname = '//ec2-3-35-132-28.ap-northeast-2.compute.amazonaws.com';
+var endpoint_hostname = 'http://ec2-3-35-132-28.ap-northeast-2.compute.amazonaws.com';
 // var endpoint_hostname = '//differentdoors.durumi.io';
 // var endpoint_hostname = 'http://localhost:3000';
 
