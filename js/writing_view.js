@@ -40,6 +40,14 @@ if ( writing_id == "new" ) { //신규 책 만들기
     $$(this).removeClass('inputMode');
 
     var formData = app.form.convertToData($$(this));
+    console.log(formData);
+    if (formData["keyword"] === '') {
+      dialog_title_empty.open();
+      setTimeout(function () {
+        dialog_title_empty.close();
+      }, 1000);
+      return false;
+    }
     if (formData["content"] === '') {
       dialog_body_empty.open();
       setTimeout(function () {
@@ -310,6 +318,9 @@ var dialog_drawing = app.dialog.create({
 });
 var dialog_body_empty = app.dialog.create({
   text: '본문에 글을 써주세요.'
+});
+var dialog_title_empty = app.dialog.create({
+  text: '제목에 글을 써주세요.'
 });
 // Create full-layout notification
 var notification1 = app.notification.create({
