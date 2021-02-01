@@ -433,4 +433,17 @@ app.request.json(endpoint, credentials, function(data){
       }
     });
   }
+}, function (xhr, status, message){
+  if(status == '401') {
+    localStorage.removeItem("dd-member-email");
+    localStorage.removeItem("dd-member-token");
+    localStorage.removeItem("dd-member-credentials");
+
+    var view = app.views.current;
+    view.router.navigate('/login/', {
+      force: true,
+      reloadAll: true,
+      ignoreCache: true,
+    });
+  }
 });
