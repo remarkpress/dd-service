@@ -12,4 +12,6 @@ if (localStorage["dd-member-credentials"] === undefined ) {
 app.request.json(endpoint, credentials, function(data){
   var book = compiledBookListTemplate({books: data.books, nickname: data.nickname});
   $$('.page.book .page-content.sub-content').html(book);
+  $$('.toolbar-bottom').show();
+
 });
