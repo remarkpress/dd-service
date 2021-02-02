@@ -40,7 +40,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
     $$(this).removeClass('inputMode');
 
     var formData = app.form.convertToData($$(this));
-    console.log(formData);
+    // console.log(formData);
     if (formData["keyword"] === '') {
       dialog_title_empty.open();
       setTimeout(function () {
@@ -104,13 +104,13 @@ if ( writing_id == "new" ) { //신규 책 만들기
     if (data.picture) {
       var persisted_picture = $$('<img/>').addClass('previewImg').attr('src', data.picture);
       $$('.picArea em').append(persisted_picture);
+      long_tab_delete_picture(persisted_picture);
     }
-
     if (data.doodle) {
       var persisted_doodle = $$('<img/>').addClass('drawImg').attr('src', data.doodle);
       $$('.drawArea em').append(persisted_doodle);
+      long_tab_delete_doodle(persisted_doodle);
     }
-
     if (data.link) {
       var link_data = {
         member_email: localStorage["dd-member-email"],
@@ -133,6 +133,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
         var persisted_meta = $$('<div class="meta"/>').append($$('<b>'+ page_title +'</b>')).append($$('<em>'+ data.link +'</em>'));
         persisted_a.append(persisted_thumb).append(persisted_meta);
         $$('.linkArea ').append(persisted_a);
+        long_tab_delete_link(persisted_a);
       });
     }
 
@@ -349,27 +350,32 @@ function readURL(input,obj) {
             obj.siblings('em').append(img);
           }
           $$('.picArea').append('<input type="hidden" name="picture" value="'+ img_data +'">');
-
-          //이미지 삭제(롱 탭)
-          var pressTimer;
-          img.touchend(function(){
-            clearTimeout(pressTimer);
-            // Clear timeout
-            return false;
-          }).touchstart(function(){
-            // Set timeout
-            var $this = $$(this);
-            pressTimer = window.setTimeout(function() {
-              app.dialog.confirm('이미지를 삭제할까요?', function () {
-                $this.remove();
-              });
-            },300);
-            return false;
-          });
+          long_tab_delete_picture(img);
         }
         reader.readAsDataURL(input.files[0]);
     }
 }
+function long_tab_delete_picture(img) {
+  if (img.length > 0) {
+    //이미지 삭제(롱 탭)
+    var pressTimer;
+    img.touchend(function(){
+      clearTimeout(pressTimer);
+      // Clear timeout
+      return false;
+    }).touchstart(function(){
+      // Set timeout
+      var $this = $$(this);
+      pressTimer = window.setTimeout(function() {
+        app.dialog.confirm('이미지를 삭제할까요?', function () {
+          $this.remove();
+        });
+      },300);
+      return false;
+    });
+  }
+}
+
 //사진추가 버튼
 $$(".fab.fab02.fab-right-bottom a.fab-label-button.picture").on('click', function() {
   app.fab.close('.fab.fab02.fab-right-bottom');
@@ -403,6 +409,11 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function (
       $$('.linkArea ').append(a);
       $$('.linkArea').append('<input type="hidden" name="link" value="'+ url +'">');
     });
+    long_tab_delete_link(a);
+  },null,$$('.linkArea a .meta em').text());
+});
+function long_tab_delete_link(a) {
+  if (a.length > 0 ) {
     //링크 삭제(롱 탭)
     var pressTimer;
     a.touchend(function(){
@@ -419,10 +430,8 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function (
       },300);
       return false;
     });
-  },null,$$('.linkArea a .meta em').text());
-});
-
-
+  }
+}
 //그리기
 var canvas = 0;
 var signaturePad;
@@ -475,24 +484,7 @@ $$('.popup-drawing').on('popup:opened', function (e) {
       $$('.drawArea em').append(img);
     }
     $$('.drawArea').append('<input type="hidden" name="doodle" value="'+ data +'">');
-
-    //그리기 삭제(롱 탭)
-    var pressTimer;
-    img.touchend(function(){
-      clearTimeout(pressTimer);
-      // Clear timeout
-      return false;
-    }).touchstart(function(){
-      // Set timeout
-      var $this = $$(this);
-      pressTimer = window.setTimeout(function() {
-        app.dialog.confirm('이미지를 삭제할까요?', function () {
-          $this.remove();
-        });
-      },300);
-      return false;
-    });
-
+    long_tab_delete_doodle(img);
     app.popup.close();
     //console.log(data);
     //window.open(data);
@@ -532,6 +524,26 @@ $$('.popup-drawing').on('popup:opened', function (e) {
   });
 
 });
+function long_tab_delete_doodle(img) {
+  if (img.length > 0 ) {
+    //그리기 삭제(롱 탭)
+    var pressTimer;
+    img.touchend(function(){
+      clearTimeout(pressTimer);
+      // Clear timeout
+      return false;
+    }).touchstart(function(){
+      // Set timeout
+      var $this = $$(this);
+      pressTimer = window.setTimeout(function() {
+        app.dialog.confirm('이미지를 삭제할까요?', function () {
+          $this.remove();
+        });
+      },300);
+      return false;
+    });
+  };
+}
 
 $$('.popup-drawing').on('popup:closed', function (e) {
     signaturePad.clear();
