@@ -13,11 +13,13 @@ if (localStorage["dd-member-credentials"] === undefined ) {
 app.request.json(endpoint, credentials, function(data){
   var slides = compiledSlideTemplate({slides: data});
   $$('.swiper-wrapper').html(slides);
+  $$('.toolbar-bottom').show();
 
   /* 메인 스와이퍼 */
   var swiper_mode = "hor";
   var current_swiper_index = Math.floor($$('.ib01 .swiper-slide').length / 2);
   var swiper = create_swiper(swiper_mode,current_swiper_index);  //초기접속시 가로모드
+
   //스와이퍼 생성
   function create_swiper(mode,current){
     if(mode == "hor"){  // 가로모드
@@ -26,7 +28,7 @@ app.request.json(endpoint, credentials, function(data){
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
-        initialSlide: current,
+        initialSlide: current,       
         coverflowEffect: {
           rotate: 0,
           stretch: -2,
@@ -56,18 +58,19 @@ app.request.json(endpoint, credentials, function(data){
     }else{  //세로모드
       return app.swiper.create('.ib01', {
         direction: 'vertical',
-        effect: 'coverflow',
+        //effect: 'coverflow',
         autoHeight: true,
         centeredSlides: true,
         slidesPerView: 'auto',
         initialSlide: current,
+        /*
         coverflowEffect: {
           rotate: 0,
           stretch: 0,
           depth: 0,
           modifier: 0,
           slideShadows: false,
-        },
+        },*/
         on: {
           tap: function () {
             //console.log("tap" + this.clickedIndex);
@@ -105,6 +108,7 @@ app.request.json(endpoint, credentials, function(data){
     $$("#add-new-keyword").hide();
     swiper.attachEvents();
   });
+
   /* 스와이프 모드 변환 */
   $$('.navbar .right a.cList').on('click', function(){
     //draggable.unset();
@@ -316,7 +320,7 @@ app.request.json(endpoint, credentials, function(data){
         end (event) {
           if ($$('.ib01').hasClass('swiper-container-vertical')) { return false;
           }
-          console.log(selectedItem.item_id);
+          //console.log(selectedItem.item_id);
           if (isRemoveSlide == 1) { //좋아요에 담기
             var data = JSON.parse(localStorage["dd-member-credentials"]);
             // console.log(data);

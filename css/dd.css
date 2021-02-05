@@ -34,7 +34,7 @@ input, textarea {
 .page{z-index:auto}
 .page.user{overflow-y:scroll;z-index:10}
 .page.join{z-index:10}
-
+.page-previous{z-index:-1 !important}
 .page-content{z-index:auto}
 .page-content.main-content{overflow:hidden;padding:0}
 .page-content.sub-content{padding:120px 0 0}
@@ -117,7 +117,7 @@ form#add-writing-name button{display:none;position:absolute;bottom:-40px;left:50
 .cf02 .linkArea .thumb img{width:100%;display:block}
 .cf02 .linkArea .meta{display:block;padding:10px 10px 0}
 .cf02 .linkArea .meta b{color:#000;font-weight:400;font-size:11px;height:30px;display:block;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
-.cf02 .linkArea .meta em{color:#C4C4C4;font-style:normal;font-size:10px}
+.cf02 .linkArea .meta em{color:#C4C4C4;font-style:normal;font-size:10px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
 
 .cf02 .btnA button{position:fixed;bottom:66px;right:35px;width:40px;height:40px;border:none;background:#eee url(../images/btn_check_new.png) no-repeat center center;background-size:21.5px 19.5px;text-indent:-9999px;z-index:10000}
 .cf02 .btnA button{visibility:hidden}
@@ -370,10 +370,10 @@ html.device-android .user-navbar{padding:45px 25px 0}
 .ib02 .tc02 > dd{margin-left:0}
 .ib02 .cf02{padding-bottom:30px}
 .ib02 .cf02 .header{margin-top:0}
-.ib02 .swiper-pagination{position:fixed;bottom:-78px;width:60px;left:initial;right:85px}
+.ib02 .swiper-pagination{position:fixed;bottom:-78px;width:60px;left:initial;right:72px}
 .ib02 .swiper-button-next{position:fixed;bottom:-90px;top:initial;right:35px}
 .ib02 .swiper-button-next::after{font-size:18px;color:var(--primary-color);font-weight:bold}
-.ib02 .swiper-button-prev{position:fixed;bottom:-90px;top:initial;left:initial;right:160px}
+.ib02 .swiper-button-prev{position:fixed;bottom:-90px;top:initial;left:initial;right:140px}
 .ib02 .swiper-button-prev::after{font-size:18px;color:var(--primary-color);font-weight:bold}
 .ib02 .editBook{position:fixed;bottom:-88px;left:35px;z-index:10}
 .ib02 .editBook a{display:inline-block;width:40px;height:40px;box-sizing:border-box;background-color:#fff;border:none}
