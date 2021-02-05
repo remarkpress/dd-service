@@ -112,6 +112,10 @@ if ( writing_id == "new" ) { //신규 책 만들기
       long_tab_delete_doodle(persisted_doodle);
     }
     if (data.link) {
+      // console.log(data.link);
+      var link_input = $$("<input type='hidden' name='link'>").attr('value', data.link);
+      $$('.linkArea ').append(link_input);
+
       var link_data = {
         member_email: localStorage["dd-member-email"],
         member_token: localStorage["dd-member-token"],
@@ -128,7 +132,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
           var img_url = 'images/logo_dummy.png';
           var page_title = '링크';
         }
-        var persisted_a = $$("<a/>").attr('href',data.link);
+        var persisted_a = $$("<a/>").attr('href', data.link);
         var persisted_thumb = $$('<div class="thumb"/>').append($$('<img src="'+ img_url +'"/>'));
         var persisted_meta = $$('<div class="meta"/>').append($$('<b>'+ page_title +'</b>')).append($$('<em>'+ data.link +'</em>'));
         persisted_a.append(persisted_thumb).append(persisted_meta);
