@@ -111,7 +111,7 @@ if (book_id == "new") { //신규 책 만들기
 
   //돌아가기
   $$('.bookView .goBack').on('click', function(){
-    view.router.navigate('/book/', {
+   view.router.navigate('/book/', {
       force: true,
       reloadAll: true,
       ignoreCache: true
@@ -338,7 +338,10 @@ if (book_id == "new") { //신규 책 만들기
 
     //돌아가기
     $$('.bookView .goBack').on('click', function(){
-      view.router.navigate('/book/', {force: true});
+      setTimeout(function(){
+        $$('.toolbar-bottom').show();
+      },800);
+       view.router.navigate('/book/', {force: true});
     });
 
     $$('#delete_button').on('click', function(event) {

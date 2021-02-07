@@ -359,25 +359,31 @@ function readURL(input,obj) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
 function long_tab_delete_picture(img) {
   if (img.length > 0) {
-    //이미지 삭제(롱 탭)
+    //그리기 삭제(롱 탭)
     var pressTimer;
+    var startScrollTop, endScrollTop;
     img.touchend(function(){
       clearTimeout(pressTimer);
       // Clear timeout
       return false;
     }).touchstart(function(){
       // Set timeout
+      startScrollTop = $$('.my_post_show_wrapper')[0].scrollTop;
       var $this = $$(this);
       pressTimer = window.setTimeout(function() {
-        app.dialog.confirm('이미지를 삭제할까요?', function () {
-          $this.remove();
-        });
+        endScrollTop = $$('.my_post_show_wrapper')[0].scrollTop;
+        if(startScrollTop == endScrollTop){
+          app.dialog.confirm('이미지를 삭제할까요?', function () {
+            $this.remove();
+          });
+        }
       },300);
       return false;
     });
-  }
+  };
 }
 
 //사진추가 버튼
@@ -417,25 +423,31 @@ $$(".fab.fab02.fab-right-bottom a.fab-label-button.link").on('click', function (
   },null,$$('.linkArea a .meta em').text());
 });
 function long_tab_delete_link(a) {
-  if (a.length > 0 ) {
+  if (a.length > 0) {
     //링크 삭제(롱 탭)
     var pressTimer;
+    var startScrollTop, endScrollTop;
     a.touchend(function(){
       clearTimeout(pressTimer);
       // Clear timeout
       return false;
     }).touchstart(function(){
       // Set timeout
+      startScrollTop = $$('.my_post_show_wrapper')[0].scrollTop;
       var $this = $$(this);
       pressTimer = window.setTimeout(function() {
-        app.dialog.confirm('링크를 삭제할까요?', function () {
-          $this.remove();
-        });
+        endScrollTop = $$('.my_post_show_wrapper')[0].scrollTop;
+        if(startScrollTop == endScrollTop){
+          app.dialog.confirm('링크를 삭제할까요?', function () {
+            $this.remove();
+          });
+        }
       },300);
       return false;
     });
   }
 }
+
 //그리기
 var canvas = 0;
 var signaturePad;
@@ -529,20 +541,25 @@ $$('.popup-drawing').on('popup:opened', function (e) {
 
 });
 function long_tab_delete_doodle(img) {
-  if (img.length > 0 ) {
+  if (img.length > 0) {
     //그리기 삭제(롱 탭)
     var pressTimer;
+    var startScrollTop, endScrollTop;
     img.touchend(function(){
       clearTimeout(pressTimer);
       // Clear timeout
       return false;
     }).touchstart(function(){
       // Set timeout
+      startScrollTop = $$('.my_post_show_wrapper')[0].scrollTop;
       var $this = $$(this);
       pressTimer = window.setTimeout(function() {
-        app.dialog.confirm('이미지를 삭제할까요?', function () {
-          $this.remove();
-        });
+        endScrollTop = $$('.my_post_show_wrapper')[0].scrollTop;
+        if(startScrollTop == endScrollTop){
+          app.dialog.confirm('이미지를 삭제할까요?', function () {
+            $this.remove();
+          });
+        }
       },300);
       return false;
     });
