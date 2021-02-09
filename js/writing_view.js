@@ -220,6 +220,7 @@ if ( writing_id == "new" ) { //신규 책 만들기
 }
 
 $$('#save_writing .header dt .btn03').on('click', function(){ //신규 책 만들기
+
   if($$('#add-writing-name').css('display') != 'none')  return false;
   $$('.btnArea').hide();
   $$(this).find('span').hide();
@@ -248,6 +249,10 @@ $$("#add-writing-name").on('submit', function(event){
   return false;
 });
 $$("#add-writing-name input").on("blur", function(){
+  if($$(this).val().length > 0){
+    $$('.cf02 .header dt .btn03 span').text($$(this).val());
+    $$('.cf02 .header dt input[name="keyword"]').val($$(this).val());
+  }
   $$('.cf02 .header dt .btn03 span').show();
   $$("#add-writing-name").hide();
   $$('.btnArea').show();
