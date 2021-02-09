@@ -11,6 +11,13 @@ if (localStorage["dd-member-credentials"] === undefined ) {
 }
 // console.log(credentials);
 app.request.json(endpoint, credentials, function(data){
+  /*
+  var ReverseArray = [];
+  var length = data.length;
+  for(var i = length-1;i>=0;i--){
+      ReverseArray.push(data[i]);
+  }
+  */
   var slides = compiledSlideTemplate({slides: data});
   $$('.swiper-wrapper').html(slides);
   $$('.toolbar-bottom').show();
