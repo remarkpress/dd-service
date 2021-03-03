@@ -21,7 +21,7 @@ input, textarea {
   -khtml-user-select: auto;
   user-select: auto;
 }
-
+a:focus, button:focus{outline:none}
 :root {
   --f7-font-family:RIDIBatang,Helvetica,Arial,sans-serif;
   --primary-color:#282828;
