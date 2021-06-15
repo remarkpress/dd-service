@@ -166,6 +166,10 @@ if ( writing_id == "new" ) { //신규 책 만들기
       dialog_pending.open();
       // console.log(writing_id);
       // console.log(formData);
+      var picture_persistence = $$('.picArea em img.previewImg').length > 0;
+      var doodle_persistence = $$('.drawArea em img.drawImg').length > 0;
+      // console.log(picture_persistence);
+      // console.log(doodle_persistence);
       var data = {
         member_email: localStorage["dd-member-email"],
         member_token: localStorage["dd-member-token"],
@@ -174,7 +178,9 @@ if ( writing_id == "new" ) { //신규 책 만들기
           body: formData["content"],
           link: formData["link"],
           picture: formData["picture"],
-          doodle: formData["doodle"]
+          doodle: formData["doodle"],
+          picture_persistence: picture_persistence,
+          doodle_persistence: doodle_persistence
         }
       };
 
@@ -444,6 +450,8 @@ function long_tab_delete_link(a) {
         endScrollTop = $$('.my_post_show_wrapper')[0].scrollTop;
         if(startScrollTop == endScrollTop){
           app.dialog.confirm('링크를 삭제할까요?', function () {
+            var $input = $this.parent('div').find("input[type='hidden']");
+            $input.remove();
             $this.remove();
           });
         }
